@@ -1,0 +1,323 @@
+<%
+  /**
+  * Created by The eXo Platform SAS
+  * Author : eXoPlatform
+  *          benjamin.paillereau@exoplatform.com
+  * Dec 9, 2010
+  */
+
+  import javax.jcr.Node;
+  import org.exoplatform.wcm.webui.paginator.UICustomizeablePaginator;
+  import org.exoplatform.wcm.webui.clv.UICLVPortlet;
+  import org.exoplatform.wcm.webui.Utils;
+  import org.exoplatform.services.wcm.core.NodeLocation;
+%>
+
+<!--
+http://localhost:8080/ecmdemo/g/:platform:web-contributors/siteExplorer?path=/DMS%20Administration/exo:ecm/views/templates/content-list-viewer/list
+http://localhost:8080/portal/g/:platform:web-contributors/siteExplorer?path=/DMS%20Administration/exo:ecm/views/templates/content-list-viewer/list
+-->
+
+<style>
+  .FlipFeed {
+    padding-left: 15px;
+    height: 100%;
+  }
+
+  .FlipFeed .HorizontalBorder {
+    height: 1px;
+    background-color: #DDD;
+    width: 930px;
+  }
+
+  .FlipFeed .VerticalBorder {
+    border-left: #DDD solid 1px;
+    margin-left: 10px;
+  }
+
+  .FlipFeed .Contents {
+    height: 100%;
+  }
+
+  .FlipFeed .TopBoxHeader {
+    font-size: 34px;
+    width: 930px;
+    float: left;
+    text-align: center;
+    font-weight: bold;
+    padding: 20px 0px 20px 0px;
+  }
+
+  .FlipFeed .Column1 {
+    width: 930px;
+    height: 280px;
+    float: left;
+    padding-left: 10px;
+  }
+
+  .FlipFeed .Column2 {
+    width: 450px;
+    height: 170px;
+    float: left;
+    padding-left: 10px;
+  }
+
+  .FlipFeed .Column3 {
+    width: 295px;
+    height: 340px;
+    float: left;
+    padding-left: 10px;
+  }
+
+  .FlipFeed .Content {
+    padding-top: 5px;
+  }
+
+  .FlipFeed .Content .Image {
+    float: left;
+    padding: 5px 5px 5px 0px;
+  }
+
+  .FlipFeed .Content .Title {
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .FlipFeed .Content .SharedBy {
+    font-size: 14px;
+    color: #AAA;
+    float:left;
+  }
+
+  .FlipFeed .Content .Source {
+    font-size: 14px;
+  }
+
+  .UICLVPortlet .CaptionFunc .UIPaginatorDefault {
+    float: none;
+    text-align: center !important;
+    padding: 20px 5px 15px 5px;
+  }
+
+  .UIPaginatorDefault a.Item {
+    color: #666;
+  }
+
+  .UIPaginatorDefault a.Current {
+    //color: #333;
+    color: #FFF;
+    font-size: 12px;
+    background-color: #C33;
+    border: 1px solid #ccc;
+    padding: 2px 5px;
+    margin-left: 10px;
+    -moz-border-radius: 3px 3px 3px 3px;
+  }
+
+</style>
+
+<div id="$uicomponent.id" class="FlipFeed">
+  <div class="CLV">
+    <%
+      def header = uicomponent.getHeader();
+      def rssLink = uicomponent.getRssLink();
+      def isShowRssLink = uicomponent.isShowRssLink();
+      def isShowHeader = uicomponent.isShowField(UICLVPortlet.PREFERENCE_SHOW_HEADER) && header != null && header.trim().length() != 0;
+    %>
+    <div class="TopBoxHeader">
+      <%
+        if (isShowHeader) {
+      %>
+        $header
+      <%
+        }
+      %>
+    </div>
+    <div style="clear: left;"><span></span></div>
+      <%
+        if (uicomponent.getUIPageIterator().getAvailable() == 0) {
+      %>
+          <div style="height: 20px; text-align: center; font-size: 13px; background: white; padding: 10px; margin: 5px;">
+            <span><%= _ctx.appRes(uicomponent.getParent().getMessageKey()) %></span>
+          </div>
+      <%
+        } else {        /* I1  */
+          def currentPageData = uicomponent.getCurrentPageData();
+      %>
+    <div class="Contents">
+      <%
+        def i = 0;
+        def cols = 0;
+        def total = 0;
+        def type = 0;
+        def combi = 0;
+        Random r = new Random();
+        for (viewNode in currentPageData) {
+          if(!Utils.isViewable(viewNode)) continue;
+
+          def isShowTitle = uicomponent.isShowField(UICLVPortlet.PREFERENCE_SHOW_TITLE);
+          def isShowDate = uicomponent.isShowField(UICLVPortlet.PREFERENCE_SHOW_DATE_CREATED);
+          def isShowLink = uicomponent.isShowField(UICLVPortlet.PREFERENCE_SHOW_LINK);
+          def isShowReadmore = uicomponent.isShowField(UICLVPortlet.PREFERENCE_SHOW_READMORE);
+
+          def itemLink = uicomponent.getURL(viewNode);
+          def itemDateCreated = uicomponent.getCreatedDate(viewNode);
+          def itemOwner = viewNode.getProperty("exo:link_title").getString().toUpperCase();//uicomponent.getAuthor(viewNode);
+
+          def imgSrc = uicomponent.getIllustrativeImage(viewNode);
+          def isShowImage = uicomponent.isShowField(UICLVPortlet.PREFERENCE_SHOW_ILLUSTRATION) && imgSrc != null;
+
+          def itemName = viewNode.getName();
+          def itemTitle = uicomponent.getTitle(viewNode);
+          if (itemTitle != null && itemTitle.trim().length() != 0)
+            itemName = itemTitle;
+
+          def itemSummary = uicomponent.getSummary(viewNode);
+          def isShowSummary = uicomponent.isShowField(UICLVPortlet.PREFERENCE_SHOW_SUMMARY) && itemSummary != null;
+          def imageUri = viewNode.getProperty("exo:file_uri").getString();
+
+          if (total==0) {
+            r = new Random(itemSummary.length());
+          }
+
+          def oldType = type;
+          while (oldType==type) {
+            type = r.nextInt(2)+1;
+          }
+          if (i==0) {
+            i=cols;
+            while (i==cols) {
+              i = r.nextInt(3)+1;
+            }
+            cols = i;
+            total += cols;
+            def pageSize = currentPageData.size();
+            if (total>pageSize) {
+              cols = cols-total+pageSize;
+              i = cols;
+            }
+          }
+
+          i--;
+          combi = 10*cols+type;
+          def titleLength = 200;
+          def summaryLength = 380;
+          def w = 200;
+          def h = 150;
+
+          if (cols==1) {
+            titleLength = 25;
+            summaryLength = 700;
+            w = 609;
+            h = 260;
+          } else if (cols== 2) {
+            w = 200;
+            h = 150;
+            titleLength = 25;
+            summaryLength = 240;
+          } else if (cols== 3) {
+            titleLength = 21;
+            summaryLength = 430;
+            if (type==1) {
+              w = 295;
+              h = 120;
+            } else {
+              w = 295;
+              h = 295;
+            }
+          }
+          //summaryLength = 380;
+          if (itemSummary.length()>summaryLength) itemSummary = itemSummary.substring(0, summaryLength)+"...";
+          if (itemName.length()>titleLength) itemName = itemName.substring(0, titleLength)+"...";
+
+          def style = "Column"+cols;
+          if (i!=cols-1) {
+            style += " VerticalBorder"
+          }
+          %>
+
+          <%
+          if (i==cols-1) {
+          %>
+            <div class="HorizontalBorder"></div>
+          <%
+          }
+          %>
+          <%
+          if (i!=cols-1) {
+          %>
+            <div class="VerticalBorder"></div>
+          <%
+          }
+          %>
+
+            <%=uicomponent.addQuickEditDiv(style, viewNode)%>
+
+              <div class="Content">
+                <%
+                if (combi == 32) {
+                  if (isShowTitle) {
+                    if (isShowLink) {
+                      %><div class="Title"><a href="$itemLink">$itemName</a></div><%
+                    } else {
+                      %><div class="Title">$itemName</div><%
+                    }
+                  }
+                }
+                %>
+
+                <div class="Image"><img src="/portal/rest/thumbnailImage/custom/<%=w%>x<%=h%>/repository/collaboration<%=imageUri%>" /></div>
+                  <%
+                  if (combi != 32) {
+                    if (isShowTitle) {
+                      if (isShowLink) {
+                      %>
+                <div class="Title"><a href="$itemLink">$itemName</a></div><%
+                      } else {
+                        %>
+                <div class="Title">$itemName</div><%
+                      }
+                    }
+                    if (isShowDate) {
+                      %>
+                <div class="SharedBy">Shared by&nbsp;</div><div class="Source">$itemOwner</div><%
+                    }
+                    %>
+                    <%
+                    if (isShowSummary) {
+                      %>
+                <div class="Summary">$itemSummary</div><%
+                    }
+                    if (isShowReadmore) {
+                      %>
+                <div class="ReadLink"><a href="$itemLink"><%= _ctx.appRes("UICLVPresentation.label.readmore") %></a></div><%
+                    }
+                  }
+                  %>
+              </div>
+
+            </div> <!-- END QUICKDIV -->
+
+            <%
+            if (i==0) {
+            %>
+            <div style="clear: both;"><span></span></div>
+            <%
+            }
+        }
+      %>
+    </div>
+    <%
+        }      /* I1  */
+    %>
+    <div style="clear: both;"><span></span></div>
+    <div class="CaptionFunc">
+      <%
+        if (uicomponent.showPaginator()) {
+          uicomponent.renderChild(UICustomizeablePaginator.class)
+        }
+      %>
+    <div style="clear: left;"><span></span></div>
+  </div>
+</div>
+<!-- /div -->

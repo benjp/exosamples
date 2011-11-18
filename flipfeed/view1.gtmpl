@@ -1,0 +1,11 @@
+<div id="$uicomponent.id">
+	<%
+	 def node = uicomponent.getNode() ;		
+	%>
+	<div class="news">
+	  <div class="title"><%=node.getProperty("exo:title").getString()%></div>
+    <div class="thumbnail"><img src="/ecmdemo/rest-ecmdemo/thumbnailImage/large/repository/collaboration<%=node.getProperty("exo:file_uri").getString()%>" /></div>
+	  <div class="link"><a href="<%=node.getProperty("exo:link_url").getString()%>"><%=node.getProperty("exo:link_title").getString()%></a></div>
+	  <div class="summary"><%=node.getProperty("exo:summary").getString()%></div>
+	</div>
+</div>

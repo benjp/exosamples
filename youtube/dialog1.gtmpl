@@ -1,0 +1,80 @@
+<%
+// Generate template for nodetype automatically
+%>
+<div class="UIForm FormLayout FormScrollLayout">
+	<% uiform.begin();
+	   /* start render action*/
+	   if (uiform.isShowActionsOnTop()) uiform.processRenderAction();
+	   /* end render action*/
+	%> 
+		<div class="HorizontalLayout">
+
+			<table class="UIFormGrid">
+
+				<tr>
+					<td class="FieldLabel">Title</td>
+					<td class="FieldComponent">
+				<%
+						String[] fieldProperty = ["jcrPath=/node/exo:title", "validate=empty"];
+						uicomponent.addTextField("title", fieldProperty);
+				%>
+					</td>
+				</tr>
+
+				<tr>
+					<td class="FieldLabel">Name</td>
+					<td class="FieldComponent">
+					<%
+						String[] fieldName = ["jcrPath=/node", "editable=if-null", "validate=empty,name"];
+						uicomponent.addTextField("name", fieldName);
+					%>
+					</td>
+          <script>
+          titleField = document.getElementById("title");
+          titleField.onchange = function() { eXo.ecm.SELocalization.cleanName(this.value, "name"); } ;
+          </script>
+				</tr>
+				<tr>
+					<td class="FieldLabel">Youtube Key</td>
+					<td class="FieldComponent">
+				<%
+						fieldProperty = ["jcrPath=/node/exo:key"];
+						uicomponent.addTextField("/node/exo_key", fieldProperty);
+				%>
+					</td>
+				</tr>
+				<tr>
+					<td class="FieldLabel">Width</td>
+					<td class="FieldComponent">
+				<%
+						fieldProperty = ["jcrPath=/node/exo:width"];
+						uicomponent.addTextField("/node/exo_width", fieldProperty);
+				%>
+					</td>
+				</tr>
+				<tr>
+					<td class="FieldLabel">Height</td>
+					<td class="FieldComponent">
+				<%
+						fieldProperty = ["jcrPath=/node/exo:height"];
+						uicomponent.addTextField("/node/exo_height", fieldProperty);
+				%>
+					</td>
+				</tr>
+				<tr>
+					<td class="FieldLabel">Summary</td>
+					<td class="FieldComponent">
+				<%
+						  String[] fieldSummary = ["jcrPath=/node/exo:summary", "options=Basic", ""] ;
+						  uicomponent.addRichtextField("summary", fieldSummary) ;
+				%>
+					</td>
+				</tr>
+			</table>
+		</div>
+	<% /* start render action*/
+	   if (!uiform.isShowActionsOnTop()) uiform.processRenderAction();
+	   /* end render action*/
+	   uiform.end();
+	%>
+</div>
