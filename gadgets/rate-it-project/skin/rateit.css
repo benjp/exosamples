@@ -1,0 +1,57 @@
+.IconFull {
+  background: url('../images/24x24/star_full.png') no-repeat;
+  width: 24px;
+  height: 24px;
+  float: left;
+}          
+.IconFullRed {
+  background: url('../images/24x24/star_full_red.png') no-repeat;
+  width: 24px;
+  height: 24px;
+  float: left;
+}          
+.IconHalfFull {
+  background: url('../images/24x24/star_half_full.png') no-repeat;
+  width: 24px;
+  height: 24px;
+  float: left;
+}          
+.IconEmpty {
+  background: url('../images/24x24/star_empty.png') no-repeat;
+  width: 24px;
+  height: 24px;
+  float: left;
+}    
+
+.Total {
+  font-size: 14px;
+  color: #FFF;
+  margin-left: 5px;
+  margin-top: 2px;
+  background-color: #ED950B;
+  border-style: solid;
+  border-color: #EEE;
+  border-width: 2px;
+  float: left;
+  padding: 1px 10px 1px 10px;
+  -moz-border-radius : 10px 10px / 10px 0px; 
+  -webkit-border-radius: 6px;
+  
+}
+
+.Thanks {
+  font-size: 14px;
+  color: #FFF;
+  margin-left: 5px;
+  margin-top: 2px;
+  background-color: #AAA;
+  border-style: solid;
+  border-color: #EEE;
+  border-width: 2px;
+  float: left;
+  padding: 1px 10px 1px 10px;
+  -moz-border-radius : 10px 10px / 0px 10px;
+  -webkit-border-radius: 6px;
+  /* display: none; */
+  
+}

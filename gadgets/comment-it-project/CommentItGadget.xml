@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+ **
+ * Created by The eXo Platform SARL
+ * http://benjp.cloud-ide.com/rest/jcr/benjp/dev-monit/comment-it-project/CommentItGadget.xml
+-->
+<Module>
+  <ModulePrefs 
+    title="__MSG_title__"
+    directory_title="__MSG_title__"
+    author="Benjamin Paillereau"
+    author_email="benjamin.paillereau@exoplatform.com"
+    thumbnail="images/comment.png"
+    title_url="http://www.exoplatform.org"
+    description="A gadget that shows the comments of my content">
+    <Locale messages="locale/ALL_ALL.xml"/>
+    <Require feature="opensocial-0.8" />
+    <Require feature="dynamic-height" />
+    <Require feature="settitle" />
+    <Require feature="views" />
+    <Require feature="minimessage" />
+  </ModulePrefs>
+  <Content type="html" view="default, home, profile, canvas">
+  <![CDATA[    
+  <head>
+      <title>__MSG_title__</title>
+      <link type="text/css" rel="stylesheet" href="skin/commentit.css" />
+      <script language="javascript" type="text/javascript" src="http://benjp.cloud-ide.com/rest/jcr/benjp/dev-monit/utils/jquery-1.6.4.min.js"></script>
+      <script language="javascript" type="text/javascript" src="http://benjp.cloud-ide.com/rest/jcr/benjp/dev-monit/utils/utils.js"></script>
+      <script language="javascript" type="text/javascript" src="script/commentit.js"></script>
+    </head>
+    <body>
+   <div id="commentit_gadget_div"></div>      
+    </body>
+    ]]>
+  </Content>
+</Module>
