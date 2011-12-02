@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+ **
+ * Created by The eXo Platform SARL
+ * http://benjp.cloud-ide.com/rest/jcr/benjp/dev-monit/qrcode-project/QRCodeGadget.xml
+-->
+<Module>
+  <ModulePrefs 
+    title="__MSG_title__"
+    directory_title="__MSG_title__"
+    author="Benjamin Paillereau"
+    author_email="benjamin.paillereau@exoplatform.com"
+    thumbnail="images/qrcode.png"
+    title_url="http://www.exoplatform.org"
+    description="A gadget that transform the browser URL in a QRCode">
+    <Locale messages="locale/ALL_ALL.xml"/>
+    <Require feature="opensocial-0.8" />
+    <Require feature="dynamic-height" />
+    <Require feature="settitle" />
+    <Require feature="views" />
+    <Require feature="minimessage" />
+  </ModulePrefs>
+  <Content type="html" view="default, home, profile, canvas">
+  <![CDATA[    
+  <head>
+      <title>__MSG_title__</title>
+      <script language="javascript" type="text/javascript" src="script/qrcode.js"></script>
+      <script language="javascript" type="text/javascript" src="http://benjp.cloud-ide.com/rest/jcr/benjp/dev-monit/github/gadgets/utils/utils.js"></script>
+      <script language="javascript" type="text/javascript" src="http://benjp.cloud-ide.com/rest/jcr/benjp/dev-monit/github/gadgets/utils/jquery-1.6.4.min.js"></script>
+      <script language="javascript" type="text/javascript" src="http://benjp.cloud-ide.com/rest/jcr/benjp/dev-monit/github/gadgets/external/jquery-qrcode/jquery.qrcode.min.js"></script>
+
+    </head>
+    <body>
+   <div id="qrcode_gadget_div"></div>
+    </body>
+    ]]>
+  </Content>
+</Module>
