@@ -7,16 +7,14 @@ eXoQRCodeGadget.prototype.onLoadHander = function() {
 } ;
 
 eXoQRCodeGadget.prototype.render = function() {  
-  // Set the background color according to the mycolor userpref
-  var element = document.getElementById('qrcode_gadget_div');  
-  
-  html = "BEN";
-  
-  // window.parent.document.title
-  // window.parent.document.location.href
+  var uri = parent.document.location;
+  var prefs = new gadgets.Prefs();
+  var size = prefs.getString("size");
+  if (size=='') size='128';
 
-  element.innerHTML = html;
-  
+  $('#qrcode_gadget_div').qrcode({width: ""+size,height: ""+size,text: ""+uri});
+  $('canvas').css({'margin-left': 'auto', 'margin-right': 'auto', 'display': 'block'});
+    
   // Tells gadget to resize itself
   gadgets.window.adjustHeight();
   
