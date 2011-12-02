@@ -1,0 +1,85 @@
+.IconFull {
+  background: url('../images/24x24/comment.png') no-repeat;
+  width: 24px;
+  height: 24px;
+  float: left;
+}          
+/*
+.Header {
+  font-size: 14px;
+  color: #FFF;
+  background-color: #ED950B;
+  border-style: solid;
+  border-color: #EEE;
+  border-width: 2px;
+  /*float: left;* /
+  padding: 1px 10px 1px 10px;
+  border-radius : 10px 0px 0px 0px;
+  -webkit-border-radius: 6px;
+}
+
+
+.Comments {
+  font-size: 12px;
+  color: #ED950B;
+  background-color: #FFF;
+  border-style: solid;
+  border-color: #EEE;
+  border-width: 0px 2px 2px 2px;
+  /*float: left;* /
+  padding: 1px 10px 10px 10px;
+  border-radius : 0px 0px 10px 0px;
+  -webkit-border-radius: 6px;
+  
+}
+*/
+.Comment {
+  font-size: 12px;
+  background-color: #EEE;
+  margin: 6px 0px;
+  padding: 3px 10px 3px 10px;
+  border-radius : 10px 10px 10px 10px;
+  -webkit-border-radius: 10px;
+}
+
+.CommentNum {
+  font-size: 32px;
+  color: #DDD;
+  float: right;
+}
+
+
+.CommentCommentor {
+  display: inline;
+}
+
+.CommentCommentorName {
+  font-size: 14px;
+  font-weight: bold;
+  color: #ED950B;
+}
+
+.CommentCommentorSaid {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+}
+
+.CommentCommentorDate {
+  font-size: 10px;
+  padding-left: 30px;
+  color: #AAA;
+  /*float: right;*/
+}
+
+.CommentContent {
+  font-size: 12px;
+  color: #333;
+  display: inline;
+}
+
+.CommentContent p {
+  padding-top: 0px;
+  margin: 5px 5px 5px 0px;
+}
+

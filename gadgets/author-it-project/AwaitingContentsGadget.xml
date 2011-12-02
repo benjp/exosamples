@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+ **
+ * Created by The eXo Platform SARL
+ * http://benjp.cloud-ide.com/rest/jcr/benjp/dev-monit/author-it-project/AwaitingContentsGadget.xml
+-->
+<Module>
+  <ModulePrefs 
+    title="__MSG_awaitingContents__"
+    directory_title="__MSG_awaitingContents__"
+    author="Benjamin Paillereau"
+    author_email="benjamin.paillereau@exoplatform.com"
+    thumbnail="images/pencil.png"
+    title_url="http://www.exoplatform.org"
+    description="A gadget that shows the contents to approve">
+    <Locale messages="locale/ALL_ALL.xml"/>
+    <Require feature="opensocial-0.8" />
+    <Require feature="dynamic-height" />
+    <Require feature="settitle" />
+    <Require feature="views" />
+    <Require feature="minimessage" />
+  </ModulePrefs>
+  <UserPref name="title" display_name="Title" default_value="Awaiting For My Approval" required="true" />  
+  <UserPref name="workspace" display_name="Workspace" default_value="collaboration" required="true" />  
+  <UserPref name="fromstate" display_name="From State" default_value="pending" required="true" datatype="enum">
+    <EnumValue value="draft" />
+    <EnumValue value="pending" />
+    <EnumValue value="approved" />
+    <EnumValue value="inreview" />
+    <EnumValue value="staged" />
+    <EnumValue value="published" />
+    <EnumValue value="unpublished" />
+    <EnumValue value="archived" />
+    <EnumValue value="obsolete" />
+  </UserPref> 
+  <UserPref name="tostate" display_name="To State" required="false" datatype="enum">  
+    <EnumValue value="" />
+    <EnumValue value="draft" />
+    <EnumValue value="pending" />
+    <EnumValue value="approved" />
+    <EnumValue value="inreview" />
+    <EnumValue value="staged" />
+    <EnumValue value="published" />
+    <EnumValue value="unpublished" />
+    <EnumValue value="archived" />
+    <EnumValue value="obsolete" />
+  </UserPref> 
+  <UserPref name="bydate" display_name="By Date" required="false" />  
+  <UserPref name="dynamictitle" display_name="Dynamic Title" default_value="no" required="true" datatype="enum">  
+    <EnumValue value="yes" />
+    <EnumValue value="no" />
+  </UserPref> 
+    
+  <Content type="html" view="default, home, profile, canvas">
+  <![CDATA[    
+  <head>
+      <title>__MSG_awaitingContents__</title>
+      <link type="text/css" rel="stylesheet" href="skin/authorit.css" />
+      <script language="javascript" type="text/javascript" src="http://benjp.cloud-ide.com/rest/jcr/benjp/dev-monit/utils/utils.js"></script>
+      <script language="javascript" type="text/javascript" src="script/authorit.js"></script>
+    </head>
+    <body>
+   <div id="authorit_gadget_div"></div>      
+    </body>
+    ]]>
+  </Content>
+</Module>

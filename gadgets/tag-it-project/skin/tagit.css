@@ -1,0 +1,61 @@
+.IconFull {
+  background: url('../images/24x24/tag.png') no-repeat;
+  width: 24px;
+  height: 24px;
+  float: left;
+}          
+
+.Header {
+  font-size: 14px;
+  color: #FFF;
+  background-color: #ED950B;
+  border-style: solid;
+  border-color: #EEE;
+  border-width: 2px;
+  /*float: left;*/
+  padding: 1px 10px 1px 10px;
+  border-radius : 10px 0px 0px 0px;
+  -webkit-border-radius: 6px;
+}
+
+
+.Tags {
+  font-size: 12px;
+  color: #ED950B;
+  background-color: #FFF;
+  border-style: solid;
+  border-color: #EEE;
+  border-width: 0px 2px 2px 2px;
+  /*float: left;*/
+  padding: 1px 10px 10px 10px;
+  border-radius : 0px 0px 10px 0px;
+  -webkit-border-radius: 6px;
+  
+}
+
+.AddTag {
+  font-size: 10px;
+  float: right;
+  color: #ED950B;
+  background-color: #FFF;
+  margin-top: 1px;
+  padding: 0px 3px;
+  cursor: pointer;
+}
+
+#addTagDiv {
+  padding: 2px 0px 2px 0px;
+  display: none;
+  /*position: relative;*/
+  float: right;
+} 
+
+.Footer {
+  display: block;
+  height: 10px;
+}
+
+.Tag {
+  display: block;
+}
+

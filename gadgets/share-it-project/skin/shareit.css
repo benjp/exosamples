@@ -1,0 +1,32 @@
+.IconTwitter {
+  background: url('../images/32x32/twitter.png') no-repeat;
+  width: 32px;
+  height: 32px;
+  float: left;
+  margin: 5px;
+}          
+
+.IconFacebook {
+  background: url('../images/32x32/facebook.png') no-repeat;
+  width: 32px;
+  height: 32px;
+  float: left;
+  margin: 5px;
+}          
+
+.IconMail {
+  background: url('../images/32x32/mail_send.png') no-repeat;
+  width: 32px;
+  height: 32px;
+  float: left;
+  margin: 5px;
+}          
+
+.IconDownload {
+  background: url('../images/32x32/download.png') no-repeat;
+  width: 32px;
+  height: 32px;
+  float: left;
+  margin: 5px;
+}          
+

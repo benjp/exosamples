@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+ **
+ * Created by The eXo Platform SARL
+ * http://benjp.cloud-ide.com/rest/jcr/benjp/dev-monit/share-it-project/ShareItGadget.xml
+-->
+<Module>
+  <ModulePrefs 
+    title="__MSG_title__"
+    directory_title="__MSG_title__"
+    author="Benjamin Paillereau"
+    author_email="benjamin.paillereau@exoplatform.com"
+    thumbnail="images/megaphone.png"
+    title_url="http://www.exoplatform.org"
+    description="A gadget that shows useful links">
+    <Locale messages="locale/ALL_ALL.xml"/>
+    <Require feature="opensocial-0.8" />
+    <Require feature="dynamic-height" />
+    <Require feature="settitle" />
+    <Require feature="views" />
+    <Require feature="minimessage" />
+  </ModulePrefs>
+  <Content type="html" view="default, home, profile, canvas">
+  <![CDATA[    
+  <head>
+      <title>__MSG_title__</title>
+      <link type="text/css" rel="stylesheet" href="skin/shareit.css" />
+      <script language="javascript" type="text/javascript" src="script/shareit.js"></script>
+    </head>
+    <body>
+   <div id="shareit_gadget_div"></div>      
+    </body>
+    ]]>
+  </Content>
+</Module>
