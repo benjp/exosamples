@@ -2,7 +2,7 @@
 <!--
  **
  * Created by The eXo Platform SARL
-* http://benjp.cloud-ide.com/rest/jcr/benjp/dev-monit/github/gadgets/qrcode-project/QRCodeGadget.xml
+* http://benjp.cloud-ide.com/rest/jcr/benjp/dev-monit/exosamples/gadgets/qrcode-project/QRCodeGadget.xml
 -->
 <Module>
   <ModulePrefs 
@@ -26,9 +26,9 @@
   <head>
       <title>__MSG_title__</title>
       <script language="javascript" type="text/javascript" src="script/qrcode.js"></script>
-      <script language="javascript" type="text/javascript" src="http://benjp.cloud-ide.com/rest/jcr/benjp/dev-monit/github/gadgets/utils/utils.js"></script>
-      <script language="javascript" type="text/javascript" src="http://benjp.cloud-ide.com/rest/jcr/benjp/dev-monit/github/gadgets/utils/jquery-1.6.4.min.js"></script>
-      <script language="javascript" type="text/javascript" src="http://benjp.cloud-ide.com/rest/jcr/benjp/dev-monit/github/external/jquery-qrcode/jquery.qrcode.min.js"></script>
+      <script language="javascript" type="text/javascript" src="http://benjp.cloud-ide.com/rest/jcr/benjp/dev-monit/exosamples/gadgets/utils/utils.js"></script>
+      <script language="javascript" type="text/javascript" src="http://benjp.cloud-ide.com/rest/jcr/benjp/dev-monit/exosamples/gadgets/utils/jquery-1.6.4.min.js"></script>
+      <script language="javascript" type="text/javascript" src="http://benjp.cloud-ide.com/rest/jcr/benjp/dev-monit/exosamples/external/jquery-qrcode/jquery.qrcode.min.js"></script>
 
     </head>
     <body>
