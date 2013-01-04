@@ -1,0 +1,84 @@
+<html>
+  <head>
+    <meta name="robots" content="noindex">
+    <title>Simple example</title>
+    <link rel="stylesheet" type="text/css" href="css/wysiwyg.css"/>
+    <link rel="stylesheet" type="text/css" href="css/tagson.css"/>
+    <style type="text/css"><!--
+      body {
+        margin:0;
+        padding:0;
+        height:100%;
+        overflow:hidden;
+        position: relative;
+      }
+
+      .fifty {
+        height: 50%;
+        overflow-y: scroll;
+      }
+
+      #viewsplitter {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        height: 1px;
+        width: 100%;
+        background: #808080;
+      }
+    --></style>
+    <!-- Start Xopus -->
+    <script type="text/javascript" src="../../xopus/xopus.js"></script>
+  </head>
+  <body>
+    <!-- The Xopus Canvas -->
+    <div xopus="true" class="fifty" autostart="true">
+      <xml>
+        <x:config version="1.0" xmlns:x="http://www.xopus.com/xmlns/config">
+
+          <x:pipeline xml="xml/document.xml" xsd="xsd/schema.xsd">
+            <x:view name="WYSIWYG View">
+              <x:transform xsl="xsl/stylesheet.xsl"/>
+            </x:view>
+            <x:view name="Tags On View">
+              <x:transform xsl="xsl/tagson.xsl"/>
+            </x:view>
+            <x:view name="XML View">
+              <x:treeTransform/>
+            </x:view>
+          </x:pipeline>
+
+          <x:import src="config/config.xml"/>
+
+        </x:config>
+      </xml>
+    </div>
+
+    <div xopus="true" class="fifty" autostart="true">
+      <xml>
+        <x:config version="1.0" xmlns:x="http://www.xopus.com/xmlns/config">
+
+          <x:pipeline xml="xml/document.xml" xsd="xsd/schema.xsd">
+            <x:view name="XML View">
+              <x:treeTransform/>
+            </x:view>
+            <x:view name="WYSIWYG View">
+              <x:transform xsl="xsl/stylesheet.xsl"/>
+            </x:view>
+            <x:view name="Tags On View">
+              <x:transform xsl="xsl/tagson.xsl"/>
+            </x:view>
+          </x:pipeline>
+
+          <x:import src="config/config.xml"/>
+
+        </x:config>
+      </xml>
+    </div>
+
+    <div id="viewsplitter"><!-- --></div>
+
+  </body>
+</html>
+

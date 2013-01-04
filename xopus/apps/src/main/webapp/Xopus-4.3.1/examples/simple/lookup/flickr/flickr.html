@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+	<head>
+		<title>Flickr</title>
+		<link rel="author" title="Robbert Broersma" href="mailto:robbert@xopus.com"/>
+		<style type='text/css'>
+html, body {
+  font-family: "Helvetica", "Arial", sans-serif;
+  background: #FAFAFA;
+}
+
+#column1 {
+  position: absolute;
+  top: 0; left: 0;
+  width: 55%; height: 100%;
+  overflow-y: scroll;
+}
+
+#column2 {
+  position: absolute;
+  top: 0; left: 55%;
+  width: 45%; height: 100%;
+  background: white url(tagline.gif) no-repeat;
+}
+
+#search {
+  padding: 180px 0 0 24px;
+}
+
+label {
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1.7em;
+}
+
+#tags {
+  font-size: 16px;
+}
+
+#list {
+  margin: 0;
+  padding: 0;
+}
+
+#list li {
+  list-style: none;
+  padding: 20px 0;
+  text-align: center;
+}
+
+#list img {
+  cursor: pointer;
+  cursor: hand;
+  vertical-align: middle;
+  padding: 1px;
+  border: 0;
+}
+
+#list img:hover {
+  padding: 0;
+  border: 1px solid #808080;
+}
+		</style>
+		<script type="text/javascript">
+var flickrURI = 'http://api.flickr.com/services/feeds/photos_public.gne?format=json&tagmode=all&tags=';
+
+function jsonFlickrFeed (results)
+{
+  cleanup ();
+  for (var i = 0; i < results.items.length; ++i)
+  {
+    var result = results.items[i];
+    addItem (result.title, result.media.m);
+  }
+}
+
+function cleanup ()
+{
+  var list = document.getElementById ('list');
+
+  for (var i = list.childNodes.length - 1; i >= 0; --i)
+  {
+    list.removeChild(list.childNodes[i]);
+  }
+}
+
+function addItem (title, uri)
+{
+  var list = document.getElementById('list');
+  var item = document.createElement('li');
+  var img = document.createElement('img');
+  img.setAttribute('alt', title);
+  img.setAttribute('src', uri);
+  img.setAttribute('align', 'middle');
+  img.onclick = choose;
+  var text = document.createTextNode('\u200B');
+  item.appendChild(text);
+  item.appendChild(img);
+  item.title = title;
+  list.appendChild(item);
+}
+
+function chooseThis (evt)
+{
+}
+
+function search (q)
+{
+  var uri = flickrURI + q.replace(' ', ',') + '&now=' + new Date()*1;
+  var script = document.createElement ('script');
+  script.setAttribute ('type', 'text/javascript');
+  script.setAttribute ('src', uri);
+  document.getElementsByTagName ('head')[0].appendChild (script);
+}
+
+function go ()
+{
+  search (document.getElementById('tags').value);
+  return false;
+}
+
+function choose ()
+{
+  var result = {
+	  width: parseInt(getStyle(this, 'width')),
+	  height: parseInt(getStyle(this, 'height'))
+  };
+  
+  result[top.dialogArguments.name] = this.getAttribute('src');
+  
+  top.choose(result);
+}
+
+window.onload = function ()
+{
+  go();
+  document.getElementById('search').onsubmit = go;
+  document.getElementById('tags').select();
+};
+
+/*v0.1.0*/
+function getStyle(element, property)
+{
+  if (element.currentStyle) {
+    property = property.replace(/\-(.)/g, function(m, l){return l.toUpperCase()}); // camelCase
+    var value = element.currentStyle.getAttribute(property);
+  } else if (window.getComputedStyle)
+    var value = document.defaultView.getComputedStyle (element, null).getPropertyValue (property);
+
+  switch(property) {
+    case 'height':
+      if (value == 'auto')
+        value = element.clientHeight + 'px';
+      break;
+    case 'width':
+      if (value == 'auto')
+        value = element.clientWidth + 'px';
+      break;
+  }
+  
+  return value;
+}
+		</script>
+	</head>
+	<body>
+		<div id="column1">
+			<ul id="list">
+			</ul>
+		</div>
+		<div id="column2">
+			<form id="search">
+				<p>
+					<label for="tags" onclick="cleanup()">Find a photo of...</label><br />
+					<input id="tags" value="landscape"/>
+					<input id="go" type="submit" value="GO" />
+				</p>
+			</form>
+		</div>
+	</body>
+</html>

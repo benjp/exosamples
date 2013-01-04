@@ -1,0 +1,5 @@
+<article>
+  <title>Example of saving XML</title>
+  <paragraph>To save XML from Xopus, Xopus needs to be configured. This demo shows how to do that.</paragraph>
+  <paragraph>The Start Me.html file includes the save.js script using the &lt;javascript&gt; element. The script in turn registers a save function which will be called when the Save button is pressed. In this example that function will HTTP POST the xml document to save.php.</paragraph>
+</article>

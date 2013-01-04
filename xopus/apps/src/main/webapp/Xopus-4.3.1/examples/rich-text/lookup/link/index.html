@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <title>Link selection lookup dialog example</title>
+    <script type="text/javascript"><!-- 
+    // 
+    // Xopus 4 sample lookup editor
+    //
+    // This page is loaded in an IFRAME. The page has access to a function
+    // named `top.choose`. See the reference documentation for more details on
+    // `top.choose`. 
+    //
+
+
+    function chooseLink() 
+    {
+      return top.choose({ href: this.originalHref });
+    }
+
+
+    function handleChooseForm(e) 
+    {
+      var field = document.getElementById('locationField').value;
+      if (field && field.length > 0) {
+        top.choose({href: field});
+        return true;
+      }
+      return false;
+    }
+
+
+    function handleOnLoad(id) 
+    {
+      var list = document.getElementById(id).getElementsByTagName('a');
+      for (var i = 0; i < list.length; i++) {
+        var anchor = list.item(i);
+        anchor.onclick = chooseLink;
+        anchor.originalHref = anchor.href;
+        anchor.href = 'javascript:void(0)';
+      }
+    }
+
+    // --></script>
+    <link rel="stylesheet" href="../style-lookups.css" type="text/css" />
+  </head>
+  <body onload="handleOnLoad('links');">
+
+
+    <div id="chooseDialog">
+      <div id="chooseBox">
+        
+        <form action="#" method="get" id="chooseForm" onsubmit="return handleChooseForm(event);">
+          <div class="chooseField">
+            <label for="locationField">Location</label>
+            <input type="text" id="locationField">
+            <input type="submit" value=" OK ">
+          </div>
+        </form>
+
+        <p class="meta">&#x203a; 
+            <a href="http://xopus.com/documentation/how-to/lookup-values.html" target="_new">
+            This dialog can be customized (how?)</a></p>
+
+      </div>
+    </div>
+
+
+    <ul class="picklist" id="links">
+      <li><a href="http://en.wikipedia.org/wiki/Charlemagne">
+        Charlemagne (742-814)
+        <span>http://en.wikipedia.org/wiki/Charlemagne</span>
+        </a></li>
+      <li><a href="http://en.wikipedia.org/wiki/European_union">
+        European Union (1951)
+        <span>http://en.wikipedia.org/wiki/European_union</span>
+        </a></li>
+      <li><a href="http://en.wikipedia.org/wiki/Ferdinand_Bol">
+        Ferdinand Bol (1616-1680)
+        <span>http://en.wikipedia.org/wiki/Ferdinand_Bol</span>
+        </a></li>
+      <li><a href="http://en.wikipedia.org/wiki/Hendrik_Lorentz">
+        Hendrik Lorentz (1853-1928)
+        <span>http://en.wikipedia.org/wiki/Hendrik_Lorentz</span>
+        </a></li>
+      <li><a href="http://en.wikipedia.org/wiki/Thorbecke">
+        Johan Thorbecke (1798-1872)
+        <span>http://en.wikipedia.org/wiki/Thorbecke</span>
+        </a></li>
+      <li><a href="http://en.wikipedia.org/wiki/Jan_Vermeer">
+        Johannes Vermeer (1632-1675)
+        <span>http://en.wikipedia.org/wiki/Jan_Vermeer</span>
+        </a></li>
+      <li><a href="http://en.wikipedia.org/wiki/Lisbon_treaty">
+        Lisbon treaty (2007)
+        <span>http://en.wikipedia.org/wiki/Lisbon_treaty</span>
+        </a></li>
+      <li><a href="http://en.wikipedia.org/wiki/Maastricht_Treaty">
+        Maastricht Treaty (1992)
+        <span>http://en.wikipedia.org/wiki/Maastricht_Treaty</span>
+        </a></li>
+      <li><a href="http://en.wikipedia.org/wiki/Michiel_de_Ruyter">
+        Michiel de Ruyter (1607-1676)
+        <span>http://en.wikipedia.org/wiki/Michiel_de_Ruyter</span>
+        </a></li>
+      <li><a href="http://en.wikipedia.org/wiki/North_Sea_Flood_of_1953">
+        North Sea flood of 1953
+        <span>http://en.wikipedia.org/wiki/North_Sea_Flood_of_1953</span>
+        </a></li>
+      <li><a href="http://en.wikipedia.org/wiki/Philip_II_of_Spain">
+        Philip II of Spain (1527-1598)
+        <span>http://en.wikipedia.org/wiki/Philip_II_of_Spain</span>
+        </a></li>
+      <li><a href="http://en.wikipedia.org/wiki/Rembrandt">
+        Rembrandt van Rijn (1606-1669)
+        <span>http://en.wikipedia.org/wiki/Rembrandt</span>
+        </a></li>
+      <li><a href="http://en.wikipedia.org/wiki/Ren%C3%A9_Descartes">
+        Ren&eacute; Descartes (1596-1650)
+        <span>http://en.wikipedia.org/wiki/Ren&eacute;_Descartes</span>
+        </a></li>
+      <li><a href="http://en.wikipedia.org/wiki/Willem_van_oranje">
+        William the Silent (1533-1584)
+        <span>http://en.wikipedia.org/wiki/Willem_van_oranje</span>
+        </a></li>
+      <li><a href="http://en.wikipedia.org/wiki/Tobias_Asser">
+        Tobias Asser (1838-1913)
+        <span>http://en.wikipedia.org/wiki/Tobias_Asser</span>
+        </a></li>
+      <li><a href="http://en.wikipedia.org/wiki/Gogh">
+        Vincent van Gogh (1853-1890)
+        <span>http://en.wikipedia.org/wiki/Gogh</span>
+        </a></li>
+      <li><a href="http://xopus.com">
+        Xopus
+        <span>http://xopus.com</span>
+        </a></li>
+    </ul>
+
+
+  </body>
+</html>

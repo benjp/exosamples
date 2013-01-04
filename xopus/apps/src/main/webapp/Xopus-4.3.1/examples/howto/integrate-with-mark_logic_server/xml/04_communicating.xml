@@ -1,0 +1,32 @@
+<article xml:lang="en-us">
+  <title>Communicating With Xopus</title>
+  <introduction> There are several objects available from the API, that can be used to communicate with Xopus. These objects are properties of the window that Xopus runs in.</introduction>
+  <section>
+    <title>Editor</title>
+    <paragraph>This is the main object representing Xopus itself. In the <anchor href="https://xopus.com/documentation/developer-guide/reference/xopus-api/objects/editor.html">documentation</anchor> you can find what properties and methods are available. The <code>Editor</code> object offers some methods for configuring certain UI elements, and fires the <code>load</code> event for example.</paragraph>
+  </section>
+  <section>
+    <title>Canvas and Editor.Canvas</title>
+    <paragraph>An Xopus <code>Canvas</code> is a representation of an island. Because there can be multiple islands running in Xopus the <code>Editor.Canvas</code> object offers methods to find the correct island.</paragraph>
+    <example xml:space="preserve">var canvas = Editor.Canvas.​getCanvasCollection()[0];</example>
+    <paragraph>The above example returns the <emphasis>first</emphasis><code> Canvas</code>.</paragraph>
+    <paragraph>
+      <code>Canvas</code> objects offer methods to change views, as they are defined on the island, to set and get parameters from XSL's and another way to load a new XML document. This XML document will then use the Schema that is defined on the island.</paragraph>
+  </section>
+  <section>
+    <title>IO</title>
+    <paragraph>The <code>IO</code> object is a simple object which is mainly used to implement a save function. It can however also be used to change the way that Xopus loads XML, XSL and Schema.</paragraph>
+  </section>
+  <section>
+    <title>HTTPTools</title>
+    <paragraph>When you need to load or save files to and from the server, the <code>HTTPTools</code> object offers <code>GET</code>, <code>PUT</code> and POST<code /> functionality. It is mostly used within a save function to <code>POST</code> the saved XML to the server. This is shown in other documents in this example.</paragraph>
+  </section>
+  <section>
+    <title>Editor.Selection</title>
+    <paragraph>The <code>Editor.Selection</code> object offers functionality to find the cursor and selection. This implements a similar interface to <code>DOM Ranges</code> to manipulate text and selection.</paragraph>
+  </section>
+  <section>
+    <title>Xopus DOM Objects</title>
+    <paragraph>The XML document, it's elements, attributes and comments, are all represented by Xopus Object in the API. Take a look at the <anchor href="http://xopus.com/documentation/developer-guide/reference/xopus-api/objects.html">documentation about objects</anchor> for more information.</paragraph>
+  </section>
+</article>

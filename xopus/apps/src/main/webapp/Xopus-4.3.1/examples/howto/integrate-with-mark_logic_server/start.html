@@ -1,0 +1,47 @@
+<html>
+  <head>
+    <title>Integrate with Mark Logic Server</title>
+    <link rel="stylesheet" type="text/css" href="css/common.css"/>
+    <style type="text/css">
+      button, body {font-family:Verdana;}
+      h1, h2, h3 {color:#007dad;font-family:Verdana;}
+      button {cursor:pointer;cursor:hand;}
+    </style>
+    <script type="text/javascript" src="js/test.js"></script>
+  </head>
+  <body class="start" onload="testXopus()">
+    <div class="logo" style="min-height:400px; ">
+      <h1>Mark Logic Server integration example</h1>
+
+      <p>
+      This example demonstrates a typical Content Management setup
+      with Xopus on Mark Logic Server. 
+      </p> 
+
+       <div>
+        <h2>Installation</h2>
+        <p>
+          This demo directory must be placed in the root document directory of
+          a Mark Logic App Server (HTTP). We're assuming you're running the
+          demo on a test server, with access to an administrative account. To
+          run the demo, you must have the demo documents installed in Mark
+          Logic. Run the <a href="actions/install.xqy">actions/install.xqy</a>
+          script to remove any existing demo files and install the demo
+          documents. We advise to use a separate document database for this
+          demo. 
+        </p>
+        <p>
+          Download Xopus separately from 
+          <a href="http://xopus.com/download.html">xopus.com/download.html</a>
+          and unpack the archive in the root document directory. 
+        </p>
+      </div>
+     
+      <div>
+        <center>
+          <button onclick="document.location.href = 'actions/frame.html'">Start</button>
+        </center>
+      </div>
+    </div>
+  </body>
+</html>

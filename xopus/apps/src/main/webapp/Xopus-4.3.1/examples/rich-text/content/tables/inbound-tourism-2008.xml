@@ -1,0 +1,188 @@
+<?xml version="1.0"?>
+<table>
+  <tgroup cols="7">
+    <colspec colnum="1" colname="col1" colwidth="70" />
+    <colspec colnum="2" colname="col2" colwidth="5" />
+    <colspec colnum="3" colname="col3" colwidth="5" />
+    <colspec colnum="4" colname="col4" colwidth="5" />
+    <colspec colnum="5" colname="col5" colwidth="5" />
+    <colspec colnum="6" colname="col6" colwidth="5" />
+    <colspec colnum="7" colname="col7" colwidth="5" />
+    <tbody>
+      <row>
+        <entry namest="col1" nameend="col7">Inbound tourism (arrivals) by destination in the Netherlands (x 1,000) </entry>
+      </row>
+
+      <row>
+        <entry></entry>
+        <entry> 2004</entry>
+        <entry>2005</entry>
+        <entry>2006</entry>
+        <entry>2007</entry>
+        <entry>2008</entry>
+        <entry>+/- </entry>
+      </row>
+
+      <row>
+        <entry>Amsterdam, Rotterdam, The Hague, Utrecht</entry>
+        <entry>4,152</entry>
+        <entry>4,546</entry>
+        <entry>4,725</entry>
+        <entry>4,789</entry>
+        <entry>4,330 </entry>
+        <entry>-10% </entry>
+      </row>
+
+      <row>
+        <entry> Northsea coast</entry>
+        <entry>1,333</entry>
+        <entry>1,220</entry>
+        <entry>1,353</entry>
+        <entry>1,426</entry>
+        <entry>1,343</entry>
+        <entry>-6% </entry>
+      </row>
+
+      <row>
+        <entry> West- and Middle-Brabant </entry>
+        <entry> 542</entry>
+        <entry> 553</entry>
+        <entry> 641</entry>
+        <entry> 663</entry>
+        <entry> 596</entry>
+        <entry> -10% </entry>
+      </row>
+
+      <row>
+        <entry> E-Brabant, N-M Limburg, Rijk v. Nijmegen</entry>
+        <entry> 437</entry>
+        <entry> 458</entry>
+        <entry> 493</entry>
+        <entry> 532</entry>
+        <entry> 491</entry>
+        <entry> -8% </entry>
+      </row>
+
+      <row>
+        <entry> South Limburg </entry>
+        <entry> 282</entry>
+        <entry> 294</entry>
+        <entry> 357</entry>
+        <entry> 342</entry>
+        <entry> 348</entry>
+        <entry> 2% </entry>
+      </row>
+      <row>
+        <entry> IJsselmeer coast </entry>
+        <entry> 289</entry>
+        <entry> 263</entry>
+        <entry> 291</entry>
+        <entry> 307</entry>
+        <entry> 287</entry>
+        <entry> -7% </entry>
+      </row>
+      <row>
+        <entry> Delta area </entry>
+        <entry> 240</entry>
+        <entry> 226</entry>
+        <entry> 240</entry>
+        <entry> 275</entry>
+        <entry> 244</entry>
+        <entry> -11% </entry>
+      </row>
+      <row>
+        <entry> Twente, Salland, Vechtstreek </entry>
+        <entry> 254</entry>
+        <entry> 209</entry>
+        <entry> 219</entry>
+        <entry> 208</entry>
+        <entry> 229</entry>
+        <entry> 10% </entry>
+      </row>
+      <row>
+        <entry> Veluwe and surrounding area </entry>
+        <entry> 222 </entry>
+        <entry> 236</entry>
+        <entry> 229</entry>
+        <entry> 234</entry>
+        <entry> 215</entry>
+        <entry> -8% </entry>
+      </row>
+      <row>
+        <entry> Northern islands </entry>
+        <entry> 204</entry>
+        <entry> 183</entry>
+        <entry> 230</entry>
+        <entry> 204</entry>
+        <entry> 199</entry>
+        <entry> -3% </entry>
+      </row>
+      <row>
+        <entry> Sandy soils Friesland, Groningen, Drenthe </entry>
+        <entry> 158</entry>
+        <entry> 131</entry>
+        <entry> 195</entry>
+        <entry> 153</entry>
+        <entry> 137</entry>
+        <entry> -11% </entry>
+      </row>
+      <row>
+        <entry> Utrechtse Heuvelrug, het Gooi </entry>
+        <entry> 104</entry>
+        <entry> 140</entry>
+        <entry> 143</entry>
+        <entry> 147</entry>
+        <entry> 119</entry>
+        <entry> -19% </entry>
+      </row>
+      <row>
+        <entry> Lakes Friesland, Groningen, NW-Overijssel </entry>
+        <entry> 93</entry>
+        <entry> 95</entry>
+        <entry> 93</entry>
+        <entry> 86</entry>
+        <entry> 71</entry>
+        <entry> -17% </entry>
+      </row>
+      <row>
+        <entry> Lakes in western provinces </entry>
+        <entry> 56</entry>
+        <entry> 58</entry>
+        <entry> 74</entry>
+        <entry> 67</entry>
+        <entry> 58</entry>
+        <entry> -13% </entry>
+      </row>
+      <row>
+        <entry> Achterhoek </entry>
+        <entry> 44</entry>
+        <entry> 64</entry>
+        <entry> 58</entry>
+        <entry> 45</entry>
+        <entry> 58</entry>
+        <entry> 29% </entry>
+      </row>
+
+      <row>
+        <entry> River area Gelderland </entry>
+        <entry> 13</entry>
+        <entry> 15</entry>
+        <entry> 22</entry>
+        <entry> 37</entry>
+        <entry> 31</entry>
+        <entry> -15% </entry>
+      </row>
+
+      <row>
+        <entry> Rest of The Netherlands </entry>
+        <entry> 1,225</entry>
+        <entry> 1,320</entry>
+        <entry> 1,377</entry>
+        <entry> 1,495</entry>
+        <entry> 1,351</entry>
+        <entry> -10% </entry>
+      </row>
+
+    </tbody>
+  </tgroup>
+</table>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+  <head>
+    <title>Include</title>
+    <link rel="stylesheet" href="../style-lookups.css" type="text/css" />
+    <script type="text/javascript">
+
+function choose(url)
+{
+  top.choose({'src':url});
+  return false;
+}
+
+    </script>
+  </head>
+  <body>
+    <ol class="picklist">
+      <li>
+        <a href="#" onclick="return choose('tables/xopus.xml');">
+        Xopus Versions
+        <span>Version and release date matrix</span>
+        </a>
+      </li>
+      <li>
+        <a href="#" onclick="return choose('tables/investment.xml');">
+        Investment
+        <span>Money game</span>
+        </a>
+      </li>
+      <li>
+        <a href="#" onclick="return choose('tables/abc.xml');">
+        ABC
+        <span>An abstract example</span>
+        </a>
+      </li>
+      <li>
+        <a href="#" onclick="return choose('tables/eu-referendum-2005.xml');">
+        The main motivations of the 'yes' vote by socio demographic variables 
+          <span> From: The European Constitution: post-referendum survey in The Netherlands </span>
+          <span> Source: Flash Eurobarometer EB172</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="#" onclick="return choose('tables/inbound-tourism-2008.xml');">
+          Inbound tourism by destination 2008
+          <span> From: Netherlands Board of Tourism &amp; Conventions, Key Figures 2009</span>
+          <span> Source: Statistics Netherlands</span>
+        </a>
+      </li>
+      <li>
+        <a href="#" onclick="return choose('tables/de-ned-bank-2005.xml');">
+          Key Dutch economic numbers 2005
+          <span> From: Annual Report De Nederlandse Bank 2005</span>
+          <span> Source: Statistics Netherlands and dnb calculations </span>
+        </a>
+      </li>
+    </ol>
+  </body>
+</html>

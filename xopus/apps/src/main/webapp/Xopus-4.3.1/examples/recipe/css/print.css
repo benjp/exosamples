@@ -1,0 +1,39 @@
+@media print
+{
+  body,
+  body *
+  {
+    overflow:hidden;
+  }
+
+  html,
+  body
+  {
+    border:solid 0 white!important;
+  }
+
+  #logo,
+  #acknowledgement,
+  .extras
+
+  {
+
+    display:none!important;
+  }
+
+  #recipe
+  {
+
+    width:100%!important;
+  }
+
+  #recipe-canvas
+  {
+    border:solid 0 white!important;
+    padding:54px 0 0 0!important;
+    height:100%;
+  }
+}
+
+
+

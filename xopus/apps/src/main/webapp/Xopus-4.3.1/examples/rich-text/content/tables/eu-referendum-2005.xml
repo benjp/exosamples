@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<table>
+  <!-- http://ec.europa.eu/public_opinion/flash/fl172_en.pdf -->
+  <!-- excerpt from Q4 -->
+  <tgroup cols="6">
+    <colspec colnum="1" colname="col1" colwidth="10" />
+    <colspec colnum="2" colname="col2" colwidth="18" />
+    <colspec colnum="3" colname="col3" colwidth="18" />
+    <colspec colnum="4" colname="col4" colwidth="18" />
+    <colspec colnum="5" colname="col5" colwidth="18" />
+    <colspec colnum="6" colname="col6" colwidth="18" />
+    <tbody>
+      <row>
+        <entry>Age </entry>
+        <entry>Essential in order to pursue the European construction
+        </entry>
+
+        <entry>Strengthens the feeling of a European identity </entry>
+        
+        <entry>Strengthens the role of the Netherlands within the Union/in
+        the world </entry>
+        
+        <entry>Essential for the smooth running of the European institutions
+        </entry>
+        
+        <entry>First steps towards/ Symbol of a political unification of
+         Europe </entry>
+      </row>
+
+      <row>
+        <entry>18-24</entry>
+        <entry>16%</entry>
+        <entry>22%</entry>
+        <entry>27%</entry>
+        <entry>22%</entry>
+        <entry>21% </entry>
+      </row>
+
+      <row>
+        <entry>25-39 </entry>
+        <entry>26%</entry>
+        <entry>12%</entry>
+        <entry>9%</entry>
+        <entry>15%</entry>
+        <entry>9% </entry>
+      </row>
+
+      <row>
+        <entry>40-54 </entry>
+        <entry>20%</entry>
+        <entry>12%</entry>
+        <entry>17%</entry>
+        <entry>15%</entry>
+        <entry>11% </entry>
+      </row>
+
+    </tbody>
+  </tgroup>
+</table>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Recipe Example</title>
+
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="css/menu.css"/>
+    <link rel="stylesheet" type="text/css" href="css/print.css"/>
+
+    <script type="text/javascript" src="js/spiffy.js"></script>
+    <script type="text/javascript" src="js/menu.js"></script>
+
+    <!-- Start Xopus -->
+    <script type="text/javascript" src="../../xopus/xopus.js"></script>
+  </head>
+  <body>
+
+
+    <!-- The Xopus Canvas -->
+    <div class="xopus-canvas" xopus="true" autostart="true">
+      <xml>
+        <x:config version="1.0" xmlns:x="http://www.xopus.com/xmlns/config">
+
+          <x:pipeline xml="document.xml" xsd="schema.xsd">
+            <x:view name="WYSIWYG View">
+              <x:transform xsl="stylesheet.xsl"/>
+            </x:view>
+            <x:view name="XML View">
+              <x:treeTransform/>
+            </x:view>
+          </x:pipeline>
+
+          <x:import src="config.xml"/>
+          
+        </x:config>
+      </xml>
+    </div>
+  </body>
+</html>

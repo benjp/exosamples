@@ -1,0 +1,43 @@
+<x:config version="1.0" xmlns:x="http://www.xopus.com/xmlns/config">
+  <x:roleMapping>
+    <!-- Used by the Table editor -->
+    <x:element name="table"         role="table" />
+    <x:element name="tbody"         role="tablerowcontainer" />
+    <x:element name="tbody"         role="tablebody" />
+    <x:element name="tfoot"         role="tablefooter" />
+    <x:element name="tr"            role="tablerow" />
+    <x:element name="tr"            role="tablecellcontainer" />
+    <x:element name="th"            role="tableheadercell" />
+    <x:element name="td"            role="tablecell" />
+    <x:element name="caption"       role="tablecaption" />
+    <x:attribute name="rowspan"     role="cellrowspan" />
+    <x:attribute name="colspan"     role="cellcolspan" />
+    <x:attribute name="border"      role="tableborder" />
+    <x:attribute name="cellspacing" role="tablecellspacing" />
+    <x:attribute name="cellpadding" role="tablecellpadding" />
+
+    <!-- Used by the Toolbar -->
+    <x:element name="strong"        role="strong" />
+    <x:element name="emphasis"      role="emphasis" />
+    <x:element name="subscript"     role="subscript" />
+    <x:element name="superscript"   role="superscript" />
+    <x:element name="link"          role="hyperlink" />
+    <x:attribute name="href"        role="hyperlinkreference" />
+    <x:element name="linebreak"     role="linebreak" />
+    <x:element name="paragraph"     role="paragraph" />
+    <x:element name="header"        role="header" />
+
+    <x:element name="unorderedlist" role="list" />
+    <x:element name="unorderedlist" role="unorderedlist" />
+    <x:element name="orderedlist"   role="list" />
+    <x:element name="orderedlist"   role="orderedlist" />
+    <x:element name="item"          role="listitem" />
+  </x:roleMapping>
+  
+  <x:nodeConfig>
+    <x:node match="title | footer | caption | td | th | dataItem">
+      <x:placeholder>{name}</x:placeholder>
+    </x:node>
+  </x:nodeConfig>
+
+</x:config>

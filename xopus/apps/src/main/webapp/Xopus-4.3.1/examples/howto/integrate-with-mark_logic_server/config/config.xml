@@ -1,0 +1,62 @@
+<x:config version="1.0" xmlns:x="http://www.xopus.com/xmlns/config">
+  <x:roleMapping>
+    <!-- Used by the Table editor -->
+    <x:element name="article"       role="document" />
+    <x:element name="section"       role="section" />
+    
+    <x:element name="table"         role="table" />
+    <x:attribute name="border"      role="tableborder" />
+    <x:element name="tbody"         role="tablerowcontainer" />
+    <x:element name="tbody"         role="tablebody" />
+    <x:element name="tfoot"         role="tablefooter" />
+    <x:element name="tr"            role="tablerow" />
+    <x:element name="tr"            role="tablecellcontainer" />
+    <x:element name="th"            role="tableheadercell" />
+    <x:element name="td"            role="tablecell" />
+    <x:element name="caption"       role="tablecaption" />
+    <x:attribute name="rowspan"     role="cellrowspan" />
+    <x:attribute name="colspan"     role="cellcolspan" />
+    <x:attribute name="border"      role="tableborder" />
+    <x:attribute name="cellspacing" role="tablecellspacing" />
+    <x:attribute name="cellpadding" role="tablecellpadding" />
+    <x:attribute name="color"       role="color" />
+
+    <!-- Used by the Toolbar -->
+    <x:element name="strong"        role="strong" />
+    <x:element name="emphasis"      role="emphasis" />
+    <x:element name="underline"     role="underline" />
+    <x:element name="subscript"     role="subscript" />
+    <x:element name="superscript"   role="superscript" />
+    <x:element name="anchor"          role="hyperlink" />
+    <x:attribute name="href"        role="hyperlinkreference" />
+    <x:attribute name="align"       role="align" />
+    <x:attribute name="halign"      role="mediaalign" />
+    <x:element name="linebreak"     role="linebreak" />
+    <x:element name="paragraph"     role="paragraph" />
+    <x:element name="title"        role="header" />
+    <x:element name="image"         role="image" />
+
+    <x:element name="list" role="list" />
+    <x:element name="list" role="unorderedlist" />
+    <x:element name="ordered-list"   role="list" />
+    <x:element name="ordered-list"   role="orderedlist" />
+    <x:element name="item"          role="listitem" />
+
+  </x:roleMapping>
+  
+  <x:lookupConfig xmlns:myns="http://mynamespace">
+    <x:lookup 
+      parentPattern="self::image" 
+      name="src"
+      url="lookup/flickr/flickr.html?width=770&amp;height=340" 
+      forceLookup="true" 
+      autoOpen="true"/>
+    <x:lookup 
+      parentPattern="self::link" 
+      name="href"
+      url="lookup/link/index.html" 
+      forceLookup="false" 
+      autoOpen="true"/>
+  </x:lookupConfig>
+  
+</x:config>

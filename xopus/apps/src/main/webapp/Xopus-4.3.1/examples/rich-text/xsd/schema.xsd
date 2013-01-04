@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <!-- elements -->
+  <xs:element name="article" type="article.type"/>
+
+  <xs:element name="meta" type="meta.type"/>
+
+  <xs:element name="author" type="author.type"/>
+
+  <xs:element name="date" type="xs:date"/>
+
+  <xs:element name="categories" type="categories.type"/>
+
+  <xs:element name="category" type="category.type"/>
+
+  <xs:element name="section" type="section.type"/>
+
+  <xs:element name="h" type="plaintext.type"/>
+
+  <xs:element name="h-sub" type="plaintext.type"/>
+
+  <xs:element name="p" substitutionGroup="abstract-block" type="paragraph.type"/>
+
+  <xs:element name="body" type="paragraph.type"/>
+
+  <xs:element name="source" type="plaintext.type"/>
+
+  <xs:element name="a" substitutionGroup="abstract-plaintextelement" type="hyperlink.type"/>
+
+  <xs:element name="br" substitutionGroup="abstract-richtextelement" type="empty.type"/>
+
+  <xs:element name="strong" substitutionGroup="abstract-richtextelement" type="richtext.type"/>
+
+  <xs:element name="em" substitutionGroup="abstract-richtextelement" type="richtext.type"/>
+
+  <xs:element name="note" substitutionGroup="abstract-richtextelement" type="notetext.type"/>
+
+  <xs:element name="u" substitutionGroup="abstract-richtextelement" type="richtext.type"/>
+
+  <xs:element name="sub" substitutionGroup="abstract-plaintextelement" type="plaintext.type"/>
+
+  <xs:element name="sup" substitutionGroup="abstract-plaintextelement" type="plaintext.type"/>
+
+  <xs:element name="ul" substitutionGroup="abstract-block" type="list.type"/>
+
+  <xs:element name="ol" substitutionGroup="abstract-block" type="list.type"/>
+
+  <xs:element name="li" type="li.type"/>
+
+  <xs:element name="figure" substitutionGroup="abstract-block" type="figure.type"/>
+
+  <xs:element name="img" substitutionGroup="abstract-media" type="media.type"/>
+
+  <xs:element name="video" substitutionGroup="abstract-media" type="media.type"/>
+
+  <xs:element name="legend" type="richtext.type"/>
+
+  <xs:element name="quote" substitutionGroup="abstract-block" type="quote.type"/>
+
+  <xs:element name="orgchart" substitutionGroup="abstract-media">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="person" minOccurs="1"/>
+      </xs:sequence>
+      <xs:attribute ref="width" use="optional" />
+      <xs:attribute ref="border-type" use="optional" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="person">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="person" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+      <xs:attribute name="name" use="required" type="nonEmptyString"/>
+      <xs:attribute ref="email" use="optional"/>
+      <xs:attribute name="division" use="optional" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+
+
+  <xs:element name="include" substitutionGroup="abstract-block">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="media.type">
+          <xs:sequence>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- types and abstracts -->
+
+  <xs:element name="abstract-block"            abstract="true"/>
+  <xs:element name="abstract-plaintextelement" abstract="true"/>
+  <xs:element name="abstract-richtextelement"  abstract="true"/>
+  <xs:element name="abstract-media"            abstract="true"/>
+
+  <!-- empty.type -->
+  <xs:complexType name="empty.type" mixed="false">
+    <xs:choice minOccurs="0"/>
+  </xs:complexType>
+
+  <!-- plaintext.type -->
+  <xs:complexType name="notetext.type" mixed="true">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element ref="abstract-plaintextelement"/>
+    </xs:choice>
+    <xs:attribute name="view" use="optional" default="default" type="noteview.type"/>
+  </xs:complexType>
+  
+  <xs:complexType name="plaintext.type" mixed="true">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element ref="abstract-plaintextelement"/>
+    </xs:choice>
+    <xs:attribute ref="text-align" use="optional" />
+  </xs:complexType>
+
+  <!-- richtext.type -->
+  <xs:complexType name="richtext.type" mixed="true">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element ref="abstract-plaintextelement"/>
+      <xs:element ref="abstract-richtextelement"/>
+    </xs:choice>
+  </xs:complexType>
+
+  <!-- hyperlink.type -->
+  <xs:complexType name="hyperlink.type" mixed="true">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element ref="abstract-plaintextelement"/>
+    </xs:choice>
+    <xs:attribute ref="href" use="required"/>
+  </xs:complexType>
+
+  <!-- paragraph.type -->
+  <xs:complexType name="paragraph.type" mixed="true">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element ref="abstract-plaintextelement"/>
+      <xs:element ref="abstract-richtextelement"/>
+    </xs:choice>
+    <xs:attribute ref="text-align"   use="optional" />
+    <!--    <xs:attribute ref="left-indent"  use="optional" default="0" /> -->
+    <!--    <xs:attribute ref="right-indent" use="optional" default="0" /> -->
+  </xs:complexType>
+
+  <!-- figure.type -->
+  <xs:complexType name="figure.type" mixed="false">
+    <xs:sequence>
+      <xs:element ref="abstract-media" minOccurs="1" maxOccurs="unbounded"/>
+      <xs:element ref="legend" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute ref="align"        use="optional" />
+    <!--    <xs:attribute ref="left-indent"  use="optional" default="0" /> -->
+    <!--    <xs:attribute ref="right-indent" use="optional" default="0" /> -->
+  </xs:complexType>
+
+  <!-- media.type -->
+  <xs:complexType name="media.type" mixed="false">
+    <xs:attribute ref="border-type" use="optional" />
+    <xs:attribute ref="src" use="required" />
+    <xs:attribute ref="width" use="optional" />
+  </xs:complexType>
+
+  <!-- article.type -->
+  <xs:complexType name="article.type" mixed="false">
+    <xs:sequence>
+      <xs:element ref="meta" minOccurs="0"/>
+      <xs:element ref="h"    />
+      <xs:element ref="h-sub" minOccurs="0" maxOccurs="1" />
+      <!-- At least 1 block or section and all blocks precede sections. -->
+      <xs:choice>
+        <xs:element ref="abstract-block" maxOccurs="unbounded" />
+        <xs:element ref="section" />
+      </xs:choice>
+      <xs:element ref="section" minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+    <xs:attribute ref="section-numbering" use="optional" />
+    <xs:attribute ref="figure-numbering" use="optional" />
+  </xs:complexType>
+
+  <!-- section.type -->
+  <xs:complexType name="section.type" mixed="false">
+    <xs:sequence>
+      <xs:element ref="h"    />
+      <xs:element ref="h-sub" minOccurs="0" maxOccurs="1" />
+      <!-- At least 1 block or section and all blocks precede sections. -->
+      <xs:choice>
+        <xs:element ref="abstract-block" maxOccurs="unbounded" />
+        <xs:element ref="section" />
+      </xs:choice>
+      <xs:element ref="section" minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+    <xs:attribute ref="view" use="optional" default="normal"/>
+  </xs:complexType>
+
+  <!-- meta.type -->
+  <xs:complexType name="meta.type" mixed="false">
+    <xs:sequence>
+      <xs:element ref="author" minOccurs="0" maxOccurs="1"/>
+      <xs:element ref="date" minOccurs="0" maxOccurs="1" />
+      <xs:element ref="categories" minOccurs="0" maxOccurs="1" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- categories.type -->
+  <xs:complexType name="categories.type" mixed="false">
+    <xs:sequence>
+      <xs:element ref="category" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- category.type -->
+  <xs:simpleType name="category.type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Art"/>
+      <xs:enumeration value="Culture"/>
+      <xs:enumeration value="Design"/>
+      <xs:enumeration value="Media"/>
+      <xs:enumeration value="Sports"/>
+      <xs:enumeration value="Travel"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- author.type -->
+  <xs:complexType name="author.type" mixed="true">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element ref="abstract-plaintextelement"/>
+    </xs:choice>
+    <xs:attribute ref="email" use="optional" />
+  </xs:complexType>
+
+  <!-- attribute type -->
+  <xs:simpleType name="nonEmptyString">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- border-type -->
+  <xs:simpleType name="border-type.type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none"/>
+      <xs:enumeration value="solid"/>
+      <xs:enumeration value="smooth"/>
+      <xs:enumeration value="soft"/>
+      <xs:enumeration value="hard"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="view.type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="normal"/>
+      <xs:enumeration value="list"/>
+      <xs:enumeration value="accordion"/>
+      <xs:enumeration value="tabs"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="noteview.type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="default"/>
+      <xs:enumeration value="below-paragraph"/>
+      <xs:enumeration value="below-article"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="list.type" mixed="false">
+    <xs:sequence>
+      <xs:element ref="li"  maxOccurs="unbounded"/>
+    </xs:sequence>
+    <!--xs:attribute ref="column-count" use="optional" /-->
+    <xs:attribute ref="border-type" use="optional" />
+  </xs:complexType>
+
+  <xs:complexType name="li.type" mixed="false">
+    <xs:sequence>
+      <xs:element ref="p" />
+      <xs:choice minOccurs="0">
+        <xs:element ref="ul" />
+        <xs:element ref="ol" />
+      </xs:choice>
+    </xs:sequence>
+    <!--xs:attribute ref="column-count" use="optional" /-->
+  </xs:complexType>
+
+  <!-- quote.type -->
+  <xs:complexType name="quote.type" mixed="false">
+    <xs:sequence>
+      <xs:element ref="body"/>
+      <xs:element ref="source" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:simpleType name="text-align.type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="left"/>
+      <xs:enumeration value="center"/>
+      <xs:enumeration value="right"/>
+      <xs:enumeration value="justify"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="align.type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="left"/>
+      <xs:enumeration value="right"/>
+      <xs:enumeration value="center"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  
+  <!-- attributes -->
+  <xs:attribute name="href">
+    <xs:simpleType>
+      <xs:restriction base="xs:anyURI">
+        <xs:minLength value="1"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:attribute>
+
+  <xs:attribute name="src" type="xs:anyURI"/>
+
+  <xs:attribute name="width">
+    <xs:simpleType>
+      <xs:restriction base="xs:positiveInteger">
+        <xs:maxExclusive value="10001"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:attribute>
+
+  <xs:attribute name="section-numbering" type="xs:boolean"/>
+
+  <xs:attribute name="figure-numbering" type="xs:boolean"/>
+
+  <xs:attribute name="email" type="xs:string"/>
+
+  <xs:attribute name="view" type="view.type"/>
+
+  <xs:attribute name="border-type" type="border-type.type"/>
+
+  <xs:attribute name="text-align" type="text-align.type"/>
+
+  <xs:attribute name="align" type="align.type"/>
+
+</xs:schema>

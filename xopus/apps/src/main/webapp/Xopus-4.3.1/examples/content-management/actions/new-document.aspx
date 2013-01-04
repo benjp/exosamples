@@ -1,0 +1,1 @@
+<%@ Page Language="C#" AutoEventWireup="true" CodeFile="../code/new-document.cs" Inherits="LoadXml" %>

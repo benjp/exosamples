@@ -1,0 +1,17 @@
+<article xml:lang="en-us">
+  <title>Xopus in a CMS</title>
+  <introduction>​When placing Xopus in a CMS, there are numerous ways to do this. The following options are common:</introduction>
+  <section>
+    <title>Xopus in an iframe</title>
+    <paragraph>When using Xopus in an iframe, such as here, it is easy to load new documents. </paragraph>
+    <paragraph>Xopus detects that it is running in an iframe and therefore shows the maximize icon in the top right corner of the toolbar.</paragraph>
+  </section>
+  <section>
+    <title>Xopus around everything</title>
+    <paragraph>When you place Xopus around a complete system you can create make parts of the page editable using an 'island'. Any HTML placed outside the 'island' (discussed in the next document) is rendered as usual. </paragraph>
+  </section>
+  <section>
+    <title>Xopus on a new page</title>
+    <paragraph>By placing Xopus on a new page, it may be easy to open and close, but Xopus will need to restart all the time. Using an iframe and keeping Xopus open is a better solution.</paragraph>
+  </section>
+</article>

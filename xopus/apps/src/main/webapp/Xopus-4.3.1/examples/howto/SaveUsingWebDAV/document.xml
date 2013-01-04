@@ -1,0 +1,6 @@
+<article>
+  <title>Example of saving XML using WebDAV</title>
+  <paragraph>To save XML from Xopus, Xopus needs to be configured. This demo shows how to do that.</paragraph>
+  <paragraph>The Start Me.html file includes the webdav.js script using the &lt;javascript&gt; element. The script in turn registers load and save functions which will be called when the document is loaded and when the save button is pressed. In this example those functions will use the Xopus WebDAV API to load, lock and save the document.</paragraph>
+  <paragraph>To use this example all you need to do is to copy the files to a WebDAV capable webserver.</paragraph>
+</article>

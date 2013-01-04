@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<x:config xmlns:x="http://www.xopus.com/xmlns/config" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0">
+  <x:nodeConfig>
+    <!--attributes-->
+    <x:node match="article/@modification_date">
+      <x:name xml:lang="en">Last Modified</x:name>
+      <x:name xml:lang="nl">Laatst Gewijzigd</x:name>
+    </x:node>
+    <x:node match="@align">
+      <x:name xml:lang="en">Align</x:name>
+      <x:name xml:lang="en">Plaatsing</x:name>
+      <x:enumeration value="left">
+        <x:name xml:lang="en">Left</x:name>
+        <x:name xml:lang="nl">Links</x:name>
+      </x:enumeration>
+      <x:enumeration value="center">
+        <x:name xml:lang="en">Center</x:name>
+        <x:name xml:lang="nl">Midden</x:name>
+      </x:enumeration>
+      <x:enumeration value="right">
+        <x:name xml:lang="en">Right</x:name>
+        <x:name xml:lang="nl">Rechts</x:name>
+      </x:enumeration>
+    </x:node>
+    <x:node match="example/@show-execute-button">
+      <x:name xml:lang="en">Show Execute Button</x:name>
+      <x:name xml:lang="nl">Toon Uitvoer Knop</x:name>
+    </x:node>
+    <x:node match="anchor/@href">
+      <x:name xml:lang="en">Reference</x:name>
+      <x:name xml:lang="nl">Referentie</x:name>
+      <x:role>hyperlinkreference</x:role>
+      <x:lookup 
+        url="lookup/link/index.html" 
+        forceLookup="false" 
+        autoOpen="true"/>
+    </x:node>
+    
+    
+    <!--elements-->
+    <x:node match="article">
+      <x:name xml:lang="en">Article</x:name>
+      <x:name xml:lang="nl">Artikel</x:name>
+      <x:role>document</x:role>
+    </x:node>
+    <x:node match="section">
+      <x:name xml:lang="en">Section</x:name>
+      <x:name xml:lang="nl">Sectie</x:name>
+      <x:role>section</x:role>
+    </x:node>
+    <x:node match="title">
+      <x:name xml:lang="en">Title</x:name>
+      <x:name xml:lang="nl">Titel</x:name>
+      <x:placeholder>Title</x:placeholder>
+      <x:role>header</x:role>
+    </x:node>
+    <x:node match="introduction">
+      <x:name xml:lang="en">Introduction</x:name>
+      <x:name xml:lang="nl">Introductie</x:name>
+      <x:placeholder>Introduction</x:placeholder>
+    </x:node>
+    <x:node match="paragraph">
+      <x:name xml:lang="en">Paragraph</x:name>
+      <x:name xml:lang="nl">Alinea</x:name>
+      <x:placeholder>Paragraph</x:placeholder>
+      <x:role>paragraph</x:role>
+    </x:node>
+    <x:node match="example">
+      <x:name xml:lang="en">Example</x:name>
+      <x:name xml:lang="nl">Voorbeeld</x:name>
+    </x:node>
+    <x:node match="ordered-list">
+      <x:name xml:lang="en">Ordered List</x:name>
+      <x:name xml:lang="nl">Genummerde Lijst</x:name>
+      <x:role>list</x:role>
+      <x:role>orderedlist</x:role>
+    </x:node>
+    <x:node match="list">
+      <x:name xml:lang="en">List</x:name>
+      <x:name xml:lang="nl">Lijst</x:name>
+      <x:role>list</x:role>
+      <x:role>unorderedlist</x:role>
+    </x:node>
+    <x:node match="item">
+      <x:name xml:lang="en">Item</x:name>
+      <x:name xml:lang="nl">Item</x:name>
+      <x:placeholder>Item</x:placeholder>
+      <x:role>listitem</x:role>
+    </x:node>
+    <x:node match="strong">
+      <x:name xml:lang="en">Strong</x:name>
+      <x:name xml:lang="nl">Vet</x:name>
+      <x:role>strong</x:role>
+    </x:node>
+    <x:node match="emphasis">
+      <x:name xml:lang="en">Emphasis</x:name>
+      <x:name xml:lang="nl">Cursief</x:name>
+      <x:role>emphasis</x:role>
+    </x:node>
+    <x:node match="code">
+      <x:name xml:lang="en">Code</x:name>
+      <x:name xml:lang="nl">Code</x:name>
+      <!-- this role is connected to the button in toolbar.xml, which plays the same role-->
+      <x:role>code</x:role>
+    </x:node>
+    <x:node match="warning">
+      <x:name xml:lang="en">Warning</x:name>
+      <x:name xml:lang="nl">Waarschuwing</x:name>
+      <!-- this role is connected to the button in toolbar.xml, which plays the same role-->
+      <x:role>warning</x:role> 
+    </x:node>
+    <x:node match="underline">
+      <x:name xml:lang="en">Underline</x:name>
+      <x:name xml:lang="nl">Onderstreept</x:name>
+      <x:role>underline</x:role>
+    </x:node>
+    <x:node match="anchor">
+      <x:name xml:lang="en">Anchor</x:name>
+      <x:name xml:lang="nl">Link</x:name>
+      <x:role>hyperlink</x:role>
+    </x:node>
+  </x:nodeConfig>
+  
+</x:config>

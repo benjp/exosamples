@@ -1,0 +1,50 @@
+table.color_blue                                               { background-color:#D2DFF6; }
+.color_blue  th                                                { background-color:#8FB5FB; color:#0258F5; }
+.color_blue  tbody.rowcoloring_alternate  tr.evenorodd_even    { background-color:#FFFFFF; }
+
+table.color_green                                              { background-color:#F2F6E0; }
+.color_green th                                                { background-color:#EAF1BE; color:#619102; }
+.color_green tbody.rowcoloring_alternate  tr.evenorodd_even    { background-color:#FFFFFF; }
+
+table.color_orange                                             { background-color:#F8EAE1; }
+.color_orange th                                               { background-color:#F6B88E; color:#F86401; }
+.color_orange tbody.rowcoloring_alternate tr.evenorodd_even    { background-color:#FFFFFF; }
+
+table.color_grey                                               { background-color:#ECECEC; }
+.color_grey th                                                 { background-color:#D9D9D9; color:#666666; }
+.color_grey tbody.rowcoloring_alternate   tr.evenorodd_even    { background-color:#FFFFFF; }
+
+table.border_row    th, table.border_row    td      { border-bottom:solid 1px #CCCCCC; }
+table.border_column th, table.border_column td      { border-right:solid 1px #CCCCCC; }
+table.border_cell                                   { border:solid #CCCCCC; border-width:1px 0px 0px 1px; }
+table.border_cell   th, table.border_cell   td      { border:solid #CCCCCC; border-width:0px 1px 1px 0px; }
+
+table { margin-bottom: 2em; }
+td, th { padding: 1px 1em; }
+
+.starttag, .endtag
+{
+  height: 14px;  
+  margin: 0px 2px;
+  background-repeat: no-repeat;
+  background-image: url(tag.png);
+  color: #FFFFFF;
+  font-size: 9px;
+  font-weight: normal;
+  text-decoration: none;
+  font-style: normal;
+  font-family: verdana;
+  white-space: nowrap;
+}
+
+.starttag
+{
+  background-position: right;
+  padding: 0px 7px 2px 3px;
+}
+
+.endtag
+{
+  background-position: left;
+  padding: 0px 3px 2px 7px;
+}

@@ -1,0 +1,62 @@
+<article xml:lang="en-us">
+  <title>Advanced Configuration</title>
+  <introduction>There are a few more advanced asdasdsconfiguration options available. </introduction>
+  <section>
+    <title>RoleMapping</title>
+    <paragraph>The roleMapping is foremostly used to configure the buttons in the toolbar. The <strong>bold</strong> button doesn't know which element it represents until it is configured properly. The button is also connected to Ctrl+B, and therefore a proper configuration can make editing a lot smoother. </paragraph>
+    <example xml:space="preserve">&lt;x:roleMapping&gt;
+  &lt;x:element   name="paragraph"  role="paragraph" /&gt;
+  &lt;x:attribute name="align"      role="align" /&gt;
+  ...</example>
+    <paragraph align="left">There are roles for a lot of functionality. These are all described in the <anchor href="https://xopus.com/documentation/developer-guide/reference/xopus-local-configuration/attributes/role.html">documentation</anchor>, but a few of them include:</paragraph>
+    <ordered-list>
+      <item>paragraph</item>
+      <item>table</item>
+      <item>list</item>
+      <item>bold, emphasis, underline</item>
+      <item>image</item>
+    </ordered-list>
+    <paragraph align="left">The paragraph role makes the paragraph act as a default element. This can be seen when inserting a new <code>&lt;section&gt;</code> in this document. The <code>&lt;section&gt;</code> will immediately contain a <code>&lt;title&gt;</code> and <code>&lt;paragraph&gt;</code> even though the Schema for a &lt;section&gt; is defined as a choice between four elements.</paragraph>
+    <paragraph align="left">A number of table roles are defined in order for Xopus to provide extra functionality for adding rows and columns.</paragraph>
+    <paragraph align="left">The list roles, inline element roles and image roles all connect an element to a button, allowing the editor to "turn the element on and off".</paragraph>
+    <paragraph align="left">There are also roles for hiding elements and attributes from the interface, and for configuring certain attributes, such as the align attribute on this paragraph. Right click on the paragraph.</paragraph>
+  </section>
+  <section>
+    <title>UI Language</title>
+    <paragraph>The UI language is a setting that is saved in a cookie. Should you want to make sure that users all use the same interface language, you can use the <code>setUILanguage</code> function. This example uses this function in <code>js/editing.js</code>.</paragraph>
+    <example xml:space="preserve">Editor.setUILanguage("en");</example>
+  </section>
+  <section>
+    <title>Exit Xopus</title>
+    <paragraph>As much as Xopus doesn't know what to do when the user presses the save function and you have to configure this in Xopus, you also have to configure the exit function. After configuring either an exit function or exit URL, Xopus will show an exit button in the top right corner, and a button under the Xopus menu.</paragraph>
+    <example xml:space="preserve">Editor.setExitFunction(exitFunction);
+
+function exitFunction()
+{
+  if(confirm("Are you sure you want to quit?"))
+    top.document.location.href = "start.html";
+}</example>
+    <paragraph align="left">The <strong>exit</strong> option to the left of the editor in this example uses the Editor object to call the exit function:</paragraph>
+    <example xml:space="preserve">top.document.getElementById('xopusFrame').contentWindow.Editor.exit();</example>
+  </section>
+  <section>
+    <title>Spell Checker</title>
+    <paragraph>The Xopus Spell Checker depends on the <code>xml:lang</code> attribute in the XML document. This attribute defines what language the document, or a node in the document, is in, and thus tells Xopus which dictionary to load and use. The dictionaries may not be in the download, but can be downloaded <?xm-deletion_mark author='John Doe' time='20090612T133244+0000' data='seperately'?><?xm-insertion_mark_start author='John Doe' time='20090612T133244+0000'?>separately<?xm-insertion_mark_end ?> from <anchor href="http://xopus.com/files/dictionaries/dictionaries.zip">http://xopus.com</anchor>. </paragraph>
+    <paragraph align="left">This document uses an <code>xml:lang</code> attribute:</paragraph>
+    <example xml:space="preserve">&lt;article xml:lang="en-us"&gt;
+  &lt;title&gt;Using the API&lt;/title&gt;</example>
+    <paragraph align="left">When you press the spell checking button, the US English dictionary will be loaded.</paragraph>
+  </section>
+  <section>
+    <title>Change Tracking</title>
+    <paragraph>Change tracking is only available in Xopus 4. There are two configuration options available. The first one can be found in <code><?xm-deletion_mark author='John Doe' time='20090612T132400+0000' data='config/config.xml'?><?xm-insertion_mark_start author='John Doe' time='20090612T132400+0000'?>xopus-island.aspx<?xm-insertion_mark_end ?></code> in this example:</paragraph>
+    <example xml:space="preserve">&lt;x:changeTracking&gt;
+  &lt;x:enabled&gt;false&lt;/x:enabled&gt;
+&lt;/x:changeTracking&gt;</example>
+    <paragraph align="left">Change tracking is disabled for this example<?xm-insertion_mark_start author='John Doe' time='20090612T132436+0000'?>, but not for this file<?xm-insertion_mark_end ?>. <?xm-deletion_mark author='John Doe' time='20090612T132727+0000' data='Should'?><?xm-insertion_mark_start author='John Doe' time='20090612T132727+0000'?>When<?xm-insertion_mark_end ?> it <?xm-deletion_mark author='John Doe' time='20090612T132735+0000' data='be'?><?xm-insertion_mark_start author='John Doe' time='20090612T132735+0000'?>is<?xm-insertion_mark_end ?> enabled, you can set the name of the user for Change Tracking:</paragraph>
+    <example xml:space="preserve">&lt;x:javascript&gt;
+  Editor.ChangeTracking.setUserName("John Doe");
+&lt;/x:javascript&gt;</example>
+    <paragraph align="left">This example above <?xm-deletion_mark author='John Doe' time='20090612T132426+0000' data='can be'?><?xm-insertion_mark_start author='John Doe' time='20090612T132426+0000'?>is<?xm-insertion_mark_end ?> added to the island to get user names into the change tracking.<?xm-insertion_mark_start author='John Doe' time='20090612T132644+0000'?> Press the "Show Changes" button in the toolbar to make the changes to this file visible.<?xm-insertion_mark_end ?></paragraph>
+  </section>
+</article>

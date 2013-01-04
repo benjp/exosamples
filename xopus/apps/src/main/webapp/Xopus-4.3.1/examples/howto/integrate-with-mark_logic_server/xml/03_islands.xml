@@ -1,0 +1,42 @@
+<article xml:lang="en-us">
+  <title>Creating an Xopus Island</title>
+  <introduction>​The Xopus island contains references to the XML, Schema and XSL files that are used for editing. It can also contains refences to configuration files, Javascript files for API calls, and CSS for styling of the editable page.</introduction>
+  <paragraph align="left">An island looks like this: </paragraph>
+  <example xml:space="preserve">&lt;div xopus="true" autostart="false"&gt;
+  &lt;x:config version="1.0" xmlns:x="http://www.xopus.com/xmlns/config"&gt;
+    &lt;xml&gt;
+      &lt;x:pipeline xml="document.xml" xsd="schema.xsd"&gt;
+        &lt;x:view name="WYSIWYG View"&gt;
+          &lt;x:transform xsl="stylesheet.xsl"/&gt;
+        &lt;/x:view&gt; 
+      &lt;/x:pipeline&gt;
+    &lt;/xml&gt;
+  &lt;/x:config&gt;
+&lt;/div&gt;</example>
+  <paragraph>It can be recognized by the <code>xopus="true"</code> attribute. A pipeline is used to reference the XML file, Schema file, and points to XSL files on views. Multiple views can be configured.</paragraph>
+  <section>
+    <title>XML</title>
+    <paragraph>By using a dynamic page to write the island, you can use the same island for different pages. All islands in this example are drawn by <code>xopus-island.aspx</code> which loads the proper XML file by using a querystring parameter.</paragraph>
+  </section>
+  <section>
+    <title>Schema</title>
+    <paragraph>Schema can be changed in the a similar way. This demo using a single schema, but loading a different XML file with a different schema makes no difference for Xopus. Schema's are cached by Xopus, and therefore using a dynamic island makes better use of available memory.</paragraph>
+  </section>
+  <section>
+    <title>XSL and views</title>
+    <paragraph>Each view requires a tranformation. Transformations need to reference XSL files. These XSL files are used to draw the XML file as HTML in the editor. The <code>output</code> of the XSL needs to be valid XHTML.</paragraph>
+    <paragraph>A special transformation (which uses an XSL that is supplied with Xopus) is available through the following configuration:</paragraph>
+    <example xml:space="preserve">&lt;x:view name="Xml View"&gt;
+  &lt;x:treeTransform /&gt;
+&lt;/x:view&gt;</example>
+    <paragraph>This <code>treeTransform</code>, or other XSL's can also be used in conjuction with other XSL files by placing it following another transformation. This allows you to view the output of your XSL as an XML view, enabling you to pinpoint problems in the output.</paragraph>
+  </section>
+  <section>
+    <title>Other options</title>
+    <paragraph>Javascript to be used with the API can be placed in the <code>x:config</code> as follows:</paragraph>
+    <example xml:space="preserve">&lt;x:javascript src="js/editing.js"/&gt;</example>
+    <paragraph>The above example includes<code> js/editing.js</code> on the island. </paragraph>
+    <paragraph>External configuration files, often used for roleMapping configurations can also be referenced:</paragraph>
+    <example xml:space="preserve">&lt;x:import src="config/config.xml"/&gt;</example>
+  </section>
+</article>

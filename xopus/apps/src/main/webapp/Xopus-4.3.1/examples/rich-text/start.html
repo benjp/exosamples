@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rich Text Demo</title>
+
+    <!-- Start Xopus -->
+    <script type="text/javascript" charset="UTF-8" src="../../xopus/xopus.js"></script>
+    <link type="text/css" rel="stylesheet" href="css/style.css"/>
+  </head>
+  <body>
+    <div id="category_options" onclick="event.cancelBubble = true; ;return false;">
+      <div class="boxside-left"></div>
+      <div class="boxside-right"></div>
+    </div>
+    <!-- The Xopus Canvas -->
+    <div xopus="true" autostart="true">
+      <xml>
+        <x:config version="1.0" xmlns:x="http://www.xopus.com/xmlns/config">
+          <x:pipeline xml="content/the-netherlands.xml" xsd="xsd/schema.xsd">
+            <x:view name="WYSIWYG View">
+              <x:transform xsl="xsl/prepareXIncludes.xsl"/>
+              <x:resolveXIncludes/>
+              <x:transform xsl="xsl/stylesheet.xsl"/>
+            </x:view>
+            <x:view name="XML View">
+              <x:treeTransform/>
+            </x:view>
+          </x:pipeline>
+          <x:javascript src="js/meta.js"/>
+          <x:javascript src="js/internal-navigation.js"/>
+          <x:javascript src="js/save.js"/>
+          <x:import src="config.xml"/>
+        </x:config>
+      </xml>
+    </div>
+
+  </body>
+</html>

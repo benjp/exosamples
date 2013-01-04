@@ -1,0 +1,50 @@
+<x:config version="1.0" xmlns:x="http://www.xopus.com/xmlns/config">
+
+  <x:javascript src="js/recipe.js"/>
+
+  <x:nodeConfig>
+  
+    <x:node match="title|author|description">
+      <x:placeholder>{name}</x:placeholder>
+    </x:node>
+  
+    <x:node match="strong">
+      <x:role>strong</x:role>
+    </x:node>
+    <x:node match="emphasis">
+      <x:role>emphasis</x:role>
+    </x:node>
+    <x:node match="subscript">
+      <x:role>subscript</x:role>
+    </x:node>
+    <x:node match="superscript">
+      <x:role>superscript</x:role>
+    </x:node>
+    <x:node match="linebreak">
+      <x:role>linebreak</x:role>
+    </x:node>
+    
+    <x:node match="paragraph">
+      <x:role>paragraph</x:role>
+    </x:node>
+
+    <x:node match="preparation">
+      <x:role>orderedlist</x:role>
+    </x:node>
+    <x:node match="step">
+      <x:role>listitem</x:role>
+    </x:node>
+    <x:node match="ingredients">
+      <x:role>unorderedlist</x:role>
+    </x:node>
+    <x:node match="ingredient">
+      <x:role>listitem</x:role>
+    </x:node>
+
+  </x:nodeConfig>
+
+  <x:miscellaneous>
+    <x:hideStatusbar>true</x:hideStatusbar>
+  </x:miscellaneous>
+  
+</x:config>

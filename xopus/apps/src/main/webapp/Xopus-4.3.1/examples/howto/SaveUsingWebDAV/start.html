@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <title>Xopus WebDAV Example</title>
+    <link rel="stylesheet" type="text/css" href="../../simple/css/wysiwyg.css"/>
+
+    <!-- Start Xopus -->
+    <script type="text/javascript" src="../../../xopus/xopus.js"></script>
+  </head>
+  <body>
+    <!-- The Xopus Canvas -->
+    <div xopus="true" autostart="true">
+      <xml>
+        <x:config version="1.0" xmlns:x="http://www.xopus.com/xmlns/config">
+          <!-- Register the webdav.js script. -->
+          <x:javascript src="webdav.js"/>
+
+          <x:pipeline xml="document.xml" xsd="schema.xsd">
+            <x:view name="WYSIWYG View">
+              <x:transform xsl="stylesheet.xsl"/>
+            </x:view>
+          </x:pipeline>
+        </x:config>
+      </xml>
+    </div>
+
+  </body>
+</html>

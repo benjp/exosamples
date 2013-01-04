@@ -1,0 +1,26 @@
+<article xml:lang="en-us">
+  <title>Installing Xopus</title>
+  <introduction>You can download Xopus from <anchor href="http://xopus.com/download.html">http://xopus.com</anchor><emphasis> (Use Ctrl+Click to open)</emphasis>. We recommend always working with the latest version, as we are constantly improving our product.</introduction>
+  <paragraph> In the download you can find five folders. These folders should be placed in an folder on your webserver in such a way that you can access <code>xopus/xopus.html</code> from your server.</paragraph>
+  <paragraph>Alternatively, by including <code>xopus.js</code> in a file, Xopus will be loaded around that file when opened in a browser.</paragraph>
+  <section>
+    <title>Config</title>
+    <paragraph>The config folder contains configuration files, and javascript files that are loaded by default. This folder currently does not exist with Xopus 4.</paragraph>
+  </section>
+  <section>
+    <title>Examples</title>
+    <paragraph>In the examples folder you can find several examples that show you different features of Xopus.</paragraph>
+  </section>
+  <section>
+    <title>License</title>
+    <paragraph>This folder contains the license keys for Xopus. By default the localhost and 127.0.0.1 files are present.</paragraph>
+  </section>
+  <section>
+    <title>Resources</title>
+    <paragraph>This folder is used to the dictionary files. It is not always present in the download, but the dictionaries can be downloaded seperately from <anchor href="http://xopus.com/files/dictionaries/dictionaries.zip">http://xopus.com</anchor>.</paragraph>
+  </section>
+  <section>
+    <title>Xopus</title>
+    <paragraph align="left">This folder contains <code>xopus.html</code> and <code>xopus.js</code>, and several other files which form the core of Xopus.</paragraph>
+  </section>
+</article>

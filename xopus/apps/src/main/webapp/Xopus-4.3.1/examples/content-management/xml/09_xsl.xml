@@ -1,0 +1,57 @@
+<article xml:lang="en-us">
+  <title>XSL in Xopus</title>
+  <introduction>Xopus supports a lot of XSL features. There a only a very few things to keep in mind when using an XSL for Xopus, but there is a boatload of tricks you can use to make the XSL work better in Xopus.</introduction>
+  <section>
+    <title>Template Output</title>
+    <paragraph>Every element from the XML that you wish to edit, needs to be represented in the output of the XSL. That means that templates that <code>match</code> on an element should output at least something, even if the element itself is empty. The following XSL could cause problems:</paragraph>
+    <example xml:space="preserve">&lt;xsl:template match="section"&gt;
+  &lt;div&gt;
+    &lt;h2&gt;
+      &lt;xsl:value-of select="title"/&gt;
+    &lt;/h2&gt;
+    ...</example>
+    <paragraph align="left">When the title is empty, the title will not be rendered in the output. It has nothing to represent it. Thus it might be difficult to get the cursor into the element to type a title. Using the following example solves that:</paragraph>
+    <example xml:space="preserve">​&lt;xsl:template match="section"&gt;
+  &lt;div&gt;
+    &lt;xsl:apply-templace /&gt;
+    ...
+
+&lt;xsl:template match="section/title"&gt;
+  &lt;h2&gt;
+    &lt;xsl:apply-templates /&gt;
+  &lt;/h2&gt;
+&lt;/xsl:template&gt;</example>
+    <paragraph align="left">When the title is empty, the <code>&lt;h2&gt;</code> will still represent the title element, this making it much easier to edit.</paragraph>
+  </section>
+  <section>
+    <title>Writing XSL for Xopus</title>
+    <introduction>XSL can be used to hide and show different parts of an XML document. You can think of meta-data and the actual content. It can be used to show more than just WYSUIWYG output, like buttons to add, remove or move elements or to provide more functionality to edit an element.</introduction>
+    <section>
+      <title>API calls from XSL</title>
+      <paragraph>Using a special feature in XSL in Xopus you can make API calls for elements.</paragraph>
+      <example xml:space="preserve">&lt;xsl:template match="date"&gt;
+  &lt;p&gt;&lt;b onclick="editDate(node);"&gt;&lt;xsl:apply-templates/&gt;&lt;/b&gt;&lt;/p&gt;
+&lt;/xsl:template&gt;</example>
+      <paragraph align="left">In the above example <code>editDate</code> is a user defined function. This function gets passed an argument, <code>node</code>. This argument refers to the node of the template, which in this case is the <code>&lt;date&gt;</code> element.</paragraph>
+      <paragraph align="left">The node object is an Xopus DOM <anchor href="http://xopus.com/documentation/developer-guide/reference/xopus-api/objects.html">Object</anchor>, such as an <anchor href="http://xopus.com/documentation/developer-guide/reference/xopus-api/objects/xopuselement.html">XopusElement</anchor>.</paragraph>
+    </section>
+    <section>
+      <title>Hiding and Showing elements</title>
+      <paragraph>When an XML file becomes large, the output of a simple stylesheet will equally become large, and this can Xopus to slow down. The Xopus Team has successfully used XSL to output the XML in a smarter way. </paragraph>
+      <paragraph align="left">This document, for example has sections. Currently all the sections are layed out, but functionality could be added to hide all sections except one. First we define a parameter in the XSL:</paragraph>
+      <example xml:space="preserve">&lt;xsl:param name="currentNode" select="//section[1]"/&gt;</example>
+      <paragraph align="left">This selects the first section in the document. From then on we can compare other elements to the <code>currentNode</code> parameter using an XPath function.</paragraph>
+      <example xml:space="preserve">&lt;xsl:if test="generate-id($currentNode) = generate-id(.)"&gt;
+  ...
+&lt;/xsl:if&gt;</example>
+      <paragraph align="left">This can then be used in <code>if</code> and <code>choose</code> statements to define what to do when the currentNode matches the current template node. For more information about this, contact <anchor href="mailto:support@xopus.com">support@xopus.com</anchor>.</paragraph>
+      <paragraph align="left">To set the currentNode parameter you can use the API:</paragraph>
+      <example xml:space="preserve">Editor.Canvas.getActiveCanvas().setViewParam("currentNode",node);</example>
+      <paragraph>We can demonstrate this in this example. Execute the following line of code to turn on the hiding of section content. Only section titles will show, unless the currentNode is contained in the section. <warning>Be careful though, most likely <emphasis>this</emphasis> section will be hidden. You can use the table of contents to make it visible again.</warning></paragraph>
+      <example xml:space="preserve" show-execute-button="true">​Editor.Canvas.getActiveCanvas().setViewParam("hideSectionContent","true");</example>
+      <paragraph>Use the following code to turn it off:</paragraph>
+      <example xml:space="preserve" show-execute-button="true">​Editor.Canvas.getActiveCanvas().setViewParam("hideSectionContent","false");</example>
+      <paragraph>Take a good look at the <code>xsl:param</code> elements in the <code>stylesheet.xsl</code>, and at what happens in the <code>&lt;xsl:template match="section"&gt;</code> in that same file.</paragraph>
+    </section>
+  </section>
+</article>

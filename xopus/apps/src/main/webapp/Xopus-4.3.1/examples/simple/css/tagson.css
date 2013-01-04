@@ -1,0 +1,28 @@
+.starttag,
+.endtag
+{
+  height: 14px;  
+  margin: 0px 2px;
+  background-repeat: no-repeat;
+  background-image: url(tag.png);
+  color: #FFFFFF;
+  font-size: 9px;
+  font-weight: normal;
+  text-decoration: none;
+  font-style: normal;
+  font-family: "Bitstream Vera Sans", "Helvetica", "Verdana", sans-serif;
+  white-space: nowrap;
+}
+
+.starttag
+{
+  background-position: right;
+  padding: 0px 7px 2px 3px;
+}
+
+.endtag
+{
+  background-position: left;
+  padding: 0px 3px 2px 7px;
+}
+

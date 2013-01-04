@@ -1,0 +1,39 @@
+body {
+  padding: 8px;
+  font-family: "Tahoma", sans-serif;
+  color: #212326;
+}
+
+
+.xopus-lookup {
+  width:95%;
+  border:solid 1px; border-color:#8A9099 transparent transparent #8A9099;
+}
+
+.xopus-lookup th {
+  border:solid 1px; border-color:transparent #8A9099 #8A9099 transparent;
+  font-size:80%; text-align:left;
+  background-color:#EBEDF0; color:#212326; font-weight:bold; padding:0.3em;
+}
+
+.xopus-lookup td {
+  border:solid 1px; border-color:transparent #8A9099 #8A9099 transparent;
+  font-size:80%; text-align:left;
+  
+  cursor: pointer; 
+  cursor: hand;
+
+  padding:0.3em;
+}
+
+.xopus-selected td { background-color:#296ACC; color:#FFFFFF; font-weight:bold; cursor:default; }
+
+.xopus-hover td { background-color:#296ACC; color: #FFFFFF;}
+
+h1 {
+  height:1.25em; padding:0.5em;
+  margin: 0em 0em 0.75em 0em;
+  font-weight:bold; font-size:120%;
+}
+
+extra, value { display:none; }

@@ -1,0 +1,38 @@
+<html xmlns:svg='http://www.w3.org/2000/svg'>
+  <head>
+    <title>Simple example</title>
+    <link rel="stylesheet" type="text/css" href="css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+
+    <!-- Start Xopus -->
+    <script type="text/javascript" src="../../xopus/xopus.js"></script>
+    <!--[if IE]>
+    <object id='AdobeSVG' classid='clsid:78156a80-c6a1-4bbf-8e6a-3cd390eeb4e2'></object>
+    <?import namespace='svg' implementation='#AdobeSVG'?>  </head>
+    <![endif]-->
+  </head>
+  <body>
+    <!-- The Xopus Canvas -->
+    <div xopus="true" autostart="true">
+      <xml>
+        <config version="1.0" xmlns="http://www.xopus.com/xmlns/config">
+          
+          <pipeline xml="document.xml" xsd="schema.xsd">
+            <view name="WYSIWYG View">
+              <transform xsl="stylesheet.xsl"/>
+            </view>
+            <view name="XML View">
+              <treeTransform/>
+            </view>
+          </pipeline>
+          
+          <import src="config.xml"/>
+          
+          <javascript src="script.js"/>
+
+        </config>
+      </xml>
+    </div>
+
+  </body>
+</html>

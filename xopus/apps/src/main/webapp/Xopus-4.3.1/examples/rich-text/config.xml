@@ -1,0 +1,456 @@
+<?xml version="1.0"?>
+<x:config version="1.0" xmlns:x="http://www.xopus.com/xmlns/config">
+
+  <x:nodeConfig>
+    <x:node match="article">
+      <x:role>document</x:role>
+      <x:name xml:lang="en">Article</x:name>
+      <x:name xml:lang="nl">Artikel</x:name>
+    </x:node>
+
+    <x:node match="meta">
+      <x:name xml:lang="en">Meta</x:name>
+      <x:name xml:lang="nl">Meta</x:name>
+    </x:node>
+
+    <x:node match="author">
+      <x:name xml:lang="en">Author</x:name>
+      <x:name xml:lang="nl">Auteur</x:name>
+    </x:node>
+
+    <x:node match="date">
+      <x:name xml:lang="en">Date</x:name>
+      <x:name xml:lang="nl">Datum</x:name>
+    </x:node>
+
+    <x:node match="categories">
+      <x:name xml:lang="en">Categories</x:name>
+      <x:name xml:lang="nl">Categori&#xEB;n</x:name>
+    </x:node>
+
+    <x:node match="category">
+      <x:role>non-content</x:role>
+      <x:name xml:lang="en">Category</x:name>
+      <x:name xml:lang="nl">Categorie</x:name>
+    </x:node>
+
+    <x:node match="section">
+      <x:role>section</x:role>
+      <x:name xml:lang="en">Section</x:name>
+      <x:name xml:lang="nl">Sectie</x:name>
+    </x:node>
+
+    <x:node match="title">
+      <x:name xml:lang="en">Title</x:name>
+      <x:name xml:lang="nl">Titel</x:name>
+      <x:placeholder>Title</x:placeholder>
+      <x:placeholder xml:lang="nl">Titel</x:placeholder>
+    </x:node>
+
+    <x:node match="h">
+      <x:name xml:lang="en">Header</x:name>
+      <x:name xml:lang="nl">Titel</x:name>
+      <x:placeholder>Header</x:placeholder>
+      <x:placeholder xml:lang="nl">Titel</x:placeholder>
+    </x:node>
+
+    <x:node match="h-sub">
+      <x:name xml:lang="en">Subtitle</x:name>
+      <x:name xml:lang="nl">Ondertitel</x:name>
+      <x:placeholder>Subtitle</x:placeholder>
+      <x:placeholder xml:lang="nl">Titel</x:placeholder>
+   </x:node>
+
+    <x:node match="p">
+      <x:role>paragraph</x:role>
+      <x:name xml:lang="en">Paragraph</x:name>
+      <x:name xml:lang="nl">Alinea</x:name>
+    </x:node>
+    
+    <x:node match="quote">
+      <x:role>quote</x:role>
+      <x:name xml:lang="en">Quote</x:name>
+      <x:name xml:lang="nl">Quote</x:name>
+    </x:node>
+
+    <x:node match="body">
+      <x:name xml:lang="en">Body</x:name>
+      <x:name xml:lang="nl">Broodtekst</x:name>
+    </x:node>
+
+    <x:node match="source">
+      <x:name xml:lang="en">Source</x:name>
+      <x:name xml:lang="nl">Bron</x:name>
+      <x:placeholder>Source</x:placeholder>
+      <x:placeholder xml:lang="nl">Bron</x:placeholder>
+    </x:node>
+
+    <x:node match="note">
+      <x:name xml:lang="en">Note</x:name>
+      <x:name xml:lang="nl">Notitie</x:name>
+    </x:node>
+
+    <x:node match="note/@view">
+      <x:name xml:lang="en">Note Display</x:name>
+      <x:name xml:lang="nl">Notitie Aanzicht</x:name>
+      <x:enumeration value="default">
+        <x:name xml:lang="en">Default</x:name>
+        <x:name xml:lang="nl">Default</x:name>
+      </x:enumeration>
+      <x:enumeration value="below-paragraph">
+        <x:name xml:lang="en">Below Paragraph</x:name>
+        <x:name xml:lang="nl">Onder Paragraaf</x:name>
+      </x:enumeration>
+      <x:enumeration value="below-article">
+        <x:name xml:lang="en">Below Article</x:name>
+        <x:name xml:lang="nl">Onder Artikel</x:name>
+      </x:enumeration>
+    </x:node>
+
+    <x:node match="em">
+      <x:role>emphasis</x:role>
+      <x:name xml:lang="en">Emphasis</x:name>
+      <x:name xml:lang="nl">Nadruk</x:name>
+    </x:node>
+
+    <x:node match="strong">
+      <x:role>strong</x:role>
+      <x:name xml:lang="en">Strong Emphasis</x:name>
+      <x:name xml:lang="nl">Sterke Nadruk</x:name>
+    </x:node>
+
+    <x:node match="u">
+      <x:role>underline</x:role>
+      <x:name xml:lang="en">Underline</x:name>
+      <x:name xml:lang="nl">Onderstreept</x:name>
+    </x:node>
+
+    <x:node match="sub">
+      <x:role>subscript</x:role>
+      <x:name xml:lang="en">Subscript</x:name>
+      <x:name xml:lang="nl">Subscript</x:name>
+    </x:node>
+
+    <x:node match="sup">
+      <x:role>superscript</x:role>
+      <x:name xml:lang="en">Superscript</x:name>
+      <x:name xml:lang="nl">Superscript</x:name>
+    </x:node>
+
+    <x:node match="br">
+      <x:role>linebreak</x:role>
+      <x:name xml:lang="en">Line Break</x:name>
+      <x:name xml:lang="nl">Regel Einde</x:name>
+    </x:node>
+
+    <x:node match="a">
+      <x:role>hyperlink</x:role>
+      <x:name xml:lang="en">Hyperlink</x:name>
+      <x:name xml:lang="nl">Hyperlink</x:name>
+    </x:node>
+
+    <x:node match="a/@target">
+      <x:name xml:lang="en">Target</x:name>
+      <x:name xml:lang="nl">Doel</x:name>
+    </x:node>
+
+    <x:node match="figure">
+      <x:name xml:lang="en">Figure</x:name>
+      <x:name xml:lang="nl">Figuur</x:name>
+    </x:node>
+    
+    <x:node match="video">
+      <x:role>video</x:role>
+      <x:name xml:lang="en">Video</x:name>
+      <x:name xml:lang="nl">Video</x:name>
+    </x:node>
+
+    <x:node match="orgchart">
+      <x:name xml:lang="en">Organisational Chart</x:name>
+      <x:name xml:lang="nl">Organogram</x:name>
+    </x:node>
+
+    <x:node match="person">
+      <x:name xml:lang="en">Person</x:name>
+      <x:name xml:lang="nl">Persoon</x:name>
+    </x:node>
+
+    <x:node match="person/@name">
+      <x:name xml:lang="en">Name</x:name>
+      <x:name xml:lang="nl">Naam</x:name>
+      <x:placeholder>Name</x:placeholder>
+      <x:placeholder xml:lang="nl">Naam</x:placeholder>
+    </x:node>
+
+    <x:node match="person/@division">
+      <x:name xml:lang="en">Division</x:name>
+      <x:name xml:lang="nl">Divisie</x:name>
+    </x:node>
+
+    <x:node match="*/@email">
+      <x:name xml:lang="en">E-Mail Address</x:name>
+      <x:name xml:lang="nl">E-Mailadres</x:name>
+    </x:node>
+
+    <x:node match="img">
+      <x:role>image</x:role>
+      <x:name xml:lang="en">Image</x:name>
+      <x:name xml:lang="nl">Afbeelding</x:name>
+    </x:node>
+
+    <x:node match="*/@width">
+      <x:name xml:lang="en">Width</x:name>
+      <x:name xml:lang="nl">Breedte</x:name>
+    </x:node>
+
+    <x:node match="*/@height">
+      <x:name xml:lang="en">Height</x:name>
+      <x:name xml:lang="nl">Hoogte</x:name>
+    </x:node>
+
+    <x:node match="legend">
+      <x:name xml:lang="en">Caption</x:name>
+      <x:name xml:lang="nl">Onderschrift</x:name>
+    </x:node>
+
+    <x:node match="include">
+      <x:name xml:lang="en">Include Table</x:name>
+      <x:name xml:lang="nl">Invoeg Tabel</x:name>
+    </x:node>
+    
+    <x:node match="ul">
+      <x:role>list</x:role>
+      <x:role>unorderedlist</x:role>
+      <x:name xml:lang="en">Unordered List</x:name>
+      <x:name xml:lang="nl">Ongesorteerde Lijst</x:name>
+    </x:node>
+
+    <x:node match="ol">
+      <x:role>list</x:role>
+      <x:role>orderedlist</x:role>
+      <x:name xml:lang="en">Ordered List</x:name>
+      <x:name xml:lang="nl">Gesorteerde Lijst</x:name>
+    </x:node>
+
+    <x:node match="li">
+      <x:role>listitem</x:role>
+      <x:name xml:lang="en">Item</x:name>
+      <x:name xml:lang="nl">Item</x:name>
+    </x:node>
+
+    <x:node match="table">
+      <x:role>table</x:role>
+      <x:name xml:lang="en">Table</x:name>
+      <x:name xml:lang="nl">Tabel</x:name>
+    </x:node>
+    <x:node match="table/@width">
+      <x:name xml:lang="en">Width</x:name>
+      <x:name xml:lang="nl">Breedte</x:name>
+    </x:node>
+    <x:node match="table/@border">
+      <x:role>tableborder</x:role>
+      <x:name xml:lang="en">Borders</x:name>
+      <x:name xml:lang="nl">Randen</x:name>
+    </x:node>
+    <x:node match="table/@color">
+      <x:role>color</x:role>
+      <x:name xml:lang="en">Color Scheme</x:name>
+      <x:name xml:lang="nl">Kleurenschema</x:name>
+    </x:node>
+    <x:node match="table/@alternaterowcolor">
+      <x:name xml:lang="en">Alternate Row Colors</x:name>
+      <x:name xml:lang="nl">Afwisselende Rijkleuren</x:name>
+    </x:node>
+    <x:node match="table/@cellspacing">
+      <x:role>tablecellspacing</x:role>
+      <x:name xml:lang="en">Space Between Cells</x:name>
+      <x:name xml:lang="nl">Ruimte Tussen Cellen</x:name>
+    </x:node>
+    <x:node match="table/@cellpadding">
+      <x:role>tablecellpadding</x:role>
+      <x:name xml:lang="en">Space In Cells</x:name>
+      <x:name xml:lang="nl">Ruimte Binnen Cellen</x:name>
+    </x:node>
+
+    <x:node match="caption">
+      <x:role>tablecaption</x:role>
+      <x:name xml:lang="en">Caption</x:name>
+      <x:name xml:lang="nl">Tabel Titel</x:name>
+    </x:node>
+
+    <x:node match="tbody">
+      <x:role>tablerowcontainer</x:role>
+      <x:role>tablebody</x:role>
+      <x:name xml:lang="en">Table Body</x:name>
+      <x:name xml:lang="nl">Tabel Romp</x:name>
+    </x:node>
+
+    <x:node match="tr">
+      <x:role>tablerow</x:role>
+      <x:role>tablecellcontainer</x:role>
+      <x:name xml:lang="en">Row</x:name>
+      <x:name xml:lang="nl">Rij</x:name>
+    </x:node>
+
+    <x:node match="td">
+      <x:role>tablecell</x:role>
+      <x:name xml:lang="en">Cell</x:name>
+      <x:name xml:lang="nl">Cel</x:name>
+    </x:node>
+    <x:node match="th">
+      <x:role>tableheadercell</x:role>
+      <x:name xml:lang="en">Header Cell</x:name>
+      <x:name xml:lang="nl">Kop Cel</x:name>
+    </x:node>
+
+    <x:node match="@colspan">
+      <x:role>cellcolspan</x:role>
+      <x:name xml:lang="en">Column Span</x:name>
+      <x:name xml:lang="nl">Kolom Bereik</x:name>
+    </x:node>
+    <x:node match="@rowspan">
+      <x:role>cellrowspan</x:role>
+      <x:name xml:lang="en">Row Span</x:name>
+      <x:name xml:lang="nl">Rij Bereik</x:name>
+    </x:node>
+
+    <x:node match="img/@src">
+      <x:lookup 
+        url="lookup/flickr/flickr.html?width=770&amp;height=340" 
+        forceLookup="false" 
+        autoOpen="true"/>
+      <x:name xml:lang="en">Source</x:name>
+      <x:name xml:lang="nl">Bron</x:name>
+    </x:node>
+    
+    <x:node match="video/@src">
+      <x:lookup 
+        url="lookup/youtube/youtube.html?width=770&amp;height=340" 
+        forceLookup="false" 
+        autoOpen="true"/>
+      <x:name xml:lang="en">Source</x:name>
+      <x:name xml:lang="nl">Bron</x:name>
+    </x:node>
+    
+    <x:node match="include/@src">
+      <x:lookup 
+        url="lookup/include/include.html?width=500&amp;height=340" 
+        forceLookup="true" 
+        autoOpen="true"/>
+      <x:name xml:lang="en">Source</x:name>
+      <x:name xml:lang="nl">Bron</x:name>
+    </x:node>
+
+    <x:node match="@href">
+      <x:role>hyperlinkreference</x:role>
+      <x:lookup 
+        url="lookup/link/index.html" 
+        forceLookup="false" 
+        autoOpen="true"/>
+      <x:name xml:lang="en">URL</x:name>
+      <x:name xml:lang="nl">URL</x:name>
+    </x:node>
+
+    <x:node match="*/@section-numbering">
+      <x:name xml:lang="en">Section Numbering</x:name>
+      <x:name xml:lang="nl">Hoofdstuknummering</x:name>
+    </x:node>
+    
+    <x:node match="*/@figure-numbering">
+      <x:name xml:lang="en">Figure Numbering</x:name>
+      <x:name xml:lang="nl">Figuurnummering</x:name>
+    </x:node>
+
+    <x:node match="section/@view">
+      <x:name xml:lang="en">Content View</x:name>
+      <x:name xml:lang="nl">Inhoud Aanzicht</x:name>
+      <x:enumeration value="normal">
+        <x:name xml:lang="en">Normal</x:name>
+        <x:name xml:lang="nl">Normaal</x:name>
+      </x:enumeration>
+      <x:enumeration value="list">
+        <x:name xml:lang="en">List</x:name>
+        <x:name xml:lang="nl">Lijst</x:name>
+      </x:enumeration>
+      <x:enumeration value="accordion">
+        <x:name xml:lang="en">Accordion</x:name>
+        <x:name xml:lang="nl">Accordeon</x:name>
+      </x:enumeration>
+      <x:enumeration value="tabs">
+        <x:name xml:lang="en">Tabs</x:name>
+        <x:name xml:lang="nl">Tabs</x:name>
+      </x:enumeration>
+    </x:node>
+
+    <x:node match="*/@border-type">
+      <x:name xml:lang="en">Border Type</x:name>
+      <x:name xml:lang="nl">Randtype</x:name>
+      <x:enumeration value="none">
+        <x:name xml:lang="en">No Border</x:name>
+        <x:name xml:lang="nl">Geen Rand</x:name>
+      </x:enumeration>
+      <x:enumeration value="solid">
+        <x:name xml:lang="en">Soft Border</x:name>
+        <x:name xml:lang="nl">Zachte Rand</x:name>
+      </x:enumeration>
+      <x:enumeration value="smooth">
+        <x:name xml:lang="en">Hard Border</x:name>
+        <x:name xml:lang="nl">Harde Rand</x:name>
+      </x:enumeration>
+      <x:enumeration value="soft">
+        <x:name xml:lang="en">Soft Shadowed Border</x:name>
+        <x:name xml:lang="nl">Zachte Rand Met Schaduw</x:name>
+      </x:enumeration>
+      <x:enumeration value="hard">
+        <x:name xml:lang="en">Hard Shadowed Border</x:name>
+        <x:name xml:lang="nl">Harde Rand Met Schaduw</x:name>
+      </x:enumeration>
+    </x:node>
+
+    <x:node match="*/@text-align">
+      <x:role>align</x:role>
+      <x:name xml:lang="en">Text Alignment</x:name>
+      <x:name xml:lang="nl">Tekstuitlijning</x:name>
+      <x:enumeration value="left">
+        <x:name xml:lang="en">Left</x:name>
+        <x:name xml:lang="nl">Links</x:name>
+      </x:enumeration>
+      <x:enumeration value="right">
+        <x:name xml:lang="en">Right</x:name>
+        <x:name xml:lang="nl">Rechts</x:name>
+      </x:enumeration>
+      <x:enumeration value="center">
+        <x:name xml:lang="en">Center</x:name>
+        <x:name xml:lang="nl">Centreren</x:name>
+      </x:enumeration>
+      <x:enumeration value="justify">
+        <x:name xml:lang="en">Justify</x:name>
+        <x:name xml:lang="nl">Uitvullen</x:name>
+      </x:enumeration>
+    </x:node>
+
+    <x:node match="*/@align">
+      <x:role>mediaalign</x:role>
+      <x:name xml:lang="en">Alignment</x:name>
+      <x:name xml:lang="nl">Uitlijning</x:name>
+      <x:enumeration value="left">
+        <x:name xml:lang="en">Left</x:name>
+        <x:name xml:lang="nl">Links</x:name>
+      </x:enumeration>
+      <x:enumeration value="right">
+        <x:name xml:lang="en">Right</x:name>
+        <x:name xml:lang="nl">Rechts</x:name>
+      </x:enumeration>
+      <x:enumeration value="center">
+        <x:name xml:lang="en">Center</x:name>
+        <x:name xml:lang="nl">Centreren</x:name>
+      </x:enumeration>
+    </x:node>
+  
+  </x:nodeConfig>
+ 
+  <x:miscellaneous>
+    <x:useSchemaOrderInUI>true</x:useSchemaOrderInUI>
+  </x:miscellaneous>
+
+</x:config>

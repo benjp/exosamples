@@ -1,0 +1,87 @@
+.xopus-menu *
+{
+  margin:0;
+  padding:0;
+  text-align:left;
+}
+
+.xopus-menu
+{
+  -moz-user-select:none;
+  -moz-user-focus:none;
+  -moz-user-input:disabled;
+  border: solid 1px; border-color:#006184 #006184 #006184 #006184;
+  font-family: verdana; font-size:12px;
+  z-index: 42;
+  position: absolute;
+}
+
+.xopus-menu-inner
+{
+
+  -moz-box-sizing:border-box;
+  margin:0px;
+  border:solid 1px; border-color:white #016085 #016085 white;
+  padding:1px;
+  background:#F0F4F7 url(../images/bgmenu.gif) repeat-y;
+}
+
+.xopus-menu-contentcontainer
+{
+  -moz-box-sizing:content-box;
+  scrollbar-arrow-color:#425A80;
+  scrollbar-base-color:#FF0000;
+  scrollbar-face-color:#86A8C2;
+  scrollbar-3dlight-color:#F0F4F7;
+  scrollbar-highlight-color:#E0EFF0;
+  scrollbar-darkshadow-color:#51936E;
+  scrollbar-shadow-color:#F0F4F7;
+  scrollbar-track-color:#F0F4F7;
+}
+
+.xopus-menu-item
+{
+  display:block;
+  height:1.2em;
+  padding:2px 5px 2px 5px;
+  cursor:default;
+  whitespace:no-wrap;
+  color:black;
+  text-decoration:none;
+}
+
+.xopus-menu-item-link         { color:blue; cursor:hand; }
+.xopus-menu-item-hover        { background-color:#86A8C2; cursor:hand; }
+.xopus-menu-item-selected     { background-color:#466882; cursor:default;}
+
+.xopus-menu-spacer            { width:0.25em; font-size:1px; text-decoration:none; }
+
+.xopus-menu-separator         { width:100%; }
+.xopus-menu-separator span
+{
+  border:solid #60A0B5; border-width:1px 0px 0px 0px;
+  width:100%; height:2px;
+  overflow:hidden;
+  background-color:#FFFFFF;
+  margin:3px 0px 2px 0px;
+}
+
+.xopus_menu_item   img,
+.xopus_menu_item_dis img      { margin:0.15em 1px 0em 1px; }
+
+.xopus_menu_check_nop span    { font-family:serif; font-size:140%; width:0.8em; }
+.xopus_menu_check_moz span    { font-family:webdings; font-size:140%; }
+.xopus_menu_check_ie span     { font-family:marlett; font-size:140%; position:relative; top:2px; }
+.xopus_menu_bullit span       { font-size:140%; padding:0em 0em 0em 2px; position:relative; top:-0.05em; }
+.xopus_menu_bullit>span       { margin-right:2px; }
+.xopus_menu_more span         { font-family:webdings; font-size:80%; position:relative; top:-1px; }
+
+body.ie .xopus_menu_icon_dis  { filter:alpha(opacity=30); }
+body.moz .xopus_menu_icon_dis { }
+
+.xopus_menu_content           { padding:0em 0.3em 0em 0.3em; }
+
+.xopus_menu_more              { padding-right:0.2em; padding-top:0.2em; }
+
+.xopus-menu-item-hover        { color:white; }
+.xopus-menu-item-selected     { color:white; }

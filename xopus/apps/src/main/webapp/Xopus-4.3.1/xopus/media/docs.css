@@ -1,0 +1,44 @@
+html, body {
+  background: #f0f0f0 url("side-bg.png") repeat-y;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: url("sdl-logo.gif") 20px 20px no-repeat;
+  padding: 18px 16px 100px 270px;
+  max-width: 600px;
+}
+
+html, a { color: #212326; }
+.yup  { background: #afa; color: #000; }
+.nope { background: #fcc; color: #000; }
+
+
+
+html, body {
+  font-family: "Stone Sans", Arial, sans-serif;
+  font-size: 11px;
+}
+h1 { font-size: 150%; color: #005941; }
+h2 { font-size: 120%;  color: #005941; }
+h3, h4, h5, h6 { font-size: 100%;  color: #005941; }
+p, li, td { line-height: 18px; }
+
+
+
+h4, h5, h6, p { margin: 1em 0; }
+h3, h2 { margin: 1.2em 0 0.8em; }
+h1 { margin: 0 0 1em; }
+ul, ul li { margin-top: 1em; margin-bottom: 1em; }
+
+table { margin-bottom: 2em; }
+
+td, th { text-align: left; }
+
+.requirements th { padding: 3px; }
+.requirements td { text-align: center; }
+
+abbr { border: 0; }
+
+a { cursor: pointer; }

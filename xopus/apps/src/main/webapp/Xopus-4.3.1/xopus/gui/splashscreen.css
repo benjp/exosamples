@@ -1,0 +1,213 @@
+html,
+body
+{
+  height: 100%;
+  overflow: hidden;
+}
+
+.splashscreen
+{
+  position: absolute;
+  z-index: 10000000;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+}
+.carbon .splashscreen
+{
+  background: #475366; /* Old browsers */
+  background: -moz-linear-gradient(top,  #404e60 0%, #6c7f99 40%, #6c7f99 60%, #404e60 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#404e60), color-stop(40%,#6c7f99), color-stop(60%,#6c7f99), color-stop(100%,#404e60)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  #404e60 0%,#6c7f99 40%,#6c7f99 60%,#404e60 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  #404e60 0%,#6c7f99 40%,#6c7f99 60%,#404e60 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  #404e60 0%,#6c7f99 40%,#6c7f99 60%,#404e60 100%); /* IE10+ */
+  background: linear-gradient(top,  #404e60 0%,#6c7f99 40%,#6c7f99 60%,#404e60 100%); /* W3C */
+}
+
+.showingAboutXopus .splashscreen,
+.carbon.showingAboutXopus .splashscreen
+{
+  background: transparent;
+}
+
+.splashscreen-mask
+{
+  position: absolute;
+  z-index:10;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: #F4F6F7; /* compensated, same as transparent mask on white bg */
+}
+.carbon .splashscreen-mask
+{
+  background: transparent url('carbon/splashscreen_overlay.jpg') 50% 50% repeat-x;
+}
+
+.xopus.showingAboutXopus .splashscreen-mask
+{
+  background: #EAEEF0;
+  opacity:0.5;
+  filter:alpha(opacity=50);
+}
+.carbon.showingAboutXopus .splashscreen-mask
+{
+  background: #2E3033;
+  opacity:0.5;
+  filter:alpha(opacity=50);  
+}
+
+.splashscreen-box
+{
+  position: absolute;
+  z-index:20;
+  top: 50%; left: 50%;
+  margin: -185px 0 0 -245px;
+  padding:60px 35px 20px 270px;
+  width:185px; height:291px;
+  background: url("xopus/splashscreen.png") no-repeat;
+  font-family: "Verdana", sans-serif;
+  font-size: 11px;
+  color: #00446F;
+}
+.carbon .splashscreen-box
+{
+  margin: -127px 0 0 -234px;
+  padding: 30px 30px 0 180px;
+  width:258px; height:223px;
+  background: url('carbon/splashscreen_box.png') no-repeat;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  color: #FFF;  
+}
+.carbon.showingAboutXopus .splashscreen-box
+{
+  background: url('carbon/about_box.png') no-repeat;
+     -moz-box-shadow: 2px 2px 6px -5px #000;
+  -webkit-box-shadow: 2px 2px 6px -5px #000;
+          box-shadow: 2px 2px 6px -5px #000;  
+}
+
+.splashscreen-box a
+{
+  color: #828486;
+}
+.carbon .splashscreen-box a
+{
+  color: #FAFAFA;
+}
+
+.splashReleaseNotes a,
+.splashLegal a,
+.splashVisitXopus a { display:none; }
+.showingAboutXopus .splashLoading .splashscreen-indicator,
+.showingAboutXopus .splashLoading .splashscreen-indicatorlabel
+{
+  display: none;
+}
+.showingAboutXopus .splashLoading
+{
+  top: 0px;
+  visibility: hidden;
+}
+.showingAboutXopus .splashscreen-box a { display:inline; }
+
+                   .splashscreen { display: none; }
+.xopusLoading      .splashscreen { display: block; }
+.showingAboutXopus .splashscreen { display: block; }
+
+.splashLogo
+{
+  display: none;
+}
+.carbon .splashLogo
+{
+  display: block;
+  width: 91px;
+  height: 24px;
+  background: url('carbon/xopus_logo.png') no-repeat;
+  margin-bottom: 12px;
+}
+
+.splashName
+{
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+.carbon .splashName
+{
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.splashVersion
+{
+  font-size: 11px;
+  display: block;
+}
+.carbon .splashVersion
+{
+  font-size: 10px;
+  display: block;
+  font-weight: normal;
+}
+
+.splashReleased,
+.splashCopyright
+{
+  margin: 6px 0;
+}
+
+.splashLegal
+{
+  margin: 6px 0 27px;
+}
+
+.splashCopyright,
+.splashLegal
+{
+  font-size: 10px;
+}
+
+.splashVisitXopus
+{
+  position: absolute;
+  bottom: 30px;
+}
+.carbon .splashVisitXopus
+{
+  bottom: 17px;
+}
+
+.splashLoading
+{
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+}
+.carbon .splashLoading
+{
+  left: 180px;
+  height: 24px;
+  line-height: 24px;
+}
+
+.splashscreen-indicator
+{
+  display: inline-block;  
+  width: 24px; height: 24px;
+  background: url('xopus/loading.gif') no-repeat;
+  vertical-align: middle;
+}
+.carbon .splashscreen-indicator
+{
+  background: url('carbon/loading.gif') no-repeat;  
+}
+
+.splashscreen-indicatorlabel
+{
+  display: none;
+}
+.carbon .splashscreen-indicatorlabel
+{
+  display: inline;
+  margin-left: 5px;
+}

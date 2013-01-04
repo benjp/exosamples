@@ -1,0 +1,562 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="recipe">
+    <xs:annotation>
+      <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Recipe</xopus:name>
+          <xopus:name xml:lang="nl">Recept</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="preparationTime" type="durationType">
+          <xs:annotation>
+            <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+              <xopus:documentation>
+                <xopus:name xml:lang="en">Preparation Time</xopus:name>
+                <xopus:name xml:lang="nl">Bereidingstijd</xopus:name>
+              </xopus:documentation>
+            </xs:appinfo>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="servings" type="xs:positiveInteger">
+          <xs:annotation>
+            <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+              <xopus:documentation>
+                <xopus:name xml:lang="en">Servings</xopus:name>
+                <xopus:name xml:lang="nl">Porties</xopus:name>
+              </xopus:documentation>
+            </xs:appinfo>
+          </xs:annotation>
+        </xs:element>
+        <xs:element ref="category" />
+        <xs:element name="title" type="plainType">
+          <xs:annotation>
+            <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+              <xopus:documentation>
+                <xopus:name xml:lang="en">Title</xopus:name>
+                <xopus:name xml:lang="nl">Titel</xopus:name>
+              </xopus:documentation>
+            </xs:appinfo>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="author" type="xs:string" minOccurs="0">
+          <xs:annotation>
+            <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+              <xopus:documentation>
+                <xopus:name xml:lang="en">Author</xopus:name>
+                <xopus:name xml:lang="nl">Auteur</xopus:name>
+              </xopus:documentation>
+            </xs:appinfo>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="description" type="plainType" minOccurs="0">
+          <xs:annotation>
+            <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+              <xopus:documentation>
+                <xopus:name xml:lang="en">Description</xopus:name>
+                <xopus:name xml:lang="nl">Beschrijving</xopus:name>
+              </xopus:documentation>
+            </xs:appinfo>
+          </xs:annotation>
+        </xs:element>
+        <xs:element ref="ingredients" minOccurs="0" />
+        <xs:element ref="preparation" minOccurs="0" />
+        <xs:element name="history" type="plainType" minOccurs="0">
+          <xs:annotation>
+            <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+              <xopus:documentation>
+                <xopus:name xml:lang="en">History</xopus:name>
+                <xopus:name xml:lang="nl">Geschiedenis</xopus:name>
+              </xopus:documentation>
+            </xs:appinfo>
+          </xs:annotation>
+        </xs:element>        
+        <xs:element ref="tips" minOccurs="0" />
+        <xs:element ref="nutrition" minOccurs="0" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="durationType">
+    <xs:sequence>
+      <xs:element name="amount" type="xs:nonNegativeInteger">
+        <xs:annotation>
+          <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+            <xopus:documentation>
+              <xopus:name xml:lang="en">Amount</xopus:name>
+              <xopus:name xml:lang="nl">Hoeveelheid</xopus:name>
+            </xopus:documentation>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="unit">
+        <xs:annotation>
+          <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+            <xopus:documentation>
+              <xopus:name xml:lang="en">Unit</xopus:name>
+              <xopus:name xml:lang="nl">Eenheid</xopus:name>
+            </xopus:documentation>
+          </xs:appinfo>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="seconds">
+              <xs:annotation>
+                <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+                  <xopus:documentation>
+                    <xopus:name xml:lang="en">Seconds</xopus:name>
+                    <xopus:name xml:lang="nl">Seconden</xopus:name>
+                  </xopus:documentation>
+                </xs:appinfo>
+              </xs:annotation>
+            </xs:enumeration>      
+            <xs:enumeration value="minutes">
+              <xs:annotation>
+                <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+                  <xopus:documentation>
+                    <xopus:name xml:lang="en">Minutes</xopus:name>
+                    <xopus:name xml:lang="nl">Minuten</xopus:name>
+                  </xopus:documentation>
+                </xs:appinfo>
+              </xs:annotation>
+            </xs:enumeration>      
+            <xs:enumeration value="hours">
+              <xs:annotation>
+                <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+                  <xopus:documentation>
+                    <xopus:name xml:lang="en">Hours</xopus:name>
+                    <xopus:name xml:lang="nl">Uren</xopus:name>
+                  </xopus:documentation>
+                </xs:appinfo>
+              </xs:annotation>
+            </xs:enumeration>      
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="plainType" mixed="true">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="subscript" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+            <xopus:documentation>
+              <xopus:name xml:lang="en">Subscript</xopus:name>
+              <xopus:name xml:lang="nl">Onderschrift</xopus:name>
+            </xopus:documentation>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="superscript" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+            <xopus:documentation>
+              <xopus:name xml:lang="en">Superscript</xopus:name>
+              <xopus:name xml:lang="nl">Bovenschrift</xopus:name>
+            </xopus:documentation>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element ref="linebreak"/>
+    </xs:choice>
+  </xs:complexType>
+
+  <xs:complexType name="energyType">
+    <xs:sequence>
+      <xs:element name="amount" type="xs:nonNegativeInteger">
+        <xs:annotation>
+          <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+            <xopus:documentation>
+              <xopus:name xml:lang="en">Amount</xopus:name>
+              <xopus:name xml:lang="nl">Hoeveelheid</xopus:name>
+            </xopus:documentation>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="unit">
+        <xs:annotation>
+          <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+            <xopus:documentation>
+              <xopus:name xml:lang="en">Unit</xopus:name>
+              <xopus:name xml:lang="nl">Eenheid</xopus:name>
+            </xopus:documentation>
+          </xs:appinfo>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="kcal">
+              <xs:annotation>
+                <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+                  <xopus:documentation>
+                    <xopus:name xml:lang="en">kCal</xopus:name>
+                    <xopus:name xml:lang="nl">kCal</xopus:name>
+                  </xopus:documentation>
+                </xs:appinfo>
+              </xs:annotation>
+            </xs:enumeration>      
+            <xs:enumeration value="joules">
+              <xs:annotation>
+                <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+                  <xopus:documentation>
+                    <xopus:name xml:lang="en">Joules</xopus:name>
+                    <xopus:name xml:lang="nl">Joules</xopus:name>
+                  </xopus:documentation>
+                </xs:appinfo>
+              </xs:annotation>
+            </xs:enumeration>      
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="massType">
+    <xs:sequence>
+      <xs:element name="amount" type="xs:nonNegativeInteger">
+        <xs:annotation>
+          <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+            <xopus:documentation>
+              <xopus:name xml:lang="en">Amount</xopus:name>
+              <xopus:name xml:lang="nl">Hoeveelheid</xopus:name>
+            </xopus:documentation>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="unit">
+        <xs:annotation>
+          <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+            <xopus:documentation>
+              <xopus:name xml:lang="en">Unit</xopus:name>
+              <xopus:name xml:lang="nl">Eenheid</xopus:name>
+            </xopus:documentation>
+          </xs:appinfo>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="g">
+              <xs:annotation>
+                <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+                  <xopus:documentation>
+                    <xopus:name xml:lang="en">Grams</xopus:name>
+                    <xopus:name xml:lang="nl">Gram</xopus:name>
+                  </xopus:documentation>
+                </xs:appinfo>
+              </xs:annotation>
+            </xs:enumeration>      
+            <xs:enumeration value="pounds">
+              <xs:annotation>
+                <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+                  <xopus:documentation>
+                    <xopus:name xml:lang="en">Pounds</xopus:name>
+                    <xopus:name xml:lang="nl">Pond</xopus:name>
+                  </xopus:documentation>
+                </xs:appinfo>
+              </xs:annotation>
+            </xs:enumeration>      
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="category">
+    <xs:annotation>
+      <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Category</xopus:name>
+          <xopus:name xml:lang="nl">Categorie</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="breakfast">
+          <xs:annotation>
+            <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+              <xopus:documentation>
+                <xopus:name xml:lang="en">Breakfast</xopus:name>
+                <xopus:name xml:lang="nl">Ontbijt</xopus:name>
+              </xopus:documentation>
+            </xs:appinfo>
+          </xs:annotation>
+        </xs:enumeration>      
+        <xs:enumeration value="dinner">
+          <xs:annotation>
+            <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+              <xopus:documentation>
+                <xopus:name xml:lang="en">Dinner</xopus:name>
+                <xopus:name xml:lang="nl">Avondeten</xopus:name>
+              </xopus:documentation>
+            </xs:appinfo>
+          </xs:annotation>
+        </xs:enumeration>      
+        <xs:enumeration value="picnic">
+          <xs:annotation>
+            <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+              <xopus:documentation>
+                <xopus:name xml:lang="en">Picnic</xopus:name>
+                <xopus:name xml:lang="nl">Picnic</xopus:name>
+              </xopus:documentation>
+            </xs:appinfo>
+          </xs:annotation>
+        </xs:enumeration>      
+        <xs:enumeration value="christmas">
+          <xs:annotation>
+            <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+              <xopus:documentation>
+                <xopus:name xml:lang="en">Christmas Dinner</xopus:name>
+                <xopus:name xml:lang="nl">Kerst Dinner</xopus:name>
+              </xopus:documentation>
+            </xs:appinfo>
+          </xs:annotation>
+        </xs:enumeration>      
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+
+  <xs:element name="ingredients">
+    <xs:annotation>
+      <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Ingredients</xopus:name>
+          <xopus:name xml:lang="nl">Ingredi&#x00EB;nten</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="ingredient" type="plainType" maxOccurs="unbounded">
+          <xs:annotation>
+            <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+              <xopus:documentation>
+                <xopus:name xml:lang="en">Ingredient</xopus:name>
+                <xopus:name xml:lang="nl">Ingredi&#x00EB;nt</xopus:name>
+              </xopus:documentation>
+            </xs:appinfo>
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="preparation">
+    <xs:annotation>
+      <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Preparation</xopus:name>
+          <xopus:name xml:lang="nl">Bereidingswijze</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="step" type="plainType" maxOccurs="unbounded">
+          <xs:annotation>
+            <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+              <xopus:documentation>
+                <xopus:name xml:lang="en">Step</xopus:name>
+                <xopus:name xml:lang="nl">Stap</xopus:name>
+              </xopus:documentation>
+            </xs:appinfo>
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="tips">
+    <xs:annotation>
+      <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Tips</xopus:name>
+          <xopus:name xml:lang="nl">Tips</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="richWrapperType">
+          <xs:attribute name="hidden" type="xs:boolean">
+            <xs:annotation>
+              <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+                <xopus:documentation>
+                  <xopus:name xml:lang="en">Hidden</xopus:name>
+                  <xopus:name xml:lang="nl">Verborgen</xopus:name>
+                </xopus:documentation>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:attribute>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="nutrition">
+    <xs:annotation>
+      <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Nutrition Facts</xopus:name>
+          <xopus:name xml:lang="nl">Voedingswaarde</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="energy" type="energyType">
+          <xs:annotation>
+            <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+              <xopus:documentation>
+                <xopus:name xml:lang="en">Energy</xopus:name>
+                <xopus:name xml:lang="nl">Energie</xopus:name>
+              </xopus:documentation>
+            </xs:appinfo>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="protein" type="massType">
+          <xs:annotation>
+            <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+              <xopus:documentation>
+                <xopus:name xml:lang="en">Protein</xopus:name>
+                <xopus:name xml:lang="nl">Proteines</xopus:name>
+              </xopus:documentation>
+            </xs:appinfo>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="fat" type="massType">
+          <xs:annotation>
+            <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+              <xopus:documentation>
+                <xopus:name xml:lang="en">Fat</xopus:name>
+                <xopus:name xml:lang="nl">Vet</xopus:name>
+              </xopus:documentation>
+            </xs:appinfo>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="carbohydrates" type="massType">
+          <xs:annotation>
+            <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+              <xopus:documentation>
+                <xopus:name xml:lang="en">Carbo Hydrates</xopus:name>
+                <xopus:name xml:lang="nl">Koolhydraten</xopus:name>
+              </xopus:documentation>
+            </xs:appinfo>
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="hidden" type="xs:boolean">
+        <xs:annotation>
+          <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+            <xopus:documentation>
+              <xopus:name xml:lang="en">Hidden</xopus:name>
+              <xopus:name xml:lang="nl">Verborgen</xopus:name>
+            </xopus:documentation>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+
+
+  <xs:complexType name="richWrapperType">
+    <xs:choice minOccurs="1" maxOccurs="unbounded">
+      <xs:element name="header" type="plainType">
+        <xs:annotation>
+          <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+            <xopus:documentation>
+              <xopus:name xml:lang="en">Header</xopus:name>
+              <xopus:name xml:lang="nl">Kop</xopus:name>
+            </xopus:documentation>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>      
+      <xs:element ref="paragraph" maxOccurs="unbounded"/>
+    </xs:choice>
+  </xs:complexType>
+
+
+  <xs:element name="paragraph" type="richType">
+    <xs:annotation>
+      <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Paragraph</xopus:name>
+          <xopus:name xml:lang="nl">Alinea</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+  </xs:element>
+
+
+
+
+
+  <xs:element name="linebreak">
+    <xs:annotation>
+      <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Line Break</xopus:name>
+          <xopus:name xml:lang="nl">Regeleinde</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexType />
+  </xs:element>
+
+  <xs:element name="emphasis" type="richType">
+    <xs:annotation>
+      <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Emphasis</xopus:name>
+          <xopus:name xml:lang="nl">Nadruk</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+  </xs:element>
+  
+  <xs:element name="strong" type="richType">
+    <xs:annotation>
+      <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Strong Emphasis</xopus:name>
+          <xopus:name xml:lang="nl">Sterke Nadruk</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+  </xs:element>
+  
+  <xs:element name="subscript" type="richType">
+    <xs:annotation>
+      <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Subscript</xopus:name>
+          <xopus:name xml:lang="nl">Subscript</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+  </xs:element>
+  
+  <xs:element name="superscript" type="richType">
+    <xs:annotation>
+      <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Superscript</xopus:name>
+          <xopus:name xml:lang="nl">Superscript</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+  </xs:element>
+  
+  <xs:complexType name="richType" mixed="true">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element ref="strong"/>
+      <xs:element ref="emphasis"/>
+      <xs:element ref="subscript"/>
+      <xs:element ref="superscript"/>
+      <xs:element ref="linebreak"/>
+    </xs:choice>
+  </xs:complexType>
+  
+</xs:schema>

@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="stylesheet.xsl" view="defaultView" ?>
+<recipe xml:lang="en-US">
+  <preparationTime>
+    <amount>2</amount>
+    <unit>minutes</unit>
+  </preparationTime>
+  <servings>1</servings>
+  <category>dinner</category>
+  <title>Traditional Christmas Ham</title>
+  <author>Joanna</author>
+  <description> What is Christmas without a Christmas Ham? Make this year a traditional Christmas and serve the family a deliciously roasted ham with grapes on top.</description>
+  <ingredients>
+    <ingredient>Precooked, tenderized ham (3 kg)</ingredient>
+    <ingredient>1 cup of dark brown sugar</ingredient>
+    <ingredient>2 tablespoons of flour</ingredient>
+    <ingredient>1/2 c. sour cream</ingredient>
+    <ingredient>3 tbsp. brown mustard</ingredient>
+  </ingredients>
+  <preparation>
+    <step>Preheat the oven to 325 degrees</step>
+    <step>Place the ham with fat side up in the middle of the oven, in an open roasting pan and roast until it is brown and tender, probably about 1/2 hour longer than the package calls for. </step>
+    <step>Remove the ham from the oven and increase the oven temperature to 425 degrees. Cut the skin off the ham, leaving 1/2 inch of fat.</step>
+  </preparation>
+  <history>The Christmas Ham is an ancient traditional ingredient in the Finnish and Swedish Christmas celebration and remains as important there as the Christmas tree.</history>
+  <tips>
+    <header>Wine</header>
+    <paragraph>Recommended with ham are wines like a Riesling, even a Gewürztraminer. And as for red wines, a Beaujolais or a Pinot Noir.</paragraph>
+  </tips>
+  <nutrition>
+    <energy>
+      <amount>110</amount>
+      <unit>kcal</unit>
+    </energy>
+    <protein>
+      <amount>0</amount>
+      <unit>pounds</unit>
+    </protein>
+    <fat>
+      <amount>0</amount>
+      <unit>g</unit>
+    </fat>
+    <carbohydrates>
+      <amount>2</amount>
+      <unit>g</unit>
+    </carbohydrates>
+  </nutrition>
+</recipe>

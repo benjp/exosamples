@@ -1,0 +1,133 @@
+<?xml version="1.0"?>
+<table>
+  <tgroup cols="8">
+    <colspec colnum="1" colname="col1" colwidth="80"/>
+    <colspec colnum="2" colname="col2" colwidth="2"/>
+    <colspec colnum="3" colname="col3" colwidth="2"/>
+    <colspec colnum="4" colname="col4" colwidth="2"/>
+    <colspec colnum="5" colname="col5" colwidth="2"/>
+    <colspec colnum="6" colname="col6" colwidth="2"/>
+    <colspec colnum="7" colname="col7" colwidth="2"/>
+    <colspec colnum="8" colname="col8" colwidth="2"/>
+    <tbody>
+      <row>
+        <entry/>
+        <entry>2003</entry>
+        <entry>2004</entry>
+        <entry>2005</entry>
+        <entry>2005</entry>
+        <entry namest="col6" nameend="col8"></entry>
+      </row>
+      <row>
+        <entry namest="col1" nameend="col4"/>
+        <entry>i</entry>
+        <entry>ii</entry>
+        <entry>iii</entry>
+        <entry>iv</entry>
+      </row>
+      <row>
+        <entry>Growth rates</entry>
+        <entry namest="col2" nameend="col8"></entry>
+      </row>
+      <row>
+        <entry>gdp</entry>
+        <entry align="right">-0.1</entry>
+        <entry align="right">1.7</entry>
+        <entry align="right">1.1</entry>
+        <entry align="right">-0.7</entry>
+        <entry align="right">1.2</entry>
+        <entry align="right">0.8</entry>
+        <entry align="right">0.8</entry>
+      </row>
+      <row>
+        <entry>Private consumption</entry>
+        <entry align="right">-0.7</entry>
+        <entry align="right">0.0</entry>
+        <entry align="right">0.3</entry>
+        <entry align="right">-0.1</entry>
+        <entry align="right">0.5</entry>
+        <entry align="right">0.7</entry>
+        <entry align="right">0.1</entry>
+      </row>
+      <row>
+        <entry>Investment</entry>
+        <entry align="right">-3.5</entry>
+        <entry align="right">2.9</entry>
+        <entry align="right">2.2</entry>
+        <entry align="right">-3.1</entry>
+        <entry align="right">4.1</entry>
+        <entry align="right">2.3</entry>
+        <entry align="right">-1.7</entry>
+      </row>
+      <row>
+        <entry>Government consumption</entry>
+        <entry align="right">2.4</entry>
+        <entry align="right">0.0</entry>
+        <entry align="right">0.5</entry>
+        <entry align="right">-0.8</entry>
+        <entry align="right">0.4</entry>
+        <entry align="right">1.3</entry>
+        <entry align="right">0.8</entry>
+      </row>
+      <row>
+        <entry>Exports</entry>
+        <entry align="right">2.0</entry>
+        <entry align="right">8.5</entry>
+        <entry align="right">5.9</entry>
+        <entry align="right">-3.0</entry>
+        <entry align="right">4.1</entry>
+        <entry align="right">1.2</entry>
+        <entry align="right">1.2</entry>
+      </row>
+      <row>
+        <entry>Imports</entry>
+        <entry align="right">2.0</entry>
+        <entry align="right">7.8</entry>
+        <entry align="right">5.1</entry>
+        <entry align="right">-4.4</entry>
+        <entry align="right">4.2</entry>
+        <entry align="right">1.8</entry>
+        <entry align="right">0.9</entry>
+      </row>
+      <row>
+        <entry>Net contributions to gdp growth</entry>
+        <entry namest="col2" nameend="col8"></entry>
+      </row>
+      <row>
+        <entry>Private consumption</entry>
+        <entry align="right">-0.3</entry>
+        <entry align="right">0.2</entry>
+        <entry align="right">0.0 </entry>
+        <entry namest="col5" nameend="col8"/>
+      </row>
+      <row>
+        <entry>Investment</entry>
+        <entry align="right">2</entry>
+        <entry align="right">-0.8</entry>
+        <entry align="right">0.2</entry>
+        <entry namest="col5" nameend="col8"/>
+      </row>
+      <row>
+        <entry>Government consumption</entry>
+        <entry align="right">0.5</entry>
+        <entry align="right">0.0</entry>
+        <entry align="right">0.1</entry>
+        <entry namest="col5" nameend="col8"/>
+      </row>
+      <row>
+        <entry>Inventory build-up</entry>
+        <entry align="right">0.0</entry>
+        <entry align="right">-0.1</entry>
+        <entry align="right">0.5</entry>
+        <entry namest="col5" nameend="col8"/>
+      </row>
+      <row>
+        <entry>Exports</entry>
+        <entry align="right">0.4</entry>
+        <entry align="right">1.2</entry>
+        <entry align="right">0.3 </entry>
+        <entry namest="col5" nameend="col8"/>
+      </row>
+    </tbody>
+  </tgroup>
+</table>

@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="article">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="sectionType">
+          <xs:attribute name="modification_date" type="xs:date" use="optional"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="sectionType">
+    <xs:sequence>
+      <xs:element ref="title"/>
+      <xs:choice>
+        <xs:sequence>
+          <xs:choice>
+            <xs:element ref="introduction"/>
+            <xs:group ref="blockLevelElements" />
+          </xs:choice>
+          <xs:group ref="blockLevelElements" minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+        <xs:element ref="section" />
+      </xs:choice>
+      <xs:element ref="section" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:group name="blockLevelElements">
+    <xs:choice>
+      <xs:element ref="paragraph" />
+      <xs:element ref="example" />
+      <xs:element ref="list" />
+      <xs:element ref="ordered-list" />
+    </xs:choice>
+  </xs:group>  
+
+  <xs:element name="section" type="sectionType"/>
+  
+  <xs:element name="title" type="xs:string"/>
+  
+  <xs:element name="introduction" type="paragraphType"/>
+
+  <xs:element name="paragraph" type="paragraphType"/>
+  
+  <xs:complexType name="paragraphType">
+    <xs:complexContent>
+      <xs:extension base="inlineType">
+        <xs:attribute name="align" default="left">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:enumeration value="left"/>
+              <xs:enumeration value="right"/>
+              <xs:enumeration value="center"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  
+  <xs:element name="example">
+    <xs:complexType mixed="true">
+      <xs:attribute name="show-execute-button" type="xs:boolean" default="false"/>
+    </xs:complexType>
+  </xs:element>
+  
+
+  <xs:element name="ordered-list" type="listType"/>
+  
+  <xs:element name="list" type="listType"/>
+
+  <xs:complexType name="listType">
+    <xs:sequence>
+      <xs:element ref="item" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="item" type="inlineType"/>
+
+  <xs:complexType name="inlineType" mixed="true">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element ref="strong" />
+      <xs:element ref="emphasis" />
+      <xs:element ref="underline" />
+      <xs:element ref="code" />
+      <xs:element ref="warning" />
+      <xs:element ref="anchor" />
+    </xs:choice>
+  </xs:complexType>
+
+  <xs:element name="strong" type="inlineType"/>
+  <xs:element name="emphasis" type="inlineType"/>
+  <xs:element name="code" type="inlineType"/>
+  <xs:element name="warning" type="inlineType"/>
+  <xs:element name="underline" type="inlineType"/>
+  <xs:element name="anchor">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="inlineType">
+          <xs:attribute name="href" type="xs:string" use="required"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>

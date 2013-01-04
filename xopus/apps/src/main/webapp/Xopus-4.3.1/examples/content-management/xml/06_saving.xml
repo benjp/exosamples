@@ -1,0 +1,35 @@
+<article xml:lang="en-us">
+  <title>Saving</title>
+  <introduction>​Saving XML from Xopus requires that you have a save function. Xopus does not save by itself. You can follow the following steps:</introduction>
+  <section>
+    <title>Registering a save function</title>
+    <paragraph>By registering a save function with Xopus, the application will know what to do when saving.</paragraph>
+    <example xml:space="preserve">IO.setSaveXMLFunction(mySaveFunction);</example>
+    <paragraph>​You can find this function in <code>js/save.js</code> of this example.</paragraph>
+  </section>
+  <section>
+    <title>The save function</title>
+    <paragraph>The save function itself receives two arguments, uri and document. A simple example of a save function looks like this:</paragraph>
+    <example xml:space="preserve">function mySaveFunction(uri, xmlDocument)
+{
+  var result = HTTPTools.postXML("save-xml.aspx?" + uri, xmlDocument, "UTF-8");
+  return (result.indexOf("error") == -1);
+}</example>
+    <paragraph>The example above uses the <code>HTTPTools</code> object from the Xopus API to send the <code>xmlDocument</code> to the url in <code>postXML</code>.</paragraph>
+    <paragraph>The third argument is used to convert the XML DOM object back to UTF-8. IE's XML DOM document get a default setting of UTF-16.</paragraph>
+  </section>
+  <section>
+    <title>Server save code</title>
+    <paragraph>On the server, depending on the server language you can catch the <code>xmlDocument</code> and write it back to the database. In the <code>code/save-xml.cs</code> file you can find the following code that saves the XML on the server:</paragraph>
+    <example xml:space="preserve">StreamReader r = new StreamReader(Request.InputStream);
+String xmlStr = r.ReadToEnd();
+documentToSave.LoadXml(xmlStr);
+documentToSave.Save(filePath);</example>
+    <paragraph>Returning a string from the server code allows you to process the success of your save code in Xopus (in the client). A lot of examples of this can be found in the <code>How To</code> folder of the other examples in the download.</paragraph>
+  </section>
+  <section>
+    <title>Permission problems and saving problems</title>
+    <paragraph>The problem can occur that file permissions aren't set. This often happens when working with actual XML files, but with a database that you save to, similar things might happen. Sessions may expire, which then prevent saving. </paragraph>
+    <paragraph align="left">To solve these problems, it is is best to check the result that comes back from teh <code>HTTPTools</code> function. You could let the server return a value that indicates an expired session, and consequently show a login dialog to allow the user to continue working, and prevent the loss of data.</paragraph>
+  </section>
+</article>

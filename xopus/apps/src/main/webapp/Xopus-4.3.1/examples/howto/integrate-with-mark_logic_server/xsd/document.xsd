@@ -1,0 +1,299 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="article">
+    <xs:annotation>
+      <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Article</xopus:name>
+          <xopus:name xml:lang="nl">Artikel</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="sectionType">
+          <xs:attribute name="modification_date" type="xs:date" use="optional">
+            <xs:annotation>
+              <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+                <xopus:documentation>
+                  <xopus:name xml:lang="en">Last Modified</xopus:name>
+                  <xopus:name xml:lang="nl">Laatst Gewijzigd</xopus:name>
+                </xopus:documentation>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:attribute>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="sectionType">
+    <xs:sequence>
+      <xs:element ref="title"/>
+      <xs:choice>
+        <xs:sequence>
+          <xs:choice>
+            <xs:element ref="introduction"/>
+            <xs:group ref="blockLevelElements" />
+          </xs:choice>
+          <xs:group ref="blockLevelElements" minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+        <xs:element ref="section" />
+      </xs:choice>
+      <xs:element ref="section" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:group name="blockLevelElements">
+    <xs:choice>
+      <xs:element ref="paragraph" />
+      <xs:element ref="example" />
+      <xs:element ref="list" />
+      <xs:element ref="ordered-list" />
+    </xs:choice>
+  </xs:group>  
+
+  <xs:element name="section" type="sectionType">
+    <xs:annotation>
+      <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Section</xopus:name>
+          <xopus:name xml:lang="nl">Section</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+  </xs:element>
+  
+  <xs:element name="title" type="xs:string">
+    <xs:annotation>
+      <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Title</xopus:name>
+          <xopus:name xml:lang="nl">Titel</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+  </xs:element>
+  
+  <xs:element name="introduction" type="paragraphType">
+    <xs:annotation>
+      <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Introduction</xopus:name>
+          <xopus:name xml:lang="nl">Introductie</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:element name="paragraph" type="paragraphType">
+    <xs:annotation>
+      <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Paragraph</xopus:name>
+          <xopus:name xml:lang="nl">Alinea</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+  </xs:element>
+  
+  <xs:complexType name="paragraphType">
+    <xs:complexContent>
+      <xs:extension base="inlineType">
+        <xs:attribute name="align" default="left">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:enumeration value="left">
+                <xs:annotation>
+                  <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+                    <xopus:documentation>
+                      <xopus:name xml:lang="en">Left</xopus:name>
+                      <xopus:name xml:lang="nl">Links</xopus:name>
+                    </xopus:documentation>
+                  </xs:appinfo>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="right">
+                <xs:annotation>
+                  <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+                    <xopus:documentation>
+                      <xopus:name xml:lang="en">Right</xopus:name>
+                      <xopus:name xml:lang="nl">Rechts</xopus:name>
+                    </xopus:documentation>
+                  </xs:appinfo>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="center">
+                <xs:annotation>
+                  <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+                    <xopus:documentation>
+                      <xopus:name xml:lang="en">Center</xopus:name>
+                      <xopus:name xml:lang="nl">Midden</xopus:name>
+                    </xopus:documentation>
+                  </xs:appinfo>
+                </xs:annotation>
+              </xs:enumeration>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  
+  <xs:element name="example">
+    <xs:annotation>
+      <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Example</xopus:name>
+          <xopus:name xml:lang="nl">Voorbeeld</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexType mixed="true">
+      <xs:attribute name="show-execute-button" type="xs:boolean" default="false">
+        <xs:annotation>
+          <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+            <xopus:documentation>
+              <xopus:name xml:lang="en">Show Execute Button</xopus:name>
+              <xopus:name xml:lang="nl">Toon Uitvoer Knop</xopus:name>
+            </xopus:documentation>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  
+
+  <xs:element name="ordered-list" type="listType">
+    <xs:annotation>
+      <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Ordered List</xopus:name>
+          <xopus:name xml:lang="nl">Genummerde Lijst</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+  </xs:element>
+  
+  <xs:element name="list" type="listType">
+    <xs:annotation>
+      <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+        <xopus:documentation>
+          <xopus:name xml:lang="en">List</xopus:name>
+          <xopus:name xml:lang="nl">Lijst</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:complexType name="listType">
+    <xs:sequence>
+      <xs:element ref="item" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="item" type="inlineType">
+    <xs:annotation>
+      <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Item</xopus:name>
+          <xopus:name xml:lang="nl">Item</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:complexType name="inlineType" mixed="true">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element ref="strong" />
+      <xs:element ref="emphasis" />
+      <xs:element ref="underline" />
+      <xs:element ref="code" />
+      <xs:element ref="warning" />
+      <xs:element ref="anchor" />
+    </xs:choice>
+  </xs:complexType>
+
+  <xs:element name="strong" type="inlineType">
+    <xs:annotation>
+      <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Strong</xopus:name>
+          <xopus:name xml:lang="nl">Vet</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:element name="emphasis" type="inlineType">
+    <xs:annotation>
+      <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Emphasis</xopus:name>
+          <xopus:name xml:lang="nl">Cursief</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:element name="code" type="inlineType">
+    <xs:annotation>
+      <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Code</xopus:name>
+          <xopus:name xml:lang="nl">Code</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:element name="warning" type="inlineType">
+    <xs:annotation>
+      <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Warning</xopus:name>
+          <xopus:name xml:lang="nl">Waarschuwing</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:element name="underline" type="inlineType">
+    <xs:annotation>
+      <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Underline</xopus:name>
+          <xopus:name xml:lang="nl">Onderstreept</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:element name="anchor">
+    <xs:annotation>
+      <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Anchor</xopus:name>
+          <xopus:name xml:lang="nl">Link</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="inlineType">
+          <xs:attribute name="href" type="xs:string" use="required">
+            <xs:annotation>
+              <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+                <xopus:documentation>
+                  <xopus:name xml:lang="en">Reference</xopus:name>
+                  <xopus:name xml:lang="nl">Referentie</xopus:name>
+                </xopus:documentation>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:attribute>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>

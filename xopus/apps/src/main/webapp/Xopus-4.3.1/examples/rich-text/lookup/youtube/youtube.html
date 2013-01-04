@@ -1,0 +1,189 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+  <head>
+    <title>YouTube</title>
+    <style type='text/css'>
+body
+{
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#column1
+{
+  position: absolute;
+  top:0; left:0; bottom:0; right:250px;
+  padding:5px 5px 0 5px;
+  overflow-y: scroll;
+  background: #E8ECEB;
+}
+
+#column2
+{
+  position:absolute;
+  top:0; right:0;
+  width: 250px;
+  background:white;
+}
+
+#search
+{
+  padding:0 0 0 24px;
+}
+
+label
+{
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1.7em;
+}
+
+#tags
+{
+  font-size: 16px;
+}
+
+#column1 .img
+{
+  display:inline-block;
+  float:left;
+  margin:3px 5px 3px 1px;
+  padding:3px 3px 10px 3px;
+  border:solid 1px #808080;
+  background:white;
+  cursor: pointer;
+  cursor: hand;
+  vertical-align: middle;
+}
+
+#column1 .img img
+{
+  width:210px; height:158px;
+}
+
+#column1 .img .legend
+{
+  width:220px;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  text-align:center;
+  font-style:italic;
+  font-size:80%;
+}
+
+#column1 .img:hover
+{
+  border: 1px solid #007DAD;
+}
+    </style>
+    <script type="text/javascript">
+var youtubeURI = 'http://gdata.youtube.com/feeds/api/videos?alt=json-in-script&callback=jsonYouTubeFeed&max-results=30&format=5&q=';
+
+function jsonYouTubeFeed(results)
+{
+  cleanup();
+  var entries = results.feed.entry;
+  for (var i=0; i<entries.length; i++)
+  {
+    var entry = entries[i];
+    var id = entry.id.$t.replace(/^.+\/([^\/]+)$/, "$1");
+    var title = entry.title.$t;
+    var thumbnail = entry.media$group.media$thumbnail[3].url;
+    addItem(id, title, thumbnail);
+  }
+}
+
+function cleanup()
+{
+  document.getElementById('column1').innerHTML = "";
+  document.getElementById('column1').scrollTop = 0;
+}
+
+function addItem(id, title, thumbnail)
+{
+  var div = document.createElement('div');
+  div.className = "img";
+  div.id = id;
+  var legend = document.createElement('div');
+  legend.className = "legend";
+  legend.innerHTML = title;
+  var img = document.createElement('img');
+  img.setAttribute('src', thumbnail);
+  div.onclick = chooseVideo;
+  div.appendChild(img);
+  div.appendChild(legend);
+  document.getElementById('column1').appendChild(div);
+}
+
+function search(q)
+{
+  var uri = youtubeURI + q.replace(' ', ',') + '&now=' + new Date()*1;
+  var script = document.createElement('script');
+  script.setAttribute('type', 'text/javascript');
+  script.setAttribute('src', uri);
+  document.getElementsByTagName('head')[0].appendChild(script);
+}
+
+function go()
+{
+  search(document.getElementById('tags').value);
+  return false;
+}
+
+function chooseVideo(evt)
+{
+//  var img = this.getElementsByTagName("img")[0];
+  return top.choose({src: "http://www.youtube.com/v/" + this.id});
+}
+
+window.onload = function()
+{
+  go();
+  document.getElementById('search').onsubmit = go;
+  document.getElementById('tags').select();
+};
+
+/*v0.1.0*/
+function getStyle(element, property)
+{
+  if (element.currentStyle)
+  {
+    property = property.replace(/\-(.)/g, function(m, l){return l.toUpperCase()}); // camelCase
+    var value = element.currentStyle.getAttribute(property);
+  }
+  else if (window.getComputedStyle)
+  {
+    var value = document.defaultView.getComputedStyle (element, null).getPropertyValue (property);
+  }
+
+  switch(property)
+  {
+    case 'height':
+      if (value == 'auto')
+        value = element.clientHeight + 'px';
+      break;
+    case 'width':
+      if (value == 'auto')
+        value = element.clientWidth + 'px';
+      break;
+  }
+
+  return value;
+}
+    </script>
+  </head>
+  <body>
+    <div id="column1">
+    </div>
+    <div id="column2">
+      <img src="logo.jpg" width="200"/>
+      <form id="search">
+        <p>
+          <label for="tags" onclick="cleanup()">Find a video of...</label><br />
+          <input id="tags" value="wooden shoes"/>
+          <input id="go" type="submit" value="GO" />
+        </p>
+      </form>
+    </div>
+  </body>
+</html>

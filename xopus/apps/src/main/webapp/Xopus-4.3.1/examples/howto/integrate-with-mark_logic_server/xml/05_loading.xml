@@ -1,0 +1,9 @@
+<article xml:lang="en-us">
+  <title>Loading New XML Files</title>
+  <introduction>Loading a new XML file into Xopus can be accomplished using the Editor.setURL function.</introduction>
+  <paragraph align="left">​The menu on the right uses a very simple line of code to load new XML documents into Xopus, here.</paragraph>
+  <example xml:space="preserve">top.document.getElementById('xopusFrame').contentWindow.Editor.setURL(this.href);</example>
+  <paragraph align="left">First the frame where Xopus is running is found, to find the <code>Editor</code> object. Then a url is passed to it, using <code>setURL</code>. The urls of the links in the menu look like this:</paragraph>
+  <example xml:space="preserve">​xopus-island.aspx?fileId=05_loading.xml</example>
+  <paragraph align="left">As you can see, the island is reloaded with a new parameter.</paragraph>
+</article>

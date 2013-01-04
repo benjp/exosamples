@@ -1,0 +1,220 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="article">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="title"/>
+        <xs:choice>
+          <xs:choice maxOccurs="unbounded">
+            <xs:element ref="paragraph" />
+            <xs:element ref="table"/>
+            <xs:element ref="unorderedlist"/>
+            <xs:element ref="orderedlist"/>
+          </xs:choice>
+          <xs:element ref="section"  />
+        </xs:choice>
+        <xs:element ref="section" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="footer"/>        
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="section" type="sectionType" />
+
+  <xs:complexType name="sectionType">
+    <xs:sequence>
+      <xs:element ref="title"/>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element ref="paragraph" />
+        <xs:element ref="table"/>
+        <xs:element ref="unorderedlist"/>
+        <xs:element ref="orderedlist"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="title" type="plainText" />
+
+  <xs:element name="paragraph">
+    <xs:complexType>
+      <xs:complexContent mixed="true">
+        <xs:extension base="inlineInsideType">
+          <xs:attribute name="align" type="alignType" default="left" />
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="footer" type="plainText" />
+      
+  <xs:element name="emphasis" type="inlineInsideType" />
+  <xs:element name="strong" type="inlineInsideType" />
+  <xs:element name="underline" type="inlineInsideType" />
+  <xs:element name="subscript" type="xs:string" />
+  <xs:element name="superscript" type="xs:string" />
+  
+  <xs:element name="linebreak">
+    <xs:complexType />
+  </xs:element>
+
+  <xs:element name="link">
+    <xs:complexType mixed="true">
+      <xs:complexContent>
+        <xs:extension base="inlineInsideType">
+          <xs:attribute name="href" type="xs:string" use="required" />
+          <xs:attribute name="target" default="_self">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:enumeration value="_self" />
+                <xs:enumeration value="_new" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:attribute>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="image">
+    <xs:complexType>
+      <xs:attribute name="src" type="xs:string" use="required" />
+      <xs:attribute name="width">
+        <xs:simpleType>
+          <xs:restriction base="xs:integer">
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="height">
+        <xs:simpleType>
+          <xs:restriction base="xs:integer">
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="halign" default="none">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="none" />
+            <xs:enumeration value="left" />
+            <xs:enumeration value="right" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="plainText" mixed="true">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element ref="subscript"/>
+      <xs:element ref="superscript"/>
+    </xs:choice>
+  </xs:complexType>
+
+  <xs:complexType name="inlineInsideType" mixed="true">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element ref="strong"/>
+      <xs:element ref="emphasis"/>
+      <xs:element ref="underline"/>
+      <xs:element ref="subscript"/>
+      <xs:element ref="superscript"/>
+      <xs:element ref="link"/>
+      <xs:element ref="image"/>
+      <xs:element ref="linebreak"/>
+    </xs:choice>
+  </xs:complexType>
+
+  <xs:element name="unorderedlist" type="listType" />
+  <xs:element name="orderedlist" type="listType" />
+
+  <xs:complexType name="listType">
+    <xs:sequence>
+      <xs:element name="item" type="listItemType" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="listItemType">
+    <xs:sequence>
+      <xs:element ref="paragraph" />
+      <xs:group ref="list" minOccurs="0" />
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:group name="list">
+    <xs:choice>
+      <xs:element ref="unorderedlist" />
+      <xs:element ref="orderedlist" />
+    </xs:choice>
+  </xs:group>  
+
+  <xs:element name="table" type="tableType" />
+
+  <xs:complexType name="tableType">
+    <xs:sequence>
+      <xs:element name="caption" type="xs:string" minOccurs="0" />
+      <xs:element name="tbody" type="tbodyType" />
+    </xs:sequence>
+    <xs:attribute name="width" type="xs:positiveInteger" />
+    <xs:attribute name="border" type="borderType" default="cell" />
+    <xs:attribute name="color" type="colorSchemesType" default="grey" />
+    <xs:attribute name="alternaterowcolor" type="xs:boolean" default="false" />
+    <xs:attribute name="cellspacing" type="xs:nonNegativeInteger" default="0" />
+    <xs:attribute name="cellpadding" default="1">
+      <xs:simpleType>
+        <xs:restriction base="xs:nonNegativeInteger">
+          <xs:maxInclusive value="32"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+
+  <xs:complexType name="tbodyType">
+    <xs:sequence>
+      <xs:element name="tr" type="trType" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="trType">
+    <xs:choice maxOccurs="unbounded">
+      <xs:element name="td" type="tdType" />
+      <xs:element name="th" type="tdType" />
+    </xs:choice>
+  </xs:complexType>
+
+  <xs:complexType name="tdType">
+    <xs:choice maxOccurs="unbounded">
+      <xs:element ref="paragraph" />
+      <xs:element ref="unorderedlist" />
+      <xs:element ref="orderedlist" />
+    </xs:choice>
+    <xs:attribute name="colspan" type="xs:positiveInteger" />
+    <xs:attribute name="rowspan" type="xs:positiveInteger" />
+  </xs:complexType>
+
+  <xs:simpleType name="borderType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="no" />
+      <xs:enumeration value="row" />
+      <xs:enumeration value="column" />
+      <xs:enumeration value="cell" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="colorSchemesType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="blue" />
+      <xs:enumeration value="green" />
+      <xs:enumeration value="orange" />
+      <xs:enumeration value="grey" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="alignType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="left" />
+      <xs:enumeration value="center" />
+      <xs:enumeration value="right" />
+      <xs:enumeration value="justify" />
+    </xs:restriction>
+  </xs:simpleType>
+  
+</xs:schema>

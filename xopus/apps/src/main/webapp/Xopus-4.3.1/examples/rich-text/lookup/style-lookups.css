@@ -1,0 +1,141 @@
+
+.meta, a.meta, .meta a { color: #00C; }
+html, body, a { color: #00446F; }
+
+html, body, td, th, input { font-family: "Tahoma", sans-serif; }
+
+a { text-decoration: none; }
+.meta a:hover, a.meta:hover { text-decoration: underline; }
+
+
+html, body
+{
+  background: #E9F2F5;
+  font-size: 11px;
+  margin: 0;
+  padding: 0;
+}
+
+#chooseDialog
+{
+  position: absolute;
+  height: 70px;
+  width: 100%;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+
+.searchBox, 
+#chooseBox
+{
+  margin: 0;
+  padding: 12px 8px 0;
+  border-bottom: solid 1px #BFD0Db;
+  height: 57px;
+}
+.searchBox { height: 72px; }
+
+#chooseForm { margin: 0; } 
+#chooseForm label {  width: 64px; display: inline-block; }
+#chooseBox p { margin: 4px 0 4px 68px; }
+#locationField { width: 25em; }
+
+
+#links 
+{
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 70px;
+  bottom: 0;
+  overflow: auto;
+  /* MSIE scrollbar styles */
+  scrollbar-arrow-color:      #00446F;
+  scrollbar-3dlight-color:    #E9F2F5;
+  scrollbar-track-color:      #E9F2F5;
+  scrollbar-face-color:       #B0D0E3;
+  scrollbar-highlight-color:  #B0D0E3;
+  scrollbar-darkshadow-color: #B0D0E3;
+  scrollbar-shadow-color:     #B0D0E3;
+}
+
+.picklist {
+  margin: 0;
+  padding: 0;
+  display: block;
+  list-style: none;
+}
+
+.picklist li
+{
+  list-style: none;
+  display: block;
+  margin: 0;
+  padding: 3px 8px;
+  border-bottom: solid 1px #BFD0Db;
+}
+
+.picklist a
+{
+  display: block;
+  font-weight: bold;
+}
+
+.picklist span
+{
+  display: block;
+  margin: 2px 0 0;
+  font-weight: normal;
+  color: #828486;
+}
+
+
+.pickgrid 
+{
+  position: absolute;
+  top: 85px;
+  bottom: 0; 
+  left: 0; 
+  right: 0;
+  padding: 5px;
+  overflow-y: scroll;
+}
+
+.pickgrid .img
+{
+  display:inline-block;
+  float:left;
+  margin:3px 3px 3px 0px;
+  padding: 1px 1px 10px;
+  border:solid 1px white;
+  background: white;
+  color: #000;
+  cursor: pointer;
+  cursor: hand;
+  vertical-align: middle;
+}
+.pickgrid .img:hover { border: 1px solid #BFD0DB; }
+ 
+
+.pickgrid .img img
+{
+  width: 240px;
+}
+
+.pickgrid .img .legend
+{
+  width:220px;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  text-align:center;
+}
+
+.datasourceLogo
+{
+  float: right;
+  display: block;
+  background: #FFF;
+  padding: 8px;
+}

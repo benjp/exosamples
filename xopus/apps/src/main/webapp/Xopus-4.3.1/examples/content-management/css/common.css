@@ -1,0 +1,165 @@
+html {
+  margin: 0; padding: 0;
+}
+
+body 
+{
+  font-family: arial;
+  margin:0;padding:2.5em;
+  font-size: 0.8em;
+  line-height:1.5em;
+  background-color:White;
+}
+
+body.start {
+  background: #e9f2f5 url("../img/side-bg.png") repeat-y;
+  padding:0;
+}
+
+body.navigation-body
+{
+  padding:0.5em;
+}
+.logo 
+{
+  background: url("../img/side-logo.png") 0 0px no-repeat;
+  padding:1em;padding-left: 20em;
+}
+
+.contents 
+{
+  font-family:Lucida Sans Unicode;
+  margin:2em 0 1em 0;
+}
+
+
+a
+{
+  color: #007DAD;
+  cursor: text;
+}
+
+.contents a {color:#222;}
+.contents a:hover {}
+
+h1, h2, h3, h4, h5, h6
+{
+  font-family:Georgia;
+  color: #222;
+  font-weight: normal;
+  margin: 0;
+  
+}
+
+.hidden h2, .hidden h3, .hidden h4, .hidden h5, .hidden h6
+{
+  color:#888;
+}
+
+p {margin-top:0.5em;}
+ul, ol {padding:0;margin-left:3em;}
+ul {list-style-type:square;}
+
+h1
+{
+  font-size: 200%;
+}
+
+h2
+{
+  font-size: 150%;
+}
+
+h3
+{
+  font-size: 130%;
+}
+
+table p
+{
+  margin:0;
+  
+}
+
+.tableofcontents 
+{
+  background-color:#F9F8F3;
+  border:solid 1px #F4F3EE;
+  padding:1em 1em 0 1em;
+  margin-bottom:1em;
+}
+.tableofcontents ul {color:#666666;margin:0.5em 2em 0.5em 2em;padding:0;}
+.tableofcontents ul ul {margin:0 2em 0 2em;}
+.tableofcontents a {cursor:hand;cursor:pointer;}
+.tableofcontents p {margin:0;color:#666666;}
+
+.introduction 
+{
+  color:#424242;
+  padding-bottom:1em;
+  border-bottom:solid 1px #888888;
+}
+
+.example
+{
+  border: solid 1px #666666;
+  background-color: #F4F3EE;
+  padding: 0.5em;
+  line-height:1em;
+}
+
+.section
+{
+  border-left: solid 1px #007DAD;
+  padding-left: 3px;
+}
+
+
+pre 
+{
+  margin:1em 5em;padding:0.5em;
+  font-family:Courier;
+  border:dashed 1px #666666;
+  background-color:#FEFEFE;
+  color:#666666;
+}
+.example-button {margin-left:5em;}
+
+code
+{
+  letter-spacing:1px;font-family:Courier; color:#666666;
+}
+
+.warning 
+{
+  color:Red;
+}
+
+button 
+{
+  background-color:#007DAD;
+  padding:2px;width:120px;
+  color:White;  
+  border:none;
+  cursor:hand;cursor:pointer;
+}
+.example-button
+{
+  background-color:#444;
+  padding:0px;width:140px;
+  font-family:Courier;
+  font-size:0.7em;
+  color:White;  
+  border:none;
+  cursor:hand;cursor:pointer;
+}
+
+.navigation 
+{
+  padding: 0.5em;
+  margin-bottom:2em;
+}
+body.start h1,
+.navigation h2 {color:#007DAD;font-family: "TW Cen MT", "Gill Sans MT", "Century Gothic", "Trebuchet MS", Arial, Sans-Serif;}
+.navigation a {cursor:pointer;cursor:hand;}
+.navigation a:hover {color:Black;}

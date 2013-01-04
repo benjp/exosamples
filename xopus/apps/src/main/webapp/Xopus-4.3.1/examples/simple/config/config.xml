@@ -1,0 +1,330 @@
+<x:config version="1.0" xmlns:x="http://www.xopus.com/xmlns/config">
+
+  <x:nodeConfig>
+  
+    <x:node match="title | footer | caption | td | th">
+      <x:placeholder>{name}</x:placeholder>
+    </x:node>
+  
+    <x:node match="article">
+      <x:role>document</x:role>
+      <x:name xml:lang="en">Article</x:name>
+      <x:name xml:lang="nl">Artikel</x:name>
+      <x:description xml:lang="en">Your document</x:description>
+    </x:node>
+
+    <x:node match="section">
+      <x:role>section</x:role>
+      <x:name xml:lang="en">Section</x:name>
+      <x:name xml:lang="nl">Sectie</x:name>
+      <x:description xml:lang="en">You can use a Section to split your document into different parts with each their own header</x:description>
+    </x:node>
+
+    <x:node match="title">
+      <x:name xml:lang="en">Title</x:name>
+      <x:name xml:lang="nl">Titel</x:name>
+      <x:description xml:lang="en"></x:description>      
+    </x:node>
+
+    <x:node match="paragraph">
+      <x:role>paragraph</x:role>
+      <x:name xml:lang="en">Paragraph</x:name>
+      <x:name xml:lang="nl">Alinea</x:name>
+    </x:node>
+    <x:node match="paragraph/@align">
+      <x:role>align</x:role>
+      <x:name xml:lang="en">Alignment</x:name>
+      <x:name xml:lang="nl">Uitlijning</x:name>
+      <x:enumeration value="left">
+        <x:name xml:lang="en">Align Left</x:name>
+        <x:name xml:lang="nl">Links Uitlijnen</x:name>
+      </x:enumeration>
+      <x:enumeration value="center">
+        <x:name xml:lang="en">Center</x:name>
+        <x:name xml:lang="nl">Centreren</x:name>
+      </x:enumeration>
+      <x:enumeration value="right">
+        <x:name xml:lang="en">Align Right</x:name>
+        <x:name xml:lang="nl">Rechts Uitlijnen</x:name>
+      </x:enumeration>
+      <x:enumeration value="justify">
+        <x:name xml:lang="en">Justify</x:name>
+        <x:name xml:lang="nl">Uitvullen</x:name>
+      </x:enumeration>
+    </x:node>
+
+    <x:node match="footer">
+      <x:name xml:lang="en">Footer</x:name>
+      <x:name xml:lang="nl">Staart</x:name>
+    </x:node>
+      
+    <x:node match="emphasis">
+      <x:role>emphasis</x:role>
+      <x:name xml:lang="en">Emphasis</x:name>
+      <x:name xml:lang="nl">Nadruk</x:name>
+      <x:description xml:lang="en">You can use Emphasis to emphasize a few words. This typically is shown as italic.</x:description>
+    </x:node>
+  
+    <x:node match="strong">
+      <x:role>strong</x:role>
+      <x:name xml:lang="en">Strong Emphasis</x:name>
+      <x:name xml:lang="nl">Sterke Nadruk</x:name>
+      <x:description xml:lang="en">You can use Strong Emphasis to strongly emphasize a few words. This typically is shown as bold.</x:description>
+    </x:node>
+
+    <x:node match="underline">
+      <x:role>underline</x:role>
+      <x:name xml:lang="en">Underline</x:name>
+      <x:name xml:lang="nl">Onderstreept</x:name>
+      <x:description xml:lang="en">You can use Underline to mark up a few words with a line below. If you want to indicate a link or reference, use Hyperlink instead.</x:description>
+    </x:node>
+  
+    <x:node match="subscript">
+      <x:role>subscript</x:role>
+      <x:name xml:lang="en">Subscript</x:name>
+      <x:name xml:lang="nl">Subscript</x:name>
+      <x:description xml:lang="en">Display a few characters in a smaller font and placed slightly below the normal text. As in H₂O for example.</x:description>
+    </x:node>
+  
+    <x:node match="superscript">
+      <x:role>superscript</x:role>
+      <x:name xml:lang="en">Superscript</x:name>
+      <x:name xml:lang="nl">Superscript</x:name>
+      <x:description xml:lang="en">Display a few characters in a smaller font and placed slightly above the normal text. As in x² for example.</x:description>
+    </x:node>
+  
+    <x:node match="linebreak">
+      <x:role>linebreak</x:role>
+      <x:name xml:lang="en">Line Break</x:name>
+      <x:name xml:lang="nl">Regeleinde</x:name>
+      <x:description xml:lang="en">Use a Line Break if you do not want to start a new paragraph, but do want the rest of the paragraph to start on a new line. Use with caution, in most cases it is better to start a new paragraph.</x:description>      
+    </x:node>
+
+    <x:node match="link">
+      <x:role>hyperlink</x:role>
+      <x:name xml:lang="en">Hyperlink</x:name>
+      <x:name xml:lang="nl">Hyperlink</x:name>
+      <x:description xml:lang="en">Use a Hyperlink to create a reference to another document or website.</x:description>      
+    </x:node>
+    <x:node match="link/@href">
+      <x:role>hyperlinkreference</x:role>
+      <x:lookup 
+        url="../lookup/link/index.html" 
+        forceLookup="false" 
+        autoOpen="true"/>
+      <x:name xml:lang="en">URL</x:name>
+      <x:name xml:lang="nl">URL</x:name>
+    </x:node>
+    <x:node match="link/@target">
+      <x:name xml:lang="en">Target</x:name>
+      <x:name xml:lang="nl">Doel</x:name>
+      <x:enumeration value="_self">
+        <x:name xml:lang="en">Current Window</x:name>
+        <x:name xml:lang="nl">Huidige Venster</x:name>
+      </x:enumeration>
+      <x:enumeration value="_new">
+        <x:name xml:lang="en">New Window</x:name>
+        <x:name xml:lang="nl">Nieuw Venster</x:name>
+      </x:enumeration>
+    </x:node>
+
+    <x:node match="image">
+      <x:role>image</x:role>
+      <x:role>symbol</x:role>
+      <x:name xml:lang="en">Image</x:name>
+      <x:name xml:lang="nl">Afbeelding</x:name>
+    </x:node>
+    <x:node match="image/@src">
+      <x:role>imagesource</x:role>
+      <x:lookup 
+        url="../lookup/flickr/flickr.html?width=770&amp;height=340" 
+        forceLookup="true" 
+        autoOpen="true"/>
+      <x:name xml:lang="en">Source</x:name>
+      <x:name xml:lang="nl">Bron</x:name>
+    </x:node>
+    <x:node match="image/@width">
+      <x:name xml:lang="en">Width</x:name>
+      <x:name xml:lang="nl">Breedte</x:name>
+    </x:node>
+    <x:node match="image/@height">
+      <x:name xml:lang="en">Height</x:name>
+      <x:name xml:lang="nl">Hoogte</x:name>
+    </x:node>
+    <x:node match="image/@halign">
+      <x:role>mediaalign</x:role>
+      <x:name xml:lang="en">Alignment</x:name>
+      <x:name xml:lang="nl">Uitlijning</x:name>
+      <x:enumeration value="none">
+        <x:name xml:lang="en">No Alignment</x:name>
+        <x:name xml:lang="nl">Geen Uitlijning</x:name>
+      </x:enumeration>
+      <x:enumeration value="left">
+        <x:name xml:lang="en">Align Left</x:name>
+        <x:name xml:lang="nl">Links Uitlijnen</x:name>
+      </x:enumeration>
+      <x:enumeration value="right">
+        <x:name xml:lang="en">Align Right</x:name>
+        <x:name xml:lang="nl">Rechts Uitlijnen</x:name>
+      </x:enumeration>
+    </x:node>
+
+    <x:node match="unorderedlist">
+      <x:role>list</x:role>
+      <x:role>unorderedlist</x:role>
+      <x:name xml:lang="en">Unordered List</x:name>
+      <x:name xml:lang="nl">Ongesorteerde Lijst</x:name>
+      <x:description xml:lang="en">Use an unordered list to get a bullited list of items</x:description>
+    </x:node>
+
+    <x:node match="orderedlist">
+      <x:role>list</x:role>
+      <x:role>orderedlist</x:role>
+      <x:name xml:lang="en">Ordered List</x:name>
+      <x:name xml:lang="nl">Gesorteerde Lijst</x:name>
+      <x:description xml:lang="en">Use an ordered list to get a numbered list of items</x:description>
+    </x:node>
+    
+    <x:node match="item">
+      <x:role>listitem</x:role>
+      <x:name xml:lang="en">Item</x:name>
+      <x:name xml:lang="nl">Item</x:name>
+    </x:node>
+    
+    <x:node match="table">
+      <x:role>table</x:role>
+      <x:name xml:lang="en">Table</x:name>
+      <x:name xml:lang="nl">Tabel</x:name>
+      <x:templates>
+        <x:template>
+          <tbody>
+            <tr>
+              <td><paragraph><?start?></paragraph></td>
+              <td><paragraph></paragraph></td>
+              <td><paragraph></paragraph></td>
+             </tr>
+            <tr>
+              <td><paragraph></paragraph></td>
+              <td><paragraph></paragraph></td>
+              <td><paragraph></paragraph></td>
+             </tr>
+            <tr>
+              <td><paragraph></paragraph></td>
+              <td><paragraph></paragraph></td>
+              <td><paragraph></paragraph></td>
+             </tr>
+          </tbody>
+        </x:template>
+      </x:templates>
+    </x:node>
+    <x:node match="table/@width">
+      <x:name xml:lang="en">Width</x:name>
+      <x:name xml:lang="nl">Breedte</x:name>
+    </x:node>
+    <x:node match="table/@border">
+      <x:name xml:lang="en">Borders</x:name>
+      <x:name xml:lang="nl">Randen</x:name>
+      <x:enumeration value="no">
+        <x:name xml:lang="en">No Border</x:name>
+        <x:name xml:lang="nl">Geen Randen</x:name>
+      </x:enumeration>
+      <x:enumeration value="row">
+        <x:name xml:lang="en">Borders Under Rows</x:name>
+        <x:name xml:lang="nl">Randen Onder Rijen</x:name>
+      </x:enumeration>
+      <x:enumeration value="column">
+        <x:name xml:lang="en">Borders Next To Columns</x:name>
+        <x:name xml:lang="nl">Randen Naast Kolomen</x:name>
+      </x:enumeration>
+      <x:enumeration value="cell">
+        <x:name xml:lang="en">Borders Around Each Cell</x:name>
+        <x:name xml:lang="nl">Randen Om Elke Cel</x:name>
+      </x:enumeration>
+    </x:node>
+    <x:node match="table/@color">
+      <x:role>color</x:role>
+      <x:name xml:lang="en">Color Scheme</x:name>
+      <x:name xml:lang="nl">Kleurenschema</x:name>
+      <x:enumeration value="blue">
+        <x:name xml:lang="en">Blue</x:name>
+        <x:name xml:lang="nl">Blauw</x:name>
+      </x:enumeration>
+      <x:enumeration value="green">
+        <x:name xml:lang="en">Green</x:name>
+        <x:name xml:lang="nl">Groen</x:name>
+      </x:enumeration>
+      <x:enumeration value="orange">
+        <x:name xml:lang="en">Orange</x:name>
+        <x:name xml:lang="nl">Oranje</x:name>
+      </x:enumeration>
+      <x:enumeration value="grey">
+        <x:name xml:lang="en">Grey</x:name>
+        <x:name xml:lang="nl">Grijs</x:name>
+      </x:enumeration>
+    </x:node>
+    <x:node match="table/@alternaterowcolor">
+      <x:name xml:lang="en">Alternate Row Colors</x:name>
+      <x:name xml:lang="nl">Afwisselende Rijkleuren</x:name>
+    </x:node>
+    <x:node match="table/@cellspacing">
+      <x:role>tablecellspacing</x:role>
+      <x:name xml:lang="en">Space Between Cells</x:name>
+      <x:name xml:lang="nl">Ruimte Tussen Cellen</x:name>
+    </x:node>
+    <x:node match="table/@cellpadding">
+      <x:role>tablecellpadding</x:role>
+      <x:name xml:lang="en">Space In Cells</x:name>
+      <x:name xml:lang="nl">Ruimte Binnen Cellen</x:name>
+    </x:node>
+
+    <x:node match="caption">
+      <x:role>tablecaption</x:role>
+      <x:name xml:lang="en">Caption</x:name>
+      <x:name xml:lang="nl">Tabeltitel</x:name>
+    </x:node>
+
+    <x:node match="tbody">
+      <x:role>tablerowcontainer</x:role>
+      <x:role>tablebody</x:role>
+      <x:name xml:lang="en">Table Body</x:name>
+      <x:name xml:lang="nl">Tabelromp</x:name>
+    </x:node>
+
+    <x:node match="tr">
+      <x:role>tablerow</x:role>
+      <x:role>tablecellcontainer</x:role>
+      <x:name xml:lang="en">Row</x:name>
+      <x:name xml:lang="nl">Rij</x:name>
+    </x:node>
+
+    <x:node match="td">
+      <x:role>tablecell</x:role>
+      <x:name xml:lang="en">Cell</x:name>
+      <x:name xml:lang="nl">Cel</x:name>
+    </x:node>
+    <x:node match="th">
+      <x:role>tableheadercell</x:role>
+      <x:name xml:lang="en">Header Cell</x:name>
+      <x:name xml:lang="nl">Kopcel</x:name>
+    </x:node>
+
+    <x:node match="@colspan">
+      <x:role>cellcolspan</x:role>
+	<x:role>hidden-from-ui</x:role>
+      <x:name xml:lang="en">Column Span</x:name>
+      <x:name xml:lang="nl">Kolombereik</x:name>
+    </x:node>    
+    <x:node match="@rowspan">
+      <x:role>cellrowspan</x:role>
+	<x:role>hidden-from-ui</x:role>
+      <x:name xml:lang="en">Row Span</x:name>
+      <x:name xml:lang="nl">Rijbereik</x:name>
+    </x:node>    
+
+  </x:nodeConfig>
+
+  <x:changeTracking>
+    <x:enabled>true</x:enabled>
+  </x:changeTracking>
+  
+</x:config>

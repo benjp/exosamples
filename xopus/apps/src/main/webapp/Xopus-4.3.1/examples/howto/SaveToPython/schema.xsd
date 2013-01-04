@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="article">
+    <xs:annotation>
+      <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Article</xopus:name>
+          <xopus:name xml:lang="nl">Artikel</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="title"/>
+        <xs:element ref="paragraph" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="title" type="xs:string">
+    <xs:annotation>
+      <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Title</xopus:name>
+          <xopus:name xml:lang="nl">Titel</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+  </xs:element>
+  
+  <xs:element name="paragraph" type="xs:string">
+    <xs:annotation>
+      <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Paragraph</xopus:name>
+          <xopus:name xml:lang="nl">Alinea</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+  </xs:element>
+
+</xs:schema>

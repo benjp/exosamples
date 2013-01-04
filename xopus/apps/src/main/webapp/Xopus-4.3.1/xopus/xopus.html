@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:v="urn:schemas-microsoft-com:vml">
+  <head>
+    <title>Xopus 4</title>
+    <meta name="ROBOTS" content="NOINDEX">
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+    <link rel="stylesheet" href="gui/splashscreen.css" type="text/css" />
+    <link rel="icon" href="gui/xopus/favicon.ico" type="image/vnd.microsoft.icon" />
+    <script type="text/javascript" charset="utf-8" src="requirements.js"></script>
+    <script type="text/javascript">
+    setTimeout(function () {
+      var s = document.createElement("script");
+      s.setAttribute("type", "text/javascript");
+      s.setAttribute("charset", "utf-8");
+      s.setAttribute("src", "core.js");
+      document.body.appendChild(s);
+    }, 42)
+    </script>
+  </head>
+  <body class="xopusLoading">
+    <script type="text/javascript">
+    var match = typeof location != "undefined" && /theme=(carbon|xopus)/.exec(location.search);
+
+    switch (match && match[1])
+    {
+      case "xopus":
+        this.theme = "xopus";
+        break;
+      case "carbon":
+      default:
+        this.theme = "carbon";
+        break;
+    }
+    document.body.className = document.body.className + " " + this.theme;
+    </script>
+    <div class="splashscreen" onclick="document.body.className = document.body.className.replace(/(xopusLoading|showingAboutXopus)/, '');">
+      <div class="splashscreen-mask"></div>
+      <div class="splashscreen-box">
+        <div class="splashLogo"></div>
+        <div class="splashName">Xopus 4.3.1 <span class="splashVersion">Released: March 23<sup>rd</sup>, 2012</span></div>
+        <noscript>
+          <p>Xopus is a WYSIWYG XML Editor that runs in your browser.</p>
+          <p>Starting Xopus requires you to have JavaScript enabled. See <a href="http://xopus.com">xopus.com</a> for more information.</p>
+        </noscript>
+        <div class="splashCopyright">Copyright &copy; 2012 SDL Xopus BV</div>
+        <div class="splashLegal">Use of this computer program is subject to license. Any reproduction, distribution or use of this program or any portion of it other than as authorised by its owner is strictly prohibited and may result in civil and criminal penalties.</div>
+        <div class="splashVisitXopus"><a href="media/licensing.html" target="_new">Licensing information</a><br>
+        <a href="http://xopus.com" target="_new">Visit xopus.com</a></div>
+        <div class="splashLoading"><span class="splashscreen-indicator"></span><span class="splashscreen-indicatorlabel"> Loading&hellip;</span></div>
+      </div>
+    </div>
+  </body>
+</html>

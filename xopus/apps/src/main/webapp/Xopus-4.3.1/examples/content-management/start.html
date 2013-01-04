@@ -1,0 +1,39 @@
+﻿<html>
+  <head>
+    <title>Content Management Example</title>
+    <link rel="stylesheet" type="text/css" href="css/common.css"/>
+    <style type="text/css">
+      button, body {font-family:Verdana;}
+      h1, h2, h3 {color:#007dad;font-family:Verdana;}
+      button {cursor:pointer;cursor:hand;}
+    </style>
+    <script type="text/javascript" src="js/test.js"></script>
+  </head>
+  <body class="start" onload="testDotNet();testXopus()">
+    <div class="logo">
+      <h1>Content Management Example</h1>
+      <p>This example is an overview of what to pay attention to when using Xopus in a CMS. It details the following things:</p>
+      <ul>
+        <li>Installing Xopus</li>
+        <li>Give Xopus a place in the CMS</li>
+        <li>Creating an Island</li>
+        <li>Communicating with the editor</li>
+        <li>Loading XML</li>
+        <li>Saving</li>
+        <li>Using the API</li>
+        <li>More configuration</li>
+        <li>XSL possibilities</li>
+      </ul>
+      <p>This example is <i>complex</i>. It covers a lot of different topics. Each of these topics is handled in a document in the CMS which refers to the files of the example itself.</p>
+      <p>This example was written for C# .Net. It will not work properly on servers that do no support this framework.</p>
+      <p id="nodotnet" style="display:none;color:Red;">
+        The .Net framework was not detected on your system. 
+      </p>
+      <div>
+        <center>
+          <button onclick="document.location.href = 'actions/frame.html'">Start</button>
+        </center>
+      </div>
+    </div>
+  </body>
+</html>

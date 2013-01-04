@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+  <head>
+    <title>Insert Image dialog</title>
+    <link rel="stylesheet" href="../style-lookups.css" type="text/css" />
+    <script type="text/javascript">
+var flickrURI = 'http://api.flickr.com/services/feeds/photos_public.gne?format=json&tagmode=all&tags=';
+
+function jsonFlickrFeed(results)
+{
+  cleanup();
+  for (var i=0; i<results.items.length; i++)
+  {
+    var result = results.items[i];
+    addItem(result.title, result.media.m);
+  }
+}
+
+function cleanup()
+{
+  document.getElementById('results').innerHTML = "";
+  document.getElementById('results').scrollTop = 0;
+}
+
+function addItem(title, uri)
+{
+  var div = document.createElement('div');
+  div.className = "img";
+  var legend = document.createElement('div');
+  legend.className = "legend";
+  legend.innerHTML = title;
+  var img = document.createElement('img');
+  img.setAttribute('src', uri);
+  div.onclick = choose;
+  div.appendChild(img);
+  div.appendChild(legend);
+  document.getElementById('results').appendChild(div);
+}
+
+function search(q)
+{
+  var uri = flickrURI + q.replace(' ', ',') + '&now=' + new Date()*1;
+  var script = document.createElement('script');
+  script.setAttribute('type', 'text/javascript');
+  script.setAttribute('src', uri);
+  document.getElementsByTagName('head')[0].appendChild(script);
+}
+
+function go()
+{
+  search(document.getElementById('tags').value);
+  return false;
+}
+
+function choose(img_id)
+{
+  var img;
+  if (img_id) 
+    img = document.getElementById(img_id);
+  else
+    img = this.getElementsByTagName("img")[0];
+  
+  var src = img.getAttribute('src');
+  src = src.replace(/^\.\.\/\.\.\//, '');
+
+  top.choose({
+    src: src,
+    width: parseInt(getStyle(img, 'width')),
+    height: parseInt(getStyle(img, 'height'))
+  });
+}
+
+window.onload = function()
+{
+  //go();
+  document.getElementById('search').onsubmit = go;
+  document.getElementById('tags').select();
+};
+
+/*v0.1.0*/
+function getStyle(element, property)
+{
+  if (element.currentStyle)
+  {
+    property = property.replace(/\-(.)/g, function(m, l){return l.toUpperCase()}); // camelCase
+    var value = element.currentStyle.getAttribute(property);
+  }
+  else if (window.getComputedStyle)
+  {
+    var value = document.defaultView.getComputedStyle (element, null).getPropertyValue (property);
+  }
+
+  switch(property)
+  {
+    case 'height':
+      if (value == 'auto')
+        value = element.clientHeight + 'px';
+      break;
+    case 'width':
+      if (value == 'auto')
+        value = element.clientWidth + 'px';
+      break;
+  }
+
+  return value;
+}
+    </script>
+  </head>
+  <body>
+    
+    <form id="search" class="searchBox">
+      <div>
+        <label for="tags" onclick="cleanup()">Find a photo on Flickr of...</label>
+        <img src="flickr_logo.png" class="datasourceLogo" alt="flickr. from Yahoo"/>
+      </div>
+      <div>
+        <input id="tags" value="netherlands"/>
+        <input id="go" type="submit" value="Find" />
+      </div>
+      <p class="meta">&#x203a; 
+        <a href="http://xopus.com/documentation/how-to/lookup-values.html" target="_new">
+        This dialog can be customized (how?)</a></p>
+    </form>
+
+    <div id="results" class="pickgrid">
+      <div class="img" onclick="return choose('img01')">
+        <img src="../../content/queenday-quantz.jpg" id="img01"/>
+        <div class="legend">Queen's day, April 30</div>
+        <!-- http://www.flickr.com/photos/quantz/479775073/ -->
+      </div>
+      <div class="img" onclick="return choose('img02')">
+        <img src="../../content/windmill-leiden.jpg" id="img02"/>
+        <div class="legend">Windmill in Leiden</div>
+      </div>
+      <div class="img" onclick="return choose('img03')">
+        <img src="../../content/wadlopen.jpg" id="img03"/>
+        <div class="legend">Wadlopen</div>
+      </div>
+      <div class="img" onclick="return choose('img04')">
+        <img src="../../content/kinderdijk-dermax72.jpg" id="img04"/>
+        <div class="legend">Kinderdijk mill network</div>
+        <!-- http://www.flickr.com/photos/30184910@N06/3650004887/ -->
+      </div>
+      <div class="img" onclick="return choose('img05')">
+        <img src="../../content/delta-barrier-dermax72.jpg" id="img05"/>
+        <div class="legend">Oosterschelde delta sea barrier</div>
+        <!-- http://www.flickr.com/photos/30184910@N06/3380243544/ -->
+      </div>
+      <div class="img" onclick="return choose('img06')">
+        <img src="../../content/haamstede-lighthouse-vdm.jpg" id="img06"/>
+        <div class="legend">Haamstede lighthouse</div>
+        <!-- http://www.flickr.com/photos/d_vdm/516600493/ -->
+      </div>
+    </div>
+  </body>
+</html>

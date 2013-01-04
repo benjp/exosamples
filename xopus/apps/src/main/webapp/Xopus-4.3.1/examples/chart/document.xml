@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="stylesheet.xsl" title="WYSIWYG view"?>
+<?xopus-config type="text/xml" href="config.xml"?>
+<article xml:lang="en-US" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="schema.xsd">
+  <title>Example XML Document</title>
+  <header>About Xopus</header>
+  <paragraph>Xopus is a browser based in-place wysiwyg XML editor. Xopus allows users to edit XML data in an intuitive word processor like way while keeping the document valid.</paragraph>
+  <unorderedlist>
+    <item>Item 1</item>
+    <item>Item 2</item>
+  </unorderedlist>
+  <paragraph>For an example of the combination of schema validation and an intuitive user interface  select the two items in the list above and click the ordered list button.</paragraph>
+  <header>SVG Output</header>
+  <paragraph>Unique to the Firefox version of Xopus is the ability to use SVG. The pie chart below is an example of that. The pie chart is updated with every change in the XML. Try for example to move the order of the items, or the number of visitors. MathML output is supported as well.</paragraph>
+  <paragraph>If you install Adobe SVG Viewer 6.0 and MathPlayer, then Xopus also supports SVG and MathML in Internet Explorer.</paragraph>
+  <subheader>Browser &amp; Platform statistics for xopus.com, week 4</subheader>
+  <chart>
+    <dataItem id="1" value="1648">Firefox 2.0.0.1 - Windows XP</dataItem>
+    <dataItem id="2" value="981">Internet Explorer 6.0 - Windows XP</dataItem>
+    <dataItem id="3" value="645">Internet Explorer 7.0 - Windows XP</dataItem>
+    <dataItem id="4" value="330">Firefox 1.5.0.9 - Windows XP</dataItem>
+    <dataItem id="5" value="107">Firefox 2.0.0.1 - Linux</dataItem>
+    <dataItem id="6" value="101">Firefox 2.0.0.1 - Macintosh Intel</dataItem>
+    <dataItem id="7" value="92">Safari 419.3 - Macintosh Intel</dataItem>
+    <dataItem id="8" value="90">Internet Explorer 6.0 - Windows 2000</dataItem>
+    <dataItem id="9" value="79">Safari 419.3 - Macintosh PPC</dataItem>
+    <dataItem id="10" value="64">Firefox 2.0.0.1 - Macintosh PPC</dataItem>
+    <dataItem id="11" value="707">(other)</dataItem>
+  </chart>
+  <header>Controlled Style</header>
+  <table width="50" border="cell" alternaterowcolor="true" color="grey">
+    <tbody>
+      <tr>
+        <th><paragraph>Column 1</paragraph></th>
+        <th><paragraph>Column 2</paragraph></th>
+        <th><paragraph>Column 3</paragraph></th>
+      </tr>
+      <tr>
+        <td><paragraph>Row 1, Column 1</paragraph></td>
+        <td><paragraph>Row 1, Column 2</paragraph></td>
+        <td><paragraph>Row 1, Column 3</paragraph></td>
+      </tr>
+      <tr>
+        <td><paragraph>Row 2, Column 1</paragraph></td>
+        <td><paragraph>Row 2, Column 2</paragraph></td>
+        <td><paragraph>Row 2, Column 3</paragraph></td>
+      </tr>
+      <tr>
+        <td><paragraph>Row 3, Column 1</paragraph></td>
+        <td><paragraph>Row 3, Column 2</paragraph></td>
+        <td><paragraph>Row 3, Column 3</paragraph></td>
+      </tr>
+      <tr>
+        <td><paragraph>Row 4, Column 1</paragraph></td>
+        <td><paragraph>Row 4, Column 2</paragraph></td>
+        <td><paragraph>Row 4, Column 3</paragraph></td>
+      </tr>
+    </tbody>
+  </table>
+  <paragraph>This example combines regular wysiwyg editing of a document with very controlled editing of semantic rich content. The main content can be edited like you would in a normal word processor. Though the difference is that the content remains schema valid XML because Xopus will not allow you to perform actions on the document that would render it invalid.</paragraph>
+  <paragraph>The table is an example of controlled style. The style of the table is controlled by three attributes:</paragraph>
+  <unorderedlist>
+    <item><emphasis>alternaterowcolor</emphasis>, do all rows have the same color, or should the background color alternate?</item>
+    <item><emphasis>border</emphasis>, a limited choice of border styles.</item>
+    <item><emphasis>color</emphasis>, a limited choice of colors.</item>
+  </unorderedlist>
+  <paragraph>You have quite some freedom to style the table, but you can't break the predefined style.</paragraph>
+  <footer>Xopus, the friendly XML editor</footer>
+</article>

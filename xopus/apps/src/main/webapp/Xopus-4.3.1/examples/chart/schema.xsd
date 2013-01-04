@@ -1,0 +1,571 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="article">
+    <xs:annotation>
+      <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Article</xopus:name>
+          <xopus:name xml:lang="nl">Artikel</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="title"/>
+        <xs:choice maxOccurs="unbounded">
+          <xs:element ref="header" />
+          <xs:element ref="subheader" />
+          <xs:element ref="paragraph" />
+          <xs:element ref="table"/>
+          <xs:element ref="unorderedlist"/>
+          <xs:element ref="orderedlist"/>
+          <xs:element ref="chart"/>
+        </xs:choice>
+        <xs:element ref="footer"/>        
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="title" type="plainText">
+    <xs:annotation>
+      <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Title</xopus:name>
+          <xopus:name xml:lang="nl">Titel</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+  </xs:element>
+  
+  <xs:complexType name="plainText" mixed="true">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element ref="subscript"/>
+      <xs:element ref="superscript"/>
+    </xs:choice>
+  </xs:complexType>
+  
+  <xs:element name="header" type="inlineInsideType">
+    <xs:annotation>
+      <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Header</xopus:name>
+          <xopus:name xml:lang="nl">Kop</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:element name="subheader" type="inlineInsideType">
+    <xs:annotation>
+      <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Subheader</xopus:name>
+          <xopus:name xml:lang="nl">Subkop</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:element name="paragraph" type="inlineInsideType">
+    <xs:annotation>
+      <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Paragraph</xopus:name>
+          <xopus:name xml:lang="nl">Alinea</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:element name="chart" type="chartType">
+    <xs:annotation>
+      <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Chart</xopus:name>
+          <xopus:name xml:lang="nl">Grafiek</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:element name="footer" type="plainText">
+    <xs:annotation>
+      <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Footer</xopus:name>
+          <xopus:name xml:lang="nl">Staart</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+  </xs:element>
+      
+  <xs:element name="emphasis" type="inlineInsideType">
+    <xs:annotation>
+      <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Emphasis</xopus:name>
+          <xopus:name xml:lang="nl">Nadruk</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+  </xs:element>
+  
+  <xs:element name="strong" type="inlineInsideType">
+    <xs:annotation>
+      <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Strong Emphasis</xopus:name>
+          <xopus:name xml:lang="nl">Sterke Nadruk</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+  </xs:element>
+  
+  <xs:element name="subscript" type="inlineInsideType">
+    <xs:annotation>
+      <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Subscript</xopus:name>
+          <xopus:name xml:lang="nl">Subscript</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+  </xs:element>
+  
+  <xs:element name="superscript" type="inlineInsideType">
+    <xs:annotation>
+      <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Superscript</xopus:name>
+          <xopus:name xml:lang="nl">Superscript</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+  </xs:element>
+  
+  <xs:element name="linebreak">
+    <xs:annotation>
+      <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Line Break</xopus:name>
+          <xopus:name xml:lang="nl">Regel Einde</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexType />
+  </xs:element>
+
+  <xs:element name="link">
+    <xs:annotation>
+      <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Hyperlink</xopus:name>
+          <xopus:name xml:lang="nl">Hyperlink</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexType mixed="true">
+      <xs:complexContent>
+        <xs:extension base="inlineInsideType">
+          <xs:attribute name="href" use="required">
+            <xs:annotation>
+              <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+                <xopus:documentation>
+                  <xopus:name xml:lang="en">URL</xopus:name>
+                  <xopus:name xml:lang="nl">URL</xopus:name>
+                </xopus:documentation>
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:attribute>
+          <xs:attribute name="target" use="optional">
+            <xs:annotation>
+              <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+                <xopus:documentation>
+                  <xopus:name xml:lang="en">Target</xopus:name>
+                  <xopus:name xml:lang="nl">Doel</xopus:name>
+                </xopus:documentation>
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:enumeration value="_top">
+                  <xs:annotation>
+                    <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+                      <xopus:documentation>
+                        <xopus:name xml:lang="en">Current Window</xopus:name>
+                        <xopus:name xml:lang="nl">Huidige Venster</xopus:name>
+                      </xopus:documentation>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="_new">
+                  <xs:annotation>
+                    <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+                      <xopus:documentation>
+                        <xopus:name xml:lang="en">New Window</xopus:name>
+                        <xopus:name xml:lang="nl">Nieuw Venster</xopus:name>
+                      </xopus:documentation>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:attribute>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="inlineInsideType" mixed="true">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element ref="strong"/>
+      <xs:element ref="emphasis"/>
+      <xs:element ref="subscript"/>
+      <xs:element ref="superscript"/>
+      <xs:element ref="link"/>
+      <xs:element ref="linebreak"/>
+    </xs:choice>
+  </xs:complexType>
+
+  <xs:element name="unorderedlist" type="listType">
+    <xs:annotation>
+      <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Unordered List</xopus:name>
+          <xopus:name xml:lang="nl">Ongesorteerde Lijst</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:element name="orderedlist" type="listType">
+    <xs:annotation>
+      <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Ordered List</xopus:name>
+          <xopus:name xml:lang="nl">Gesorteerde Lijst</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:complexType name="listType">
+    <xs:sequence>
+      <xs:element name="item" type="inlineInsideType" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+            <xopus:documentation>
+              <xopus:name xml:lang="en">Item</xopus:name>
+              <xopus:name xml:lang="nl">Item</xopus:name>
+            </xopus:documentation>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="table" type="tableType">
+    <xs:annotation>
+      <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+        <xopus:documentation>
+          <xopus:name xml:lang="en">Table</xopus:name>
+          <xopus:name xml:lang="nl">Tabel</xopus:name>
+        </xopus:documentation>
+      </xs:appinfo>
+    </xs:annotation>  
+  </xs:element>
+
+  <xs:complexType name="tableType">
+    <xs:sequence>
+      <xs:element name="caption" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+            <xopus:documentation>
+              <xopus:name xml:lang="en">Caption</xopus:name>
+              <xopus:name xml:lang="nl">Tabel Titel</xopus:name>
+            </xopus:documentation>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="tbody" type="tbodyType">
+        <xs:annotation>
+          <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+            <xopus:documentation>
+              <xopus:name xml:lang="en">Table Body</xopus:name>
+              <xopus:name xml:lang="nl">Tabel Romp</xopus:name>
+            </xopus:documentation>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="width" type="xs:positiveInteger" use="optional">
+      <xs:annotation>
+        <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+          <xopus:documentation>
+            <xopus:name xml:lang="en">Width</xopus:name>
+            <xopus:name xml:lang="nl">Breedte</xopus:name>
+          </xopus:documentation>
+        </xs:appinfo>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="border" type="borderType" use="optional" default="cell">
+      <xs:annotation>
+        <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+          <xopus:documentation>
+            <xopus:name xml:lang="en">Borders</xopus:name>
+            <xopus:name xml:lang="nl">Randen</xopus:name>
+          </xopus:documentation>
+        </xs:appinfo>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="color" type="colorSchemesType" use="optional">
+      <xs:annotation>
+        <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+          <xopus:documentation>
+            <xopus:name xml:lang="en">Color Scheme</xopus:name>
+            <xopus:name xml:lang="nl">Kleurenschema</xopus:name>
+          </xopus:documentation>
+        </xs:appinfo>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="alternaterowcolor" type="xs:boolean" use="required">
+      <xs:annotation>
+        <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+          <xopus:documentation>
+            <xopus:name xml:lang="en">Alternate Row Colors</xopus:name>
+            <xopus:name xml:lang="nl">Afwisselende Rijkleuren</xopus:name>
+          </xopus:documentation>
+        </xs:appinfo>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="cellspacing" type="xs:nonNegativeInteger" default="0" use="optional">
+      <xs:annotation>
+        <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+          <xopus:documentation>
+            <xopus:name xml:lang="en">Space Between Cells</xopus:name>
+            <xopus:name xml:lang="nl">Ruimte Tussen Cellen</xopus:name>
+          </xopus:documentation>
+        </xs:appinfo>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="cellpadding" use="optional">
+      <xs:annotation>
+        <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+          <xopus:documentation>
+            <xopus:name xml:lang="en">Space In Cells</xopus:name>
+            <xopus:name xml:lang="nl">Ruimte Binnen Cellen</xopus:name>
+          </xopus:documentation>
+        </xs:appinfo>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:nonNegativeInteger">
+          <xs:maxInclusive value="32"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+
+  <xs:complexType name="tbodyType" mixed="false">
+    <xs:sequence>
+      <xs:element name="tr" type="trType" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+            <xopus:documentation>
+              <xopus:name xml:lang="en">Row</xopus:name>
+              <xopus:name xml:lang="nl">Rij</xopus:name>
+            </xopus:documentation>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="trType" mixed="false">
+    <xs:choice maxOccurs="unbounded">
+      <xs:element name="td" type="tdType">
+        <xs:annotation>
+          <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+            <xopus:documentation>
+              <xopus:name xml:lang="en">Cell</xopus:name>
+              <xopus:name xml:lang="nl">Cel</xopus:name>
+            </xopus:documentation>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="th" type="tdType">
+        <xs:annotation>
+          <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+            <xopus:documentation>
+              <xopus:name xml:lang="en">Header Cell</xopus:name>
+              <xopus:name xml:lang="nl">Kop Cel</xopus:name>
+            </xopus:documentation>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:choice>
+  </xs:complexType>
+
+  <xs:complexType name="tdType" mixed="false">
+    <xs:sequence>
+      <xs:element ref="paragraph" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="colspan" type="xs:positiveInteger" use="optional">
+      <xs:annotation>
+        <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+          <xopus:documentation>
+            <xopus:name xml:lang="en">Column Span</xopus:name>
+            <xopus:name xml:lang="nl">Kolom Bereik</xopus:name>
+          </xopus:documentation>
+        </xs:appinfo>
+      </xs:annotation>
+    </xs:attribute>    
+    <xs:attribute name="rowspan" type="xs:positiveInteger" use="optional">
+      <xs:annotation>
+        <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+          <xopus:documentation>
+            <xopus:name xml:lang="en">Row Span</xopus:name>
+            <xopus:name xml:lang="nl">Rij Bereik</xopus:name>
+          </xopus:documentation>
+        </xs:appinfo>
+      </xs:annotation>
+    </xs:attribute>    
+  </xs:complexType>
+
+  <xs:simpleType name="borderType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="no">
+        <xs:annotation>
+          <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+            <xopus:documentation>
+              <xopus:name xml:lang="en">No Border</xopus:name>
+              <xopus:name xml:lang="nl">Geen Randen</xopus:name>
+            </xopus:documentation>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>      
+      <xs:enumeration value="row">
+        <xs:annotation>
+          <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+            <xopus:documentation>
+              <xopus:name xml:lang="en">Borders Under Rows</xopus:name>
+              <xopus:name xml:lang="nl">Randen Onder Rijen</xopus:name>
+            </xopus:documentation>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>      
+      <xs:enumeration value="column">
+        <xs:annotation>
+          <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+            <xopus:documentation>
+              <xopus:name xml:lang="en">Borders Next To Columns</xopus:name>
+              <xopus:name xml:lang="nl">Randen Naast Kolomen</xopus:name>
+            </xopus:documentation>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>      
+      <xs:enumeration value="cell">
+        <xs:annotation>
+          <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+            <xopus:documentation>
+              <xopus:name xml:lang="en">Borders Around Each Cell</xopus:name>
+              <xopus:name xml:lang="nl">Randen Om Elke Cel</xopus:name>
+            </xopus:documentation>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>      
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="colorSchemesType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="blue">
+        <xs:annotation>
+          <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+            <xopus:documentation>
+              <xopus:name xml:lang="en">Blue</xopus:name>
+              <xopus:name xml:lang="nl">Blauw</xopus:name>
+            </xopus:documentation>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>      
+      <xs:enumeration value="green">
+        <xs:annotation>
+          <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+            <xopus:documentation>
+              <xopus:name xml:lang="en">Green</xopus:name>
+              <xopus:name xml:lang="nl">Groen</xopus:name>
+            </xopus:documentation>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>      
+      <xs:enumeration value="orange">
+        <xs:annotation>
+          <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+            <xopus:documentation>
+              <xopus:name xml:lang="en">Orange</xopus:name>
+              <xopus:name xml:lang="nl">Oranje</xopus:name>
+            </xopus:documentation>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>      
+      <xs:enumeration value="grey">
+        <xs:annotation>
+          <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+            <xopus:documentation>
+              <xopus:name xml:lang="en">Grey</xopus:name>
+              <xopus:name xml:lang="nl">Grijs</xopus:name>
+            </xopus:documentation>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>      
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:complexType name="chartType">
+    <xs:sequence>
+      <xs:element name="dataItem" minOccurs="2" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+            <xopus:documentation>
+              <xopus:name xml:lang="en">Data Item</xopus:name>
+              <xopus:name xml:lang="nl">Data Item</xopus:name>
+            </xopus:documentation>
+          </xs:appinfo>
+        </xs:annotation>
+        <xs:complexType mixed="true">
+          <xs:attribute name="value" use="required">
+            <xs:annotation>
+              <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+                <xopus:documentation>
+                  <xopus:name xml:lang="en">Value</xopus:name>
+                  <xopus:name xml:lang="nl">Waarde</xopus:name>
+                </xopus:documentation>
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:decimal">
+                <xs:minInclusive value='0'/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:attribute>  
+          <xs:attribute name="id" use="required" type="xs:positiveInteger">
+            <xs:annotation>
+              <xs:appinfo xmlns:xopus="http://www.xopus.com/xmlns/xsd">
+                <xopus:documentation>
+                  <xopus:name xml:lang="en">Id</xopus:name>
+                  <xopus:name xml:lang="nl">Id</xopus:name>
+                </xopus:documentation>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:attribute>  
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
+</xs:schema>

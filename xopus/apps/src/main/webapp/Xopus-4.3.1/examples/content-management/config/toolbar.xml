@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<x:config xmlns:x="http://www.xopus.com/xmlns/config" version="1.0">
+
+  <x:overlay xmlns="http://xopus.com/2009/lui">
+    <toolbar-button iconsrc="delete.gif" label="Delete Document"  command="deleteCommand" after="SaveButton"/>
+    <toolbar-button iconsrc="warning.gif" label="Insert Warning" role="warning" after="underlineRoleButton" id="warningRoleButton" />
+    <toolbar-button iconsrc="code.gif" label="Insert Code" role="code" after="warningRoleButton" />
+  </x:overlay>
+
+</x:config>
+

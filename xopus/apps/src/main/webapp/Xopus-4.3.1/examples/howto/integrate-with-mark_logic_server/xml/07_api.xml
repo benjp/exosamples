@@ -1,0 +1,32 @@
+<article xml:lang="en-us" modification_date="2009-06-26">
+  <title>Using the API</title>
+  <introduction>The Xopus API can be used to do almost anything. It requires some skills with Javascript, but it makes it possible to create extra functionality, or to assist user actions.</introduction>
+  <paragraph>When adding an example in this document, an <anchor href="http://xopus.com/documentation/developer-guide/reference/xopus-api.html">API</anchor> function is called to set an extra attribute that helps in rendering the example.</paragraph>
+  <paragraph>To add this functionality, a few things are needed. First we need a beginning. We need to listen to when Xopus has finished loading.</paragraph>
+  <example xml:space="preserve">Editor.addEventListener("load",doLoad);</example>
+  <paragraph>Now we need a <code>doLoad</code> function to deal with the event.</paragraph>
+  <example xml:space="preserve">function doLoad(evt)
+{
+  var doc = evt.document;
+  doc.addEventListener("XopusAfterChildInserted", afterChildInserted);
+}</example>
+  <paragraph>A new <code>eventListener</code> is then added to the document. This listens to childNodes being inserted.</paragraph>
+  <example xml:space="preserve">function afterChildInserted(evt)
+{
+  var node = evt.childNode;
+  
+  if(node.getNodeName() == "example") 
+    node.setAttributeNS("http://www.w3.org/XML/1998/namespace","xml:space","preserve");
+}</example>
+  <paragraph>The <code>xml:space</code> attribute stops the above code example from collapsing whitespace.</paragraph>
+  <paragraph>The <code>evt</code> argument contains openings to access data about the event. These events are <anchor href="http://xopus.com/documentation/developer-guide/reference/xopus-api/events.html">documented</anchor> on the Xopus website.</paragraph>
+  <paragraph align="left">The API can be used to do many things:</paragraph>
+  <ordered-list>
+    <item>Create extra buttons in the XSL for adding, removing or moving elements</item>
+    <item>Setting a value for required attributes after element creation in order to prevent property panels from opening</item>
+    <item>Setting unique ID's</item>
+    <item>Changing properties of the Editor environment</item>
+  </ordered-list>
+  <paragraph>It can also be used to open the property panel:</paragraph>
+  <example xml:space="preserve" show-execute-button="true">node.openAttributesEditor();</example>
+</article>
