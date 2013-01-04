@@ -56,7 +56,7 @@
   <head>
       <title>__MSG_title__</title>
       <link type="text/css" rel="stylesheet" href="skin/authorit.css" />
-      <script language="javascript" type="text/javascript" src="http://benjp.cloud-ide.com/rest/jcr/benjp/dev-monit/utils/utils.js"></script>
+      <script language="javascript" type="text/javascript" src="script/utils.js"></script>
       <script language="javascript" type="text/javascript" src="script/authorit.js"></script>
     </head>
     <body>

@@ -1,5 +1,5 @@
-function eXoAuthorItGadget(){      
-} ;
+function eXoAuthorItGadget(){
+}
 
 
 eXoAuthorItGadget.prototype.onLoadHander = function() {
@@ -13,25 +13,24 @@ eXoAuthorItGadget.prototype.getAuthoring = function() {
   var portalRest = 'rest';
   var userId = '__anonim';
   try {
-    var portalContext = window.parent.eXo.env.portal.context;
-    var portalRest = window.parent.eXo.env.portal.rest;
-    var userId = window.parent.eXo.env.portal.userName;
+    portalContext = window.parent.eXo.env.portal.context;
+    portalRest = window.parent.eXo.env.portal.rest;
+    userId = window.parent.eXo.env.portal.userName;
   } catch (err) {
   }
   
   
-  
   var prefs = new gadgets.Prefs();
   var workspacePref = prefs.getString("workspace");
-  if (workspacePref=='') workspacePref='collaboration';
+  if (workspacePref==='') workspacePref='collaboration';
   var fromstatePref = prefs.getString("fromstate");
   var tostatePref = prefs.getString("tostate");
   var bydatePref = prefs.getString("bydate");
   var restService = 'bystate';
   var addon1 = '';
-  if (tostatePref != '') {
+  if (tostatePref !== '') {
     restService = 'tostate';
-    var addon1 = '&tostate='+tostatePref;
+    addon1 = '&tostate='+tostatePref;
   }
   
   url = 'http://' + loc.host + portalContext + '/' + portalRest + '/authoring/'+restService;
@@ -76,7 +75,7 @@ eXoAuthorItGadget.prototype.render = function(obj) {
   if (dynamicTitle=="yes") setMainTitle(titlePref, elements.length);
   
   var workspacePref = prefs.getString("workspace");
-  if (workspacePref=="") workspacePref = "collaboration";
+  if (workspacePref==="") workspacePref = "collaboration";
   
   var targetUrl = window.parent.location.href;
   targetUrl = targetUrl.substring(0, targetUrl.lastIndexOf(window.parent.eXo.env.portal.context) ) + window.parent.eXo.env.portal.context + '/g/:platform:web-contributors/editor';
@@ -92,9 +91,9 @@ eXoAuthorItGadget.prototype.render = function(obj) {
     if (elements.length>0) {
       var classColor = 'Green';
       if (elements.length>1 && elements.length<=3) {
-        var classColor = 'Orange';
+        classColor = 'Orange';
       } else if (elements.length>3) {
-        var classColor = 'Red';
+        classColor = 'Red';
       }
       
       html += '    <div class="Total '+classColor+'">'+elements.length+'</div>';
@@ -110,7 +109,7 @@ eXoAuthorItGadget.prototype.render = function(obj) {
   targetUrl += '&path='+workspacePref;
   for (var i = 0; i < elements.length && i<10 ; i++) {
     elementName = elements[i].title;
-    if (elementName==undefined) elementName = elements[i].name;
+    if (elementName===undefined) elementName = elements[i].name;
     //alert("TEST1::"+elements[0].title);
     if (elementName.length>35) elementName = elementName.substring(0,35)+'...';
     elementPath = elements[i].path;
@@ -124,7 +123,7 @@ eXoAuthorItGadget.prototype.render = function(obj) {
   
   
   // Set the background color according to the mycolor userpref
-  var element = document.getElementById('authorit_gadget_div');  
+  var element = document.getElementById('authorit_gadget_div');
   
   element.innerHTML = html;
   

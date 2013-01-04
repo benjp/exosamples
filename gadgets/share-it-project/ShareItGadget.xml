@@ -2,7 +2,7 @@
 <!--
  **
  * Created by The eXo Platform SARL
- * http://benjp.cloud-ide.com/rest/jcr/benjp/dev-monit/share-it-project/ShareItGadget.xml
+ * http://localhost:8888/exosamples/gadgets/share-it-project/ShareItGadget.xml
 -->
 <Module>
   <ModulePrefs 

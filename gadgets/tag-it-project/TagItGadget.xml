@@ -2,7 +2,7 @@
 <!--
  **
  * Created by The eXo Platform SARL
- * http://benjp.cloud-ide.com/rest/jcr/benjp/dev-monit/tag-it-project/TagItGadget.xml
+ * http://localhost:8888/exosamples/gadgets/tag-it-project/TagItGadget.xml
 -->
 <Module>
   <ModulePrefs 
