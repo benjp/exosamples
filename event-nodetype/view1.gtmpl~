@@ -20,7 +20,8 @@
 </style>
 <div id="$uicomponent.id" $resizeBlock>
 	<%
-	 def node = uicomponent.getNode() ;		
+	 def node = uicomponent.getNode() ;
+	 def nodeId = node.getUUID();
 	 def relations = uicomponent.getRelations() ;
 	 def attachments = uicomponent.getAttachments() ;
 	 if(node.hasProperty("exo:title")) {
@@ -231,5 +232,8 @@
       <div class="FieldLabel"><%=_ctx.appRes("Article.msg.no-view")%> </div>
     </div>
   <%}%>
+	<div style="float: right;padding-bottom: 15px;">
+		<a href="/rest/private/pdf/export/event/${nodeId}" style="color: #000000;"><img src="/eXoDMSResources/skin/DefaultSkin/skinIcons/16x16/icons/NodeTypes/pdf.gif" /> Get as PDF</a>
+	</div>
 </div>
 
