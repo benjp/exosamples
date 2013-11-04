@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="event-report" language="groovy" pageWidth="612" pageHeight="792" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+  <property name="ireport.zoom" value="1.0"/>
+  <property name="ireport.x" value="0"/>
+  <property name="ireport.y" value="21"/>
+  <parameter name="title" class="java.lang.String"/>
+  <parameter name="location" class="java.lang.String"/>
+  <parameter name="startDate" class="java.lang.String"/>
+  <parameter name="endDate" class="java.lang.String"/>
+  <parameter name="summary" class="java.lang.String"/>
+  <parameter name="content" class="java.lang.String"/>
+  <parameter name="url" class="java.lang.String"/>
+  <background>
+    <band splitType="Stretch"/>
+  </background>
+  <title>
+    <band height="69" splitType="Stretch">
+      <textField>
+        <reportElement x="0" y="0" width="188" height="39"/>
+        <textElement>
+          <font size="26"/>
+        </textElement>
+        <textFieldExpression class="java.lang.String"><![CDATA[$P{title}]]></textFieldExpression>
+      </textField>
+      <textField>
+        <reportElement x="53" y="39" width="418" height="15"/>
+        <textElement/>
+        <textFieldExpression class="java.lang.String"><![CDATA[$P{location}]]></textFieldExpression>
+      </textField>
+      <textField>
+        <reportElement x="513" y="28" width="59" height="20" backcolor="#FFFFFF"/>
+        <textElement/>
+        <textFieldExpression class="java.lang.String"><![CDATA[$P{endDate}]]></textFieldExpression>
+      </textField>
+      <textField>
+        <reportElement x="513" y="8" width="59" height="20" backcolor="#FFFFFF"/>
+        <textElement/>
+        <textFieldExpression class="java.lang.String"><![CDATA[$P{startDate}]]></textFieldExpression>
+      </textField>
+      <staticText>
+        <reportElement x="0" y="39" width="53" height="15"/>
+        <textElement>
+          <font isUnderline="false"/>
+        </textElement>
+        <text><![CDATA[Location :]]></text>
+      </staticText>
+      <line>
+        <reportElement x="0" y="59" width="572" height="1"/>
+      </line>
+      <staticText>
+        <reportElement x="476" y="8" width="31" height="20"/>
+        <textElement textAlignment="Right"/>
+        <text><![CDATA[From]]></text>
+      </staticText>
+      <staticText>
+        <reportElement x="476" y="28" width="31" height="20"/>
+        <textElement textAlignment="Right"/>
+        <text><![CDATA[To]]></text>
+      </staticText>
+    </band>
+  </title>
+  <pageHeader>
+    <band splitType="Stretch"/>
+  </pageHeader>
+  <columnHeader>
+    <band splitType="Stretch"/>
+  </columnHeader>
+  <detail>
+    <band height="518" splitType="Stretch">
+      <image>
+        <reportElement positionType="Float" x="0" y="33" width="572" height="300"/>
+        <imageExpression class="java.lang.String"><![CDATA["http://maps.google.com/maps/api/staticmap?center="+$P{location}.replaceAll("\\s", "%20")+"&markers=color:blue|"+$P{location}.replaceAll("\\s", "%20")+"&zoom=14&size=572x300&sensor=false"]]></imageExpression>
+      </image>
+      <textField isStretchWithOverflow="true">
+        <reportElement x="0" y="0" width="572" height="21"/>
+        <textElement markup="html">
+          <font isItalic="true" isPdfEmbedded="true"/>
+        </textElement>
+        <textFieldExpression class="java.lang.String"><![CDATA[$P{summary}]]></textFieldExpression>
+      </textField>
+      <textField isStretchWithOverflow="true">
+        <reportElement positionType="Float" x="0" y="347" width="572" height="84"/>
+        <textElement markup="html"/>
+        <textFieldExpression class="java.lang.String"><![CDATA[$P{content}]]></textFieldExpression>
+      </textField>
+    </band>
+  </detail>
+  <columnFooter>
+    <band splitType="Stretch"/>
+  </columnFooter>
+  <pageFooter>
+    <band splitType="Stretch"/>
+  </pageFooter>
+  <summary>
+    <band splitType="Stretch"/>
+  </summary>
+</jasperReport>
