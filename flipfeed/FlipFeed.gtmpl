@@ -81,6 +81,7 @@ http://localhost:8080/portal/g/:platform:web-contributors/siteExplorer?path=/DMS
   .FlipFeed .Content .Title {
     font-size: 20px;
     font-weight: bold;
+    color: black;
   }
 
   .FlipFeed .Content .SharedBy {
@@ -217,7 +218,7 @@ http://localhost:8080/portal/g/:platform:web-contributors/siteExplorer?path=/DMS
             summaryLength = 240;
           } else if (cols== 3) {
             titleLength = 21;
-            summaryLength = 430;
+            summaryLength = 320;
             if (type==1) {
               w = 295;
               h = 120;

@@ -1,0 +1,97 @@
+// simple groovy script
+
+import javax.ws.rs.Path
+import javax.ws.rs.GET
+import javax.ws.rs.PathParam
+import javax.ws.rs.Produces
+import javax.ws.rs.core.Context
+import javax.ws.rs.core.Response
+import javax.ws.rs.core.UriInfo
+
+import java.net.*
+import java.io.*
+
+import javax.jcr.ItemNotFoundException
+import javax.jcr.Node
+import javax.jcr.Property
+import javax.jcr.PathNotFoundException
+import javax.jcr.RepositoryException
+import javax.jcr.Session
+import javax.jcr.Value
+import javax.jcr.ValueFormatException
+
+import net.sf.jasperreports.engine.JRException
+import net.sf.jasperreports.engine.JasperCompileManager
+import net.sf.jasperreports.engine.JasperExportManager
+import net.sf.jasperreports.engine.JasperFillManager
+import net.sf.jasperreports.engine.JasperPrint
+import net.sf.jasperreports.engine.JasperReport
+import net.sf.jasperreports.engine.design.JasperDesign
+import net.sf.jasperreports.engine.xml.JRXmlLoader
+import net.sf.jasperreports.engine.JREmptyDataSource
+
+import org.exoplatform.container.ExoContainerContext
+import org.exoplatform.services.security.ConversationState
+import org.exoplatform.services.jcr.ext.common.SessionProvider
+import org.exoplatform.services.jcr.RepositoryService
+import org.exoplatform.services.jcr.core.ManageableRepository
+
+@Path("/pdf")
+public class PDFService {
+  @GET
+  @Path("export/event/{nodeId}")
+  @Produces("application/pdf")
+  public Response getPdf(@PathParam("nodeId") String nodeId, @Context UriInfo uriInfo) {
+   
+    try  {    
+      // Load and compile the report template (compile should have been done before, not at runtime)
+      String baseUri = uriInfo.getBaseUri().toString();
+      if(baseUri.endsWith("/private")) {
+        baseUri = baseUri.substring(0, baseUri.indexOf("/private"));  
+      }
+      URL urlReport = new URL(baseUri + "/jcr/repository/dev-monit/jasper/event-report.xml");
+      InputStream input = urlReport.openStream();
+      JasperDesign jasperDesign = JRXmlLoader.load(input);
+     
+      JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
+     
+      jasperReport.setWhenNoDataType(jasperReport.WHEN_NO_DATA_TYPE_ALL_SECTIONS_NO_DETAIL);
+     
+      // Retrieve node
+      RepositoryService repositoryService = (RepositoryService) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(RepositoryService.class);
+      ManageableRepository manageableRepository = repositoryService.getRepository("repository");
+      SessionProvider sessionProvider = new SessionProvider(ConversationState.getCurrent());
+      def session = sessionProvider.getSession("collaboration", manageableRepository);
+      def node = session.getNodeByUUID(nodeId);
+      def name = node.getProperty("exo:name").getString();
+      def title = node.getProperty("exo:title").getString();
+      def location = node.getProperty("exo:location").getString();
+      def url = node.getProperty("exo:url").getString();
+      def startDate = node.getProperty("exo:startEvent").getDate().getTime();
+      def endDate = node.getProperty("exo:endEvent").getDate().getTime();
+      def summary = node.getProperty("exo:summary").getString();
+      def content = node.getProperty("exo:text").getString();
+     
+      // Data sent to the report engine
+      Map parameters = new HashMap();
+      parameters.put("title", title);
+      parameters.put("location", location);
+      parameters.put("url", url);
+      parameters.put("startDate", startDate.format('dd/MM/yyyy'));
+      parameters.put("endDate", endDate.format('dd/MM/yyyy'));
+      parameters.put("summary", summary);
+      parameters.put("content", content);
+     
+      // Feed the report engine
+      JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, new JREmptyDataSource());
+     
+      // Get the PDF version
+      byte[] pdfContent = JasperExportManager.exportReportToPdf(jasperPrint);
+     
+      return Response.ok().entity(pdfContent).header("Content-Disposition","attachment; filename="+name+".pdf").build();
+     
+    } catch(Exception e) {
+      e.printStackTrace();
+    }
+  }
+}
