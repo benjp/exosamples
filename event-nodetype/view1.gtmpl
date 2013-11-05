@@ -42,7 +42,7 @@
         <p class="yr"><%=year%></p> 
         </div>
       </div>
-      <div class="ArrowDate" height="30px"><span></span></div>
+      <div class="ArrowDate" height="30px"><i class ="uiIconArrowRight"></i></div>
       <%}%>     
 
       <%if(node.hasProperty("exo:startEvent")) {
@@ -233,7 +233,8 @@
     </div>
   <%}%>
 	<div style="float: right;padding-bottom: 15px;">
-		<a href="/rest/private/pdf/export/event/${nodeId}" style="color: #2F5E92;"><img src="/eXoDMSResources/skin/DefaultSkin/skinIcons/16x16/icons/NodeTypes/pdf.gif" /> Get as PDF</a>
+		<a href="/rest/private/pdf/export/event/${nodeId}" style="color: #2F5E92;"><i class="uiIconExportPdf"></i> Get as PDF</a>
 	</div>
 </div>
+
 
